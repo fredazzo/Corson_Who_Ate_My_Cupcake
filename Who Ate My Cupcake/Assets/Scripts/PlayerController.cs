@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (shots[i].activeSelf == false)
                 {
-                    // shots[i].SetActive(true);
+
                     Instantiate(shots[i], shotSpawn.position, shotSpawn.rotation);
                     GetComponent<AudioSource>().Play();
                 }
