@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (shots[i].activeSelf == false)
                 {
-                    shots[i].SetActive(true);
+                    // shots[i].SetActive(true);
                     Instantiate(shots[i], shotSpawn.position, shotSpawn.rotation);
                     GetComponent<AudioSource>().Play();
                 }
