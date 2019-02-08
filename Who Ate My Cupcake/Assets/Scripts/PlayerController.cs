@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public int health;
 
-    public GameObject shot;
     public Transform shotSpawn;
+    public GameObject[] shots;
 
     public float fireRate;
     private float nextFire = 0.0f;
@@ -28,9 +28,11 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         Debug.Log(health);
-
+        for (int i = 0; i < shots.Length; i++)
+        {
+            shots[i].SetActive(false);
+        }
     }
-
 
     void Update()
     {
@@ -38,10 +40,16 @@ public class PlayerController : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
 
-            GameObject shotFired = Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-            shotFired.gameObject.SetActive(true);
+            for (int i = 0; i < shots.Length; i++)
+            {
+                if (shots[i].activeSelf == false)
+                {
+                    shots[i].SetActive(true);
+                    Instantiate(shots[i], shotSpawn.position, shotSpawn.rotation);
+                    GetComponent<AudioSource>().Play();
+                }
 
-            GetComponent<AudioSource>().Play();
+            }
         }
 
         if (health == 0)
