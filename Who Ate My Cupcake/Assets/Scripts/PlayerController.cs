@@ -2,15 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public struct Boundaries
-{
-    public float xMin, xMax, yMin, yMax;
-}
 
 public class PlayerController : MonoBehaviour
 {
-    public Boundaries boundaries;
     public float speed;
     public int health;
 
@@ -71,10 +65,6 @@ public class PlayerController : MonoBehaviour
         rb.velocity = movement * speed;
 
         rb.freezeRotation = true;
-
-        rb.position = new Vector2
-            (Mathf.Clamp(rb.position.x, boundaries.xMin, boundaries.xMax),
-            Mathf.Clamp(rb.position.y, boundaries.yMin, boundaries.yMax));
     }
 
     // Checks collision between player and enemies
