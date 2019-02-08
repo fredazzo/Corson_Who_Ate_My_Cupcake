@@ -2,20 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public struct Boundaries
-{
-    public float xMin, xMax, yMin, yMax;
-}
 
 public class PlayerController : MonoBehaviour
 {
-    public Boundaries boundaries;
     public float speed;
     public int health;
 
-    public GameObject shot;
     public Transform shotSpawn;
+    public GameObject[] shots;
 
     public float fireRate;
     private float nextFire = 0.0f;
@@ -28,9 +22,11 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         Debug.Log(health);
-
+        for (int i = 0; i < shots.Length; i++)
+        {
+            shots[i].SetActive(false);
+        }
     }
-
 
     void Update()
     {
@@ -38,10 +34,16 @@ public class PlayerController : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
 
-            GameObject shotFired = Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-            shotFired.gameObject.SetActive(true);
+            for (int i = 0; i < shots.Length; i++)
+            {
+                if (shots[i].activeSelf == false)
+                {
+                    shots[i].SetActive(true);
+                    Instantiate(shots[i], shotSpawn.position, shotSpawn.rotation);
+                    GetComponent<AudioSource>().Play();
+                }
 
-            GetComponent<AudioSource>().Play();
+            }
         }
 
         if (health == 0)
@@ -61,10 +63,6 @@ public class PlayerController : MonoBehaviour
         rb.velocity = movement * speed;
 
         rb.freezeRotation = true;
-
-        rb.position = new Vector2
-            (Mathf.Clamp(rb.position.x, boundaries.xMin, boundaries.xMax),
-            Mathf.Clamp(rb.position.y, boundaries.yMin, boundaries.yMax));
     }
 
     // Checks collision between player and enemies
