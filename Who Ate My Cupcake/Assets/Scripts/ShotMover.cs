@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+public class ShotMover : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D rb;
@@ -14,6 +14,5 @@ public class Mover : MonoBehaviour
         rb.velocity =  movement * speed;
 
     }
-
-
+ 
 }
