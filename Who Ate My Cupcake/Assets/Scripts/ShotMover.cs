@@ -20,11 +20,16 @@ public class ShotMover : MonoBehaviour
 
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bound")
+        if(collision.gameObject.tag == "Bound")
         {
             gameObject.SetActive(false);
+        }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
         }
     }
 }
