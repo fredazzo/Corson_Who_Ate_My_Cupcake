@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6057529357366827667}
   - component: {fileID: 8393669465663048611}
   - component: {fileID: 2266637544476060329}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shot
   m_TagString: Shot
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e391a7965cf304c44a195e242e693581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: -10
 --- !u!70 &8393669465663048611
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

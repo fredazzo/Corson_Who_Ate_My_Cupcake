@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
     // Checks collision between player and enemies
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Shot")
         {
             health--;
             Debug.Log(health);
