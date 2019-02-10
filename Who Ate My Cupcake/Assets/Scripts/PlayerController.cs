@@ -52,13 +52,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //for (int i = 0; i < shots.Length; i++)
-        //{
-        //    if(shots[i].activeInHierarchy == true && shots[i].transform.position.x > 10)
-        //    {
-        //        shots[i].SetActive(false);
-        //    }
-        //}
 
         if (health == 0)
         {
@@ -86,10 +79,11 @@ public class PlayerController : MonoBehaviour
         {
             health--;
             Debug.Log(health);
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
 
     }
+
 }
 
 
