@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         Debug.Log(health);
+
         for (int i = 0; i < shots.Length; i++)
         {
             GameObject obj = (GameObject)Instantiate(shot);
@@ -45,7 +46,6 @@ public class PlayerController : MonoBehaviour
                     shots[i].transform.rotation = shotSpawn.transform.rotation;
                     shots[i].SetActive(true);
                     GetComponent<AudioSource>().Play();
-
                     break;
                 }
 
