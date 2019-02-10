@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3809711125698195110}
   - component: {fileID: 3809711125698195109}
   m_Layer: 0
-  m_Name: bound (1)
+  m_Name: bound
   m_TagString: Bound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 3809711126345972329}
   - component: {fileID: 3809711126345972328}
   m_Layer: 0
-  m_Name: bound (2)
+  m_Name: bound
   m_TagString: Bound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
