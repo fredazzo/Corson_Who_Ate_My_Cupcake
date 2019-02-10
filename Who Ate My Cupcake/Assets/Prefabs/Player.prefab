@@ -117,25 +117,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4151cf5206d1bbd43b5a5fd970567fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundaries:
-    xMin: -10
-    xMax: 10
-    yMin: -10
-    yMax: 10
   speed: 5
   health: 5
   shotSpawn: {fileID: 4038151588008088242}
+  shot: {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
   shots:
-  - {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
-  - {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
-  - {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
-  - {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
-  - {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
-  - {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
-  - {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
-  - {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
-  - {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
-  - {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fireRate: 0.2
 --- !u!70 &4038151586747094612
 CapsuleCollider2D:
