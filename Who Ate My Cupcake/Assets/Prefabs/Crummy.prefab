@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1703499833898151755}
   - component: {fileID: 1703499833898151732}
   - component: {fileID: 1703499833898151759}
-  - component: {fileID: 1703499833898151752}
+  - component: {fileID: 7027469451255001220}
   m_Layer: 8
   m_Name: Crummy
   m_TagString: Enemy
@@ -149,7 +149,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1703499833898151752
+--- !u!114 &7027469451255001220
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,6 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52a987828b80474cae693469a6a1efe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 1
+  healthPoints: 2
   speedX: -1
   speedY: -2
