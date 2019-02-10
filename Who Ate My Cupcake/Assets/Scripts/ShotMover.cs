@@ -9,10 +9,15 @@ public class ShotMover : MonoBehaviour
     void Start()
     {
 
-        Vector2 movement = new Vector2(1.0f, 0.0f);
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity =  movement * speed;
 
     }
- 
+    private void Update()
+    {
+        Vector2 movement = new Vector2(1.0f, 0.0f);
+
+        rb.velocity = movement * speed;
+
+    }
+
 }

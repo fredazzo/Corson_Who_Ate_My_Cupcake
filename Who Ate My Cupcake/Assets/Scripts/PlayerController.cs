@@ -7,8 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public int health;
-
+    
     public Transform shotSpawn;
+    public GameObject shot;
     public GameObject[] shots;
 
     public float fireRate;
@@ -16,33 +17,46 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private List<GameObject> totalShots;
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Debug.Log(health);
         for (int i = 0; i < shots.Length; i++)
         {
+            GameObject obj = (GameObject)Instantiate(shot);
+            shots[i] = obj;
             shots[i].SetActive(false);
         }
     }
 
     void Update()
     {
+
+
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
 
             for (int i = 0; i < shots.Length; i++)
             {
-                if (shots[i].activeSelf == false)
+                if (shots[i].activeInHierarchy == false)
                 {
-
-                    Instantiate(shots[i], shotSpawn.position, shotSpawn.rotation);
+                    shots[i].transform.position = shotSpawn.transform.position;
+                    shots[i].transform.rotation = shotSpawn.transform.rotation;
+                    shots[i].SetActive(true);
                     GetComponent<AudioSource>().Play();
+
+                    break;
                 }
 
+            }
+        }
+
+        for (int i = 0; i < shots.Length; i++)
+        {
+            if(shots[i].activeInHierarchy == true && shots[i].transform.position.x > 10)
+            {
+                shots[i].SetActive(false);
             }
         }
 
