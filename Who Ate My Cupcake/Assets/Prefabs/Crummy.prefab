@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1703499833898151732}
   - component: {fileID: 1703499833898151759}
   - component: {fileID: 7027469451255001220}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Crummy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
