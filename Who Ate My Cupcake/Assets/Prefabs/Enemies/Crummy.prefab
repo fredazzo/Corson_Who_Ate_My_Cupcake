@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1703499833898151732}
   - component: {fileID: 1703499833898151759}
   - component: {fileID: 7027469451255001220}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: Crummy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1703499833898151733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.35, y: -0.37, z: 0}
-  m_LocalScale: {x: 0.16804498, y: 0.16804498, z: 0.16804498}
+  m_LocalScale: {x: 0.29676744, y: 0.29676744, z: 0.29676744}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

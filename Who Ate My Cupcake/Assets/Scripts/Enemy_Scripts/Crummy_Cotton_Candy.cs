@@ -29,7 +29,6 @@ public class Crummy_Cotton_Candy : Enemy
         {
             //speedY = -speedY;
             anim.SetBool("isGrounded", true);
-            Debug.Log(anim.GetBool("isGrounded"));
             speedX = 0;
             speedY = 0;
         }        
