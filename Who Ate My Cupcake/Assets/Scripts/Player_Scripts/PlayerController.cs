@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Transform shotSpawn;
     public GameObject shot;
     public GameObject[] shots;
+    public Animator anim;
 
     public float fireRate;
     private float nextFire = 0.0f;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         Debug.Log(health);
 
         for (int i = 0; i < shots.Length; i++)
@@ -46,6 +48,8 @@ public class PlayerController : MonoBehaviour
                     shots[i].transform.rotation = shotSpawn.transform.rotation;
                     shots[i].SetActive(true);
                     GetComponent<AudioSource>().Play();
+                    anim.SetTrigger("hasShot");
+
                     break;
                 }
 
