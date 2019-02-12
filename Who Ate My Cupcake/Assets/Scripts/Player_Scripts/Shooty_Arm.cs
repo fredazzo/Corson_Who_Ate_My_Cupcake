@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Shooty_Arm : MonoBehaviour
 {
-    public int healthPoints;
-    public float speedX;
-    public float speedY;
+    Animator anim;
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-      
+        if (Input.GetButtonDown("Fire1"))
+            anim.SetTrigger("hasShot");
     }
 }

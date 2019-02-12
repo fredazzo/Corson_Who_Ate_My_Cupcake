@@ -10,7 +10,7 @@ public class Foul_Fudge : Enemy
         body = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         body.velocity = new Vector2(speedX, speedY);
     }

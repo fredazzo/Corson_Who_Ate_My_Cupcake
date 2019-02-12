@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+       // anim = GetComponent<Animator>();
         Debug.Log(health);
 
         for (int i = 0; i < shots.Length; i++)
@@ -50,12 +50,10 @@ public class PlayerController : MonoBehaviour
                     shots[i].GetComponent<ShotMover>().damage = damage;
                     shots[i].SetActive(true);
                     GetComponent<AudioSource>().Play();
-                    anim.SetTrigger("hasShot");
-
                     break;
                 }
-
             }
+            anim.SetTrigger("hasShot");
         }
 
 

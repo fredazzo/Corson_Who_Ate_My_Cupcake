@@ -14,7 +14,7 @@ public class Crummy_Cotton_Candy : Enemy
             speedY = -speedY;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         body.velocity = new Vector2(speedX, speedY);
         if(anim.GetBool("jumped"))

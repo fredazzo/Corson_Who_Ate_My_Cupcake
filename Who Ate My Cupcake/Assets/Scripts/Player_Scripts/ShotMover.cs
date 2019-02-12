@@ -13,7 +13,7 @@ public class ShotMover : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
     }
-    private void Update()
+    private void FixedUpdate()
     {
         Vector2 movement = new Vector2(1.0f, 0.0f);
 
