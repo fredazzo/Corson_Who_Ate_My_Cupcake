@@ -47,7 +47,6 @@ public class GameController : MonoBehaviour
             spawnPoint = new Vector2(spawnX, Random.Range(groundSpawnMin, groundSpawnMax));
             Instantiate(enemies[enemySelection], spawnPoint, Quaternion.identity);
         }
-        Debug.Log(enemySelection);
         currentTime = 0;
     }
 }

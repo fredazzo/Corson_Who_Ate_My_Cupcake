@@ -10,6 +10,8 @@ public class Crummy_Cotton_Candy : Enemy
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        if (Random.Range(0, 2) == 1)
+            speedY = -speedY;
     }
 
     void Update()

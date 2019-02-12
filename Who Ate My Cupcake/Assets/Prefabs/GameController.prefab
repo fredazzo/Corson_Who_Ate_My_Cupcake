@@ -52,6 +52,6 @@ MonoBehaviour:
   spawnX: 10
   crummySpawnMax: 6
   crummySpawnMin: -3
-  groundSpawnMax: -3.5
+  groundSpawnMax: -1.5
   groundSpawnMin: -6
   spawnWait: 1.5
