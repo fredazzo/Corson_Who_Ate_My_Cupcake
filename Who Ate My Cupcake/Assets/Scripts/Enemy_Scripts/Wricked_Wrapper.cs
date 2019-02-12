@@ -10,7 +10,7 @@ public class Wricked_Wrapper : Enemy
         body = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         body.velocity = new Vector2(speedX, speedY);
     }
