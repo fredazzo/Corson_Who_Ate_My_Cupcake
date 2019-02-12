@@ -49,11 +49,11 @@ public class PlayerController : MonoBehaviour
                     shots[i].transform.rotation = shotSpawn.transform.rotation;
                     shots[i].GetComponent<ShotMover>().damage = damage;
                     shots[i].SetActive(true);
+                    anim.SetTrigger("hasShot");
                     GetComponent<AudioSource>().Play();
                     break;
                 }
             }
-            anim.SetTrigger("hasShot");
         }
 
 
