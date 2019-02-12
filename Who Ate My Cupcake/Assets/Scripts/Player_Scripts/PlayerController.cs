@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public int health;
     public int damage;
+
+    public float speedUp;
+    public float speedUpDuration;
+    public float strengthDuration;
     
     public Transform shotSpawn;
     public GameObject shot;
@@ -35,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(damage==3)
+            StartCoroutine(strengthReset());
 
 
         if (Input.GetButton("Fire1") && Time.time > nextFire)
@@ -55,7 +61,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-
 
         if (health == 0)
         {
@@ -85,7 +90,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log(health);
             other.gameObject.SetActive(false);
         }
+    }
 
+    IEnumerator strengthReset()
+    {
+        yield return new WaitForSeconds(strengthDuration);
+        damage = 1;
     }
 
 }
