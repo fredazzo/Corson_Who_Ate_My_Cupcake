@@ -29,7 +29,8 @@ public class ShotMover : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             gameObject.SetActive(false);
-            collision.gameObject.SetActive(false);
+            //collision.gameObject.SetActive(false);
+            Destroy(collision.gameObject);        
         }
     }
 }

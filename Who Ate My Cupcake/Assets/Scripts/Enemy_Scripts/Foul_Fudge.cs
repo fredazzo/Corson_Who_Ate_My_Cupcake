@@ -10,7 +10,6 @@ public class Foul_Fudge : Enemy
         body = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         body.velocity = new Vector2(speedX, speedY);

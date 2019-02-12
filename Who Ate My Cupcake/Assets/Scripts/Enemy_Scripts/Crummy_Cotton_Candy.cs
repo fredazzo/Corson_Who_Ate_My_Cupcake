@@ -10,6 +10,8 @@ public class Crummy_Cotton_Candy : Enemy
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        if (Random.Range(0, 2) == 1)
+            speedY = -speedY;
     }
 
     void Update()
@@ -29,7 +31,6 @@ public class Crummy_Cotton_Candy : Enemy
         {
             //speedY = -speedY;
             anim.SetBool("isGrounded", true);
-            Debug.Log(anim.GetBool("isGrounded"));
             speedX = 0;
             speedY = 0;
         }        
