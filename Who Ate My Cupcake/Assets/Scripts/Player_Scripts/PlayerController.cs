@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public int health;
+    public int damage;
     
     public Transform shotSpawn;
     public GameObject shot;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
                 {
                     shots[i].transform.position = shotSpawn.transform.position;
                     shots[i].transform.rotation = shotSpawn.transform.rotation;
+                    shots[i].GetComponent<ShotMover>().damage = damage;
                     shots[i].SetActive(true);
                     GetComponent<AudioSource>().Play();
                     anim.SetTrigger("hasShot");

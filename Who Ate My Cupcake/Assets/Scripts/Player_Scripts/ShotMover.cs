@@ -6,6 +6,7 @@ public class ShotMover : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D rb;
+    public int damage;
     void Start()
     {
 
@@ -30,7 +31,10 @@ public class ShotMover : MonoBehaviour
         {
             gameObject.SetActive(false);
             //collision.gameObject.SetActive(false);
-            Destroy(collision.gameObject);        
+            //Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Enemy>().healthPoints -= damage;
+            if(collision.gameObject.GetComponent<Enemy>().healthPoints <= 0)
+                Destroy(collision.gameObject);
         }
     }
 }

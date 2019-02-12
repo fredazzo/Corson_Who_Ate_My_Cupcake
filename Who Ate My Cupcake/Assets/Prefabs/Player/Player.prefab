@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   health: 5
+  damage: 1
   shotSpawn: {fileID: 4038151588008088242}
   shot: {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
   shots:

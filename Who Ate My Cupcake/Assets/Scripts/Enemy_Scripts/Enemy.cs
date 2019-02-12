@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (healthPoints <= 0)
+            Destroy(this.gameObject);
     }
 }
