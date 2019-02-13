@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShotMover : MonoBehaviour
 {
@@ -35,6 +36,10 @@ public class ShotMover : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().healthPoints -= damage;
             if(collision.gameObject.GetComponent<Enemy>().healthPoints <= 0)
                 Destroy(collision.gameObject);
+        }
+        if(collision.gameObject.tag == "Play_Button")
+        {
+            SceneManager.LoadScene("Peace_Scene");
         }
     }
 }
