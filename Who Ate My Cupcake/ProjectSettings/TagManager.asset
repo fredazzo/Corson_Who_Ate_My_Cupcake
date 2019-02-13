@@ -16,12 +16,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Spawn
   - Enemy
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -43,4 +43,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: backgorund
+    uniqueID: 2639227773
+    locked: 0
+  - name: enemies
+    uniqueID: 958678367
+    locked: 0
+  - name: player
+    uniqueID: 2837531019
     locked: 0
