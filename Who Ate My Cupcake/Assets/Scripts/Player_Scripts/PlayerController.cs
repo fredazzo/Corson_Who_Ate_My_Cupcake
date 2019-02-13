@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    public float alteredSpeed;
     public int health;
     public int damage;
 
@@ -16,10 +17,10 @@ public class PlayerController : MonoBehaviour
     public Transform shotSpawn;
     public GameObject shot;
     public GameObject[] shots;
-    public GameObject gameController;
     public Animator anim;
 
     public float fireRate;
+    public float alteredFireRate;
     private float nextFire = 0.0f;
 
     private Rigidbody2D rb;
@@ -29,7 +30,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
        // anim = GetComponent<Animator>();
         Debug.Log(health);
-
+        alteredSpeed = speed / 2;
+        alteredFireRate = fireRate * 2;
         for (int i = 0; i < shots.Length; i++)
         {
             GameObject obj = (GameObject)Instantiate(shot);
@@ -62,6 +64,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+
 
         if (health == 0)
         {
@@ -98,6 +102,8 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(strengthDuration);
         damage = 1;
     }
+
+
 
 }
 

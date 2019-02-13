@@ -133,6 +133,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  gameController: {fileID: 2535875192142378747, guid: e31123fd0346cd749b02927748af0ebe,
+    type: 3}
   anim: {fileID: 5043213688180906780}
   fireRate: 0.3
 --- !u!70 &4038151586747094612
