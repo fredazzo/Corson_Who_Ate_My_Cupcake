@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Transform shotSpawn;
     public GameObject shot;
     public GameObject[] shots;
+    public GameObject gameController;
     public Animator anim;
 
     public float fireRate;

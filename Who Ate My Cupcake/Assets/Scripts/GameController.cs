@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour
 
     public float spawnWait;
     private float currentTime = 0f;
+
+    private int barPercentage;
     //public float startWait;
 
     //public float spawnValueX;
@@ -26,6 +28,11 @@ public class GameController : MonoBehaviour
     //public float minSpawnY;
 
     //private bool IsPLayerAlive;
+
+    private void Start()
+    {
+        barPercentage = 100;
+    }
 
     private void Update()
     {
@@ -50,6 +57,8 @@ public class GameController : MonoBehaviour
         currentTime = 0;
     }
 }
+
+
 
 //    private void Start()
 //    {
