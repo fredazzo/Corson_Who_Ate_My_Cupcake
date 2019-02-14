@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4038151586747094613, guid: c679005b20d146f4a8156e2ba0144749, type: 3}
-  rateOfDeteriation: 5
-  decreasePercentage: 0.2
+  rateOfDeteriation: 1
+  decreasePercentage: 0.02
   barPercentage: 1
   firstThreshold: 0.8
 --- !u!1 &6313506997534206474
