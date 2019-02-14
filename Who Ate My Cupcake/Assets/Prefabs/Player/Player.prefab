@@ -136,6 +136,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   anim: {fileID: 5043213688180906780}
   fireRate: 0.2
   firstAlteredFireRate: 0.3

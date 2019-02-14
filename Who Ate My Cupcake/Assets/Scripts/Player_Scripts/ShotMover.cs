@@ -8,6 +8,9 @@ public class ShotMover : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     public int damage;
+
+    public GameObject gameController;
+
     void Start()
     {
 
@@ -31,6 +34,7 @@ public class ShotMover : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             gameObject.SetActive(false);
+            gameController.gameObject.GetComponent<GameController>().totalScore += collision.gameObject.GetComponent<Enemy>().scoreValue;
             //collision.gameObject.SetActive(false);
             //Destroy(collision.gameObject);
             collision.gameObject.GetComponent<Enemy>().healthPoints -= damage;
