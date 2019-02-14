@@ -7,10 +7,10 @@ public class Enemy : MonoBehaviour
     public int healthPoints;
     public float speedX;
     public float speedY;
-    public int scoreValue = 100;
+    public int scoreValue;
     void Start()
     {
-        
+        scoreValue = 100;
     }
 
     // Update is called once per frame

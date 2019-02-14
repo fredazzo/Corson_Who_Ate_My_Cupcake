@@ -34,12 +34,15 @@ public class ShotMover : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             gameObject.SetActive(false);
-            gameController.gameObject.GetComponent<GameController>().totalScore += collision.gameObject.GetComponent<Enemy>().scoreValue;
             //collision.gameObject.SetActive(false);
             //Destroy(collision.gameObject);
             collision.gameObject.GetComponent<Enemy>().healthPoints -= damage;
-            if(collision.gameObject.GetComponent<Enemy>().healthPoints <= 0)
+            if (collision.gameObject.GetComponent<Enemy>().healthPoints <= 0)
+            {
+                Debug.Log(gameController.gameObject.GetComponent<GameController>().totalScore);
+                gameController.gameObject.GetComponent<GameController>().totalScore += collision.gameObject.GetComponent<Enemy>().scoreValue;
                 Destroy(collision.gameObject);
+            }
         }
         if(collision.gameObject.tag == "Play_Button")
         {

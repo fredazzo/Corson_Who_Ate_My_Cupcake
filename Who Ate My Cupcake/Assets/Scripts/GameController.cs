@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameObject[] enemies;
     public int totalScore;
-    string scoreString;
 
     public Text scoreText;
 
@@ -41,8 +40,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        //barPercentage = 100;
-
+        totalScore = 3;
     }
 
     private void Update()
@@ -51,9 +49,9 @@ public class GameController : MonoBehaviour
         if(currentTime > spawnWait)
             spawnEnemy();
 
-        scoreString = totalScore.ToString();
-        scoreText.text = scoreString;
-        Debug.Log(totalScore);
+        scoreText.text = totalScore.ToString();
+
+      // Debug.Log(totalScore);
         //lastTime += Time.deltaTime;
         //if (lastTime > rateOfDeteriation)
         //{
