@@ -10,6 +10,12 @@ public class Bar : MonoBehaviour
 
     public float rateOfDeteriation;
     public float decreasePercentage;
+    AudioSource Source;
+    public AudioClip firstClip;
+    public AudioClip secondClip;
+    public AudioClip thirdClip;
+    bool isSecondPlaying;
+    bool isThirdPlaying;
 
     private float lastTime = 0f;
     public float maxTime;
@@ -26,6 +32,11 @@ public class Bar : MonoBehaviour
         timeLeft = maxTime;
         barPercentage = 1f;
         bar = GetComponent<Image>();
+        Source = GetComponent<AudioSource>();
+        Source.clip = firstClip;
+        Source.Play();
+        isSecondPlaying = false;
+        isThirdPlaying = false;
     }
 
     // Update is called once per frame
@@ -47,12 +58,25 @@ public class Bar : MonoBehaviour
         {
             player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().firstAlteredSpeed;
             player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().firstAlteredFireRate;
-
+            if (!isSecondPlaying)
+            {
+                Source.Stop();
+                Source.clip = secondClip;
+                Source.Play();
+                isSecondPlaying = true;
+            }
         }
         if (barPercentage <= secondThreshold)
         {
             player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().secondAlteredSpeed;
             player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().secondAlteredFireRate;
+            if (!isThirdPlaying)
+            {
+                Source.Stop();
+                Source.clip = thirdClip;
+                Source.Play();
+                isThirdPlaying = true;
+            }
         }
         if (barPercentage <= thirdThreshold)
         {
