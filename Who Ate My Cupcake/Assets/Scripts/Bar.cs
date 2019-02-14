@@ -42,6 +42,7 @@ public class Bar : MonoBehaviour
             lastTime = 0f;
         }
 
+
         if (barPercentage <= firstThreshold)
         {
             player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().firstAlteredSpeed;
