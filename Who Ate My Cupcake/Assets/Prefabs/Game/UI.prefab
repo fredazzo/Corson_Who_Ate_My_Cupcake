@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58ef1f97b908d642a37e3c14d9fa5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 4038151586747094613, guid: c679005b20d146f4a8156e2ba0144749, type: 3}
   rateOfDeteriation: 5
   decreasePercentage: 0.2
   barPercentage: 1
