@@ -118,7 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4151cf5206d1bbd43b5a5fd970567fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
+  firstAlteredSpeed: 8
+  secondAlteredSpeed: 6
+  thirdAlteredSpeed: 3
   health: 5
   damage: 1
   speedUp: 0
@@ -133,10 +136,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  gameController: {fileID: 2535875192142378747, guid: e31123fd0346cd749b02927748af0ebe,
-    type: 3}
   anim: {fileID: 5043213688180906780}
-  fireRate: 0.3
+  fireRate: 0.2
+  firstAlteredFireRate: 0.3
+  secondAlteredFireRate: 0.4
+  thirdAlteredFireRate: 0.5
 --- !u!70 &4038151586747094612
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -10,11 +10,15 @@ public class Bar : MonoBehaviour
 
     public float rateOfDeteriation;
     public float decreasePercentage;
+
     private float lastTime = 0f;
-    public float barPercentage;
-    public float firstThreshold;
     public float maxTime;
     private float timeLeft;
+
+    public float barPercentage;
+    public float firstThreshold;
+    public float secondThreshold;
+    public float thirdThreshold;
 
     // Start is called before the first frame update
     void Start()
@@ -40,9 +44,19 @@ public class Bar : MonoBehaviour
 
         if (barPercentage <= firstThreshold)
         {
-            player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().alteredSpeed;
-            player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().alteredFireRate;
+            player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().firstAlteredSpeed;
+            player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().firstAlteredFireRate;
 
+        }
+        if (barPercentage <= secondThreshold)
+        {
+            player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().secondAlteredSpeed;
+            player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().secondAlteredFireRate;
+        }
+        if (barPercentage <= thirdThreshold)
+        {
+            player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().thirdAlteredSpeed;
+            player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().thirdAlteredFireRate;
         }
     }
     void CalculateTime()
