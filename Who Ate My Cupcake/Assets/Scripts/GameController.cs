@@ -20,7 +20,12 @@ public class GameController : MonoBehaviour
     public float spawnWait;
     private float currentTime = 0f;
 
-    private int barPercentage;
+    //public float rateOfDeteriation;
+    //public int decreasePercentage;
+    //private float lastTime = 0f;   
+    //public int barPercentage;
+    //public int firstThreshold;
+
     //public float startWait;
 
     //public float spawnValueX;
@@ -31,7 +36,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        barPercentage = 100;
+        //barPercentage = 100;
     }
 
     private void Update()
@@ -39,6 +44,20 @@ public class GameController : MonoBehaviour
         currentTime += Time.deltaTime;
         if(currentTime > spawnWait)
             spawnEnemy();
+
+        //lastTime += Time.deltaTime;
+        //if (lastTime > rateOfDeteriation)
+        //{
+        //    barPercentage -= decreasePercentage;
+        //    lastTime = 0f;
+        //}
+        //Debug.Log(barPercentage);
+
+        //if(barPercentage <= firstThreshold)
+        //{
+        //    player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().alteredSpeed;
+        //    player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().alteredFireRate;
+        //}
     }
 
     void spawnEnemy()
