@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public GameObject player;
     public GameObject[] enemies;
+    public int totalScore;
+    string scoreString;
+
+    public Text scoreText;
 
     public float spawnX;
 
@@ -37,6 +42,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         //barPercentage = 100;
+
     }
 
     private void Update()
@@ -45,6 +51,9 @@ public class GameController : MonoBehaviour
         if(currentTime > spawnWait)
             spawnEnemy();
 
+        scoreString = totalScore.ToString();
+        scoreText.text = scoreString;
+        Debug.Log(totalScore);
         //lastTime += Time.deltaTime;
         //if (lastTime > rateOfDeteriation)
         //{
