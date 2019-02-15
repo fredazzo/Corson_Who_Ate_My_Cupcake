@@ -6,10 +6,14 @@ public class Crummy_Cotton_Candy : Enemy
 {
     Rigidbody2D body;
     Animator anim;
+    public GameObject background;
+    public float setSpeedX;
+    public float lastSpeedY;
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        speedX = setSpeedX;
         if (Random.Range(0, 2) == 1)
             speedY = -speedY;
     }
@@ -19,8 +23,8 @@ public class Crummy_Cotton_Candy : Enemy
         body.velocity = new Vector2(speedX, speedY);
         if(anim.GetBool("jumped"))
         {
-            speedY = 2;
-            speedX = -1;
+            speedY = -lastSpeedY;
+            speedX = setSpeedX;
             anim.SetBool("jumped", false);
         }
 
@@ -29,9 +33,9 @@ public class Crummy_Cotton_Candy : Enemy
     {
         if (other.gameObject.name == "ground")
         {
-            //speedY = -speedY;
+            lastSpeedY = speedY;
             anim.SetBool("isGrounded", true);
-            speedX = 0;
+            speedX = - background.GetComponent<background_movement>().speed;
             speedY = 0;
         }        
         else if(other.gameObject.name == "bound")
