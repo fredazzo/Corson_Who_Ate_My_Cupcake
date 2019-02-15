@@ -118,14 +118,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4151cf5206d1bbd43b5a5fd970567fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  setSpeed: 10
+  speed: 0
   firstAlteredSpeed: 8
   secondAlteredSpeed: 6
   thirdAlteredSpeed: 3
+  lastSpeed: 0
+  addedDamage: 5
   health: 5
+  setDamage: 1
   damage: 1
-  speedUp: 0
-  speedUpDuration: 0
+  addedSpeed: 10
+  speedUpDuration: 5
   strengthDuration: 3
   shotSpawn: {fileID: 4038151588008088242}
   shot: {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}

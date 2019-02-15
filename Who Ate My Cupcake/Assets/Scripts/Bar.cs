@@ -56,10 +56,10 @@ public class Bar : MonoBehaviour
 
         if (barPercentage <= firstThreshold)
         {
-            player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().firstAlteredSpeed;
-            player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().firstAlteredFireRate;
             if (!isSecondPlaying)
             {
+                player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().firstAlteredSpeed;
+                player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().firstAlteredFireRate;
                 Source.Stop();
                 Source.clip = secondClip;
                 Source.Play();
@@ -68,10 +68,10 @@ public class Bar : MonoBehaviour
         }
         if (barPercentage <= secondThreshold)
         {
-            player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().secondAlteredSpeed;
-            player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().secondAlteredFireRate;
             if (!isThirdPlaying)
             {
+                player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().secondAlteredSpeed;
+                player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().secondAlteredFireRate;
                 Source.Stop();
                 Source.clip = thirdClip;
                 Source.Play();
