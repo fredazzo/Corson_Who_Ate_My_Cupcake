@@ -9,6 +9,8 @@ TagManager:
   - Bound
   - Play_Button
   - Quit_Button
+  - Coke
+  - Muffin
   layers:
   - Default
   - TransparentFX
