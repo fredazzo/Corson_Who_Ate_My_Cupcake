@@ -162,5 +162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 1
-  speedX: -1
-  speedY: -2
+  speedX: -3
+  speedY: -5
+  scoreValue: 0
+  background: {fileID: 0}
+  setSpeedX: -3
+  lastSpeedY: 0
