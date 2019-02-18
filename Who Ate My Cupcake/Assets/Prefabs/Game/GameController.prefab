@@ -49,11 +49,19 @@ MonoBehaviour:
   - {fileID: 1703499833898151733, guid: 7cc7bd94b74917b4b8db580c25b2d7b8, type: 3}
   - {fileID: 9036783551040226564, guid: 3817362daab0d954a8cb813b16d0d0d3, type: 3}
   - {fileID: 3398867980522920777, guid: 4d90b220eb274fb4d8fa1ed96afbad26, type: 3}
-  totalScore: 0
+  powerUps:
+  - {fileID: 5837868313361365845, guid: d6e98d9c730f6ad4183755736027e8d3, type: 3}
+  - {fileID: 8183310011229817844, guid: b401e59d9ccdeea4f857ce8b1ea12d44, type: 3}
+  sa: 0
   scoreText: {fileID: 0}
   spawnX: 15
+  powerUpSpawnXMax: 10
+  powerUpSpawnXMin: -3
+  powerUpSpawnYMax: 7
+  powerUpSpawnYMin: -3
   crummySpawnMax: 7
   crummySpawnMin: -3
   groundSpawnMax: -1.5
   groundSpawnMin: -5.8
-  spawnWait: 1
+  spawnWait: 17.67
+  powerUpSpawnWait: 3

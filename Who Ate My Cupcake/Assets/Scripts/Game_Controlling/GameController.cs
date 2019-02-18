@@ -7,14 +7,20 @@ public class GameController : MonoBehaviour
 {
     public GameObject player;
     public GameObject[] enemies;
-    public int totalScore;
+    public GameObject[] powerUps;
+    public int sa;
 
     public Text scoreText;
 
     public float spawnX;
+    public float powerUpSpawnXMax;
+    public float powerUpSpawnXMin;
+    public float powerUpSpawnYMax;
+    public float powerUpSpawnYMin;
 
     public float crummySpawnMax;
     public float crummySpawnMin;
+
 
     public float groundSpawnMax;
     public float groundSpawnMin;
@@ -23,6 +29,9 @@ public class GameController : MonoBehaviour
 
     public float spawnWait;
     private float currentTime = 0f;
+
+    public float powerUpSpawnWait;
+    private float powerUpTime = 0f;
 
     //public float rateOfDeteriation;
     //public int decreasePercentage;
@@ -38,20 +47,26 @@ public class GameController : MonoBehaviour
 
     //private bool IsPLayerAlive;
 
-    private void Start()
+    void Start()
     {
-        totalScore = 3;
+
     }
 
     private void Update()
     {
         currentTime += Time.deltaTime;
-        if(currentTime > spawnWait)
+        powerUpTime += Time.deltaTime;
+
+        if (currentTime > spawnWait)
             spawnEnemy();
 
-        scoreText.text = totalScore.ToString();
+        if (powerUpTime > powerUpSpawnWait)
+            spawnPowerUp();
 
-      // Debug.Log(totalScore);
+        //Debug.Log(sa);
+        scoreText.text = sa.ToString();
+
+        //Debug.Log(totalScore);
         //lastTime += Time.deltaTime;
         //if (lastTime > rateOfDeteriation)
         //{
@@ -82,8 +97,28 @@ public class GameController : MonoBehaviour
         }
         currentTime = 0;
     }
-}
 
+    void spawnPowerUp()
+    {
+        int powerUpSelection = Random.Range(0, 2);
+        if (powerUpSelection == 0)
+        {
+            spawnPoint = new Vector2(Random.Range(powerUpSpawnXMin, powerUpSpawnXMax), Random.Range(powerUpSpawnYMin, powerUpSpawnYMax));
+            Instantiate(powerUps[powerUpSelection], spawnPoint, Quaternion.identity);
+        }
+        else if (powerUpSelection == 1)
+        {
+            spawnPoint = new Vector2(Random.Range(powerUpSpawnXMin, powerUpSpawnXMax), Random.Range(powerUpSpawnYMin, powerUpSpawnYMax));
+            Instantiate(powerUps[powerUpSelection], spawnPoint, Quaternion.identity);
+        }
+        powerUpTime = 0;
+    }
+    
+    public void setTotalScore(int addedScore)
+    {
+        sa += addedScore;
+    }
+}
 
 
 //    private void Start()

@@ -25,7 +25,7 @@ public class ShotMover : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Bound")
         {
@@ -39,8 +39,11 @@ public class ShotMover : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().healthPoints -= damage;
             if (collision.gameObject.GetComponent<Enemy>().healthPoints <= 0)
             {
-                Debug.Log(gameController.gameObject.GetComponent<GameController>().totalScore);
-                gameController.gameObject.GetComponent<GameController>().totalScore += collision.gameObject.GetComponent<Enemy>().scoreValue;
+                Debug.Log(gameController.GetComponent<GameController>().sa);
+                Debug.Log("++++++++++++++");
+                Debug.Log(collision.gameObject.GetComponent<Enemy>().scoreValue);
+                gameController.GetComponent<GameController>().setTotalScore(collision.gameObject.GetComponent<Enemy>().scoreValue);
+                //gameController.gameObject.GetComponent<GameController>().totalScore += collision.gameObject.GetComponent<Enemy>().scoreValue;
                 Destroy(collision.gameObject);
             }
         }

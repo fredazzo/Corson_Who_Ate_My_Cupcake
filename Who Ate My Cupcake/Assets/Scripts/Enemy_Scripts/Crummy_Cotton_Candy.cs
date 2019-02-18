@@ -9,8 +9,10 @@ public class Crummy_Cotton_Candy : Enemy
     public GameObject background;
     public float setSpeedX;
     public float lastSpeedY;
+
     void Start()
     {
+        scoreValue = 100;
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         speedX = setSpeedX;
