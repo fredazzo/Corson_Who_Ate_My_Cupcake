@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Peace_Scene.unity
     guid: 48718d7702a1ece48a2ba525c1142a31
+  - enabled: 1
+    path: Assets/_Scenes/Main_Menu.unity
+    guid: 37055fc4c74dafd44be17867e7a554cc
+  - enabled: 1
+    path: Assets/_Scenes/Fredrik_Scene.unity
+    guid: fc4b054a3ae69c04c8707fe748a173e3
   m_configObjects: {}
