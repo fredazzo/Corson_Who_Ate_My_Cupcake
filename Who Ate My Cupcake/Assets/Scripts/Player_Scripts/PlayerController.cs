@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float setSpeed;
     public float speed;
-    public float alteredSpeed;
+    public float firstAlteredSpeed;
+    public float secondAlteredSpeed;
+    public float thirdAlteredSpeed;
+    public float lastSpeed;
+    public int addedDamage;
+
     public int health;
+    public int setDamage;
     public int damage;
 
-    public float speedUp;
+    public float addedSpeed;
     public float speedUpDuration;
     public float strengthDuration;
     
@@ -20,7 +27,10 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
 
     public float fireRate;
-    public float alteredFireRate;
+    public float firstAlteredFireRate;
+    public float secondAlteredFireRate;
+    public float thirdAlteredFireRate;
+
     private float nextFire = 0.0f;
 
     private Rigidbody2D rb;
@@ -30,8 +40,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
        // anim = GetComponent<Animator>();
         Debug.Log(health);
-        alteredSpeed = speed / 2;
-        alteredFireRate = fireRate * 2;
+        damage = setDamage;
+        speed = setSpeed;
         for (int i = 0; i < shots.Length; i++)
         {
             GameObject obj = (GameObject)Instantiate(shot);
@@ -42,9 +52,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(damage==3)
-            StartCoroutine(strengthReset());
-
 
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
@@ -64,8 +71,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-
-
 
         if (health == 0)
         {
@@ -95,16 +100,30 @@ public class PlayerController : MonoBehaviour
             Debug.Log(health);
             other.gameObject.SetActive(false);
         }
+        if(other.gameObject.tag == "Coke")
+        {
+            lastSpeed = speed;
+            speed += addedSpeed;
+            StartCoroutine(speedReset());
+        }
+        else if(other.gameObject.tag == "Muffin")
+        {
+            damage += addedDamage;
+            StartCoroutine(strengthReset());
+        }
     }
 
     IEnumerator strengthReset()
     {
         yield return new WaitForSeconds(strengthDuration);
-        damage = 1;
+        damage = setDamage;
     }
 
-
-
+    IEnumerator speedReset()
+    {
+        yield return new WaitForSeconds(speedUpDuration);
+        speed = lastSpeed;
+    }
 }
 
 

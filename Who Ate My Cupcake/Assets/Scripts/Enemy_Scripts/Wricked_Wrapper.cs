@@ -8,6 +8,7 @@ public class Wricked_Wrapper : Enemy
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        scoreValue = 100;
     }
 
     void FixedUpdate()

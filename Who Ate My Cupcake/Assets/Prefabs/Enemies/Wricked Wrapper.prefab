@@ -162,5 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 2
-  speedX: -2
+  speedX: -5
   speedY: 0
+  scoreValue: 0

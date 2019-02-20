@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2834342667761066238}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4038151586747094613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.726, y: 1.726, z: 0.863}
   m_Children:
   - {fileID: 4038151588008088242}
   - {fileID: 496741415663257600}
@@ -118,11 +118,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4151cf5206d1bbd43b5a5fd970567fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  setSpeed: 10
+  speed: 0
+  firstAlteredSpeed: 8
+  secondAlteredSpeed: 6
+  thirdAlteredSpeed: 3
+  lastSpeed: 0
+  addedDamage: 5
   health: 5
+  setDamage: 1
   damage: 1
-  speedUp: 0
-  speedUpDuration: 0
+  addedSpeed: 10
+  speedUpDuration: 5
   strengthDuration: 3
   shotSpawn: {fileID: 4038151588008088242}
   shot: {fileID: 79506593373791649, guid: 84b33ad1fa163bb4cadb60c112a1c41e, type: 3}
@@ -133,10 +140,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  gameController: {fileID: 2535875192142378747, guid: e31123fd0346cd749b02927748af0ebe,
-    type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   anim: {fileID: 5043213688180906780}
-  fireRate: 0.3
+  fireRate: 0.2
+  firstAlteredFireRate: 0.3
+  secondAlteredFireRate: 0.4
+  thirdAlteredFireRate: 0.5
 --- !u!70 &4038151586747094612
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

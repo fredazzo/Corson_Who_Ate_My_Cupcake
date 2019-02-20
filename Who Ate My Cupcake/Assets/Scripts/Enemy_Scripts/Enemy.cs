@@ -7,14 +7,23 @@ public class Enemy : MonoBehaviour
     public int healthPoints;
     public float speedX;
     public float speedY;
+    public int scoreValue;
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
       
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.name == "exit")
+        {
+            Debug.Log("sa");
+            Destroy(this.gameObject);
+        }
     }
 }
