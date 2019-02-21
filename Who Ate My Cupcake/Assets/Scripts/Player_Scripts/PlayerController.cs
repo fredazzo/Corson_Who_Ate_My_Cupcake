@@ -28,6 +28,12 @@ public class PlayerController : MonoBehaviour
     public GameObject[] shots;
     public Animator anim;
 
+     public AudioSource[] sounds;
+ private AudioSource shootingSound;
+ private AudioSource pop;
+
+
+
     public float fireRate;
     public float firstAlteredFireRate;
     public float secondAlteredFireRate;
@@ -53,6 +59,10 @@ public class PlayerController : MonoBehaviour
             shots[i].SetActive(false);
         }
         poweredUp = false;
+
+        sounds = GetComponents<AudioSource>();
+        shootingSound = sounds[0];
+        pop = sounds[1];
     }
 
     void Update()
@@ -70,7 +80,7 @@ public class PlayerController : MonoBehaviour
                     shots[i].GetComponent<ShotMover>().damage = damage;
                     shots[i].SetActive(true);
                     anim.SetTrigger("hasShot");
-                    GetComponent<AudioSource>().Play();
+                    sounds[0].Play();
                     break;
                 }
             }
@@ -101,6 +111,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             health--;
+            sounds[1].Play();
             Debug.Log(health);
             other.gameObject.SetActive(false);
         }
