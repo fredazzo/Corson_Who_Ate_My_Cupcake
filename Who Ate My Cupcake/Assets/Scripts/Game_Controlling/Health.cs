@@ -14,7 +14,6 @@ public class Health : MonoBehaviour
     public Image health4;
     public Image health5;
 
-
     // Update is called once per frame
     void Update()
     {
@@ -28,22 +27,26 @@ public class Health : MonoBehaviour
         if (healthPoints <= 3)
         {
             health4.enabled = false;
-           // Debug.Log("health4 disabled");
+
+            // Debug.Log("health4 disabled");
         }
         if (healthPoints <= 2)
         {
             health3.enabled = false;
-          //  Debug.Log("health3 disabled");
+
+            //  Debug.Log("health3 disabled");
         }
         if (healthPoints <= 1)
         {
             health2.enabled = false;
-          //  Debug.Log("health2 disabled");
+
+            //  Debug.Log("health2 disabled");
         }
         if (healthPoints <= 0)
         {
             health1.enabled = false;
-           // Debug.Log("health1 disabled");
+
+            // Debug.Log("health1 disabled");
         }
     }
 }
