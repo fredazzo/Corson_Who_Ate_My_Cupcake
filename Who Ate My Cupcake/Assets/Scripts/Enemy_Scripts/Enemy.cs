@@ -22,7 +22,6 @@ public class Enemy : MonoBehaviour
     {
         if(other.gameObject.name == "exit")
         {
-            Debug.Log("sa");
             Destroy(this.gameObject);
         }
     }

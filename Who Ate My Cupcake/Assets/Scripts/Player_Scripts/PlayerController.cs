@@ -18,8 +18,10 @@ public class PlayerController : MonoBehaviour
     public int damage;
 
     public float addedSpeed;
-    public float speedUpDuration;
-    public float strengthDuration;
+    public float powerUpDuration;
+    public float powerUpDecreasePercentage;
+    //public float speedUpDuration;
+    //public float strengthDuration;
     
     public Transform shotSpawn;
     public GameObject shot;
@@ -35,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public bool poweredUp;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,11 +52,11 @@ public class PlayerController : MonoBehaviour
             shots[i] = obj;
             shots[i].SetActive(false);
         }
+        poweredUp = false;
     }
 
     void Update()
     {
-
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
@@ -102,28 +106,46 @@ public class PlayerController : MonoBehaviour
         }
         if(other.gameObject.tag == "Coke")
         {
-            lastSpeed = speed;
+            poweredUp = true;
+            powerUpDuration = other.gameObject.GetComponent<power_up>().powerUpDuration;
+            powerUpDecreasePercentage = 1f / powerUpDuration;
+       //     lastSpeed = speed;
             speed += addedSpeed;
-            StartCoroutine(speedReset());
+            StartCoroutine(reset());
         }
         else if(other.gameObject.tag == "Muffin")
         {
+            poweredUp = true;
+            powerUpDuration = other.gameObject.GetComponent<power_up>().powerUpDuration;
+            powerUpDecreasePercentage = 1f / powerUpDuration;
             damage += addedDamage;
-            StartCoroutine(strengthReset());
+            StartCoroutine(reset());
         }
     }
 
-    IEnumerator strengthReset()
+    IEnumerator reset()
     {
-        yield return new WaitForSeconds(strengthDuration);
+        yield return new WaitForSeconds(powerUpDuration);
         damage = setDamage;
+        speed = setSpeed;
+        poweredUp = false;
+        Debug.Log("powerup finished");
+
     }
 
-    IEnumerator speedReset()
-    {
-        yield return new WaitForSeconds(speedUpDuration);
-        speed = lastSpeed;
-    }
+    //IEnumerator strengthReset()
+    //{
+    //    yield return new WaitForSeconds(strengthDuration);
+    //    damage = setDamage;
+    //    poweredUp = false;
+    //}
+
+    //IEnumerator speedReset()
+    //{
+    //    yield return new WaitForSeconds(speedUpDuration);
+    //    speed = lastSpeed;
+    //    poweredUp = false;
+    //}
 }
 
 
