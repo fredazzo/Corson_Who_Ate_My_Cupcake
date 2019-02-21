@@ -23,27 +23,27 @@ public class Health : MonoBehaviour
         if (healthPoints <= 4)
         {
             health5.enabled = false;
-            Debug.Log("health5 disabled");
+         //  Debug.Log("health5 disabled");
         }
         if (healthPoints <= 3)
         {
             health4.enabled = false;
-            Debug.Log("health4 disabled");
+           // Debug.Log("health4 disabled");
         }
         if (healthPoints <= 2)
         {
             health3.enabled = false;
-            Debug.Log("health3 disabled");
+          //  Debug.Log("health3 disabled");
         }
         if (healthPoints <= 1)
         {
             health2.enabled = false;
-            Debug.Log("health2 disabled");
+          //  Debug.Log("health2 disabled");
         }
         if (healthPoints <= 0)
         {
             health1.enabled = false;
-            Debug.Log("health1 disabled");
+           // Debug.Log("health1 disabled");
         }
     }
 }

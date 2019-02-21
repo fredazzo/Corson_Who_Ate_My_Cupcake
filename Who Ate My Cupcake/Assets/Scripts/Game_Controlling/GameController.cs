@@ -8,7 +8,6 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameObject[] enemies;
     public GameObject[] powerUps;
-    public int sa;
 
     public Text scoreText;
 
@@ -64,7 +63,6 @@ public class GameController : MonoBehaviour
             spawnPowerUp();
 
         //Debug.Log(sa);
-        scoreText.text = sa.ToString();
 
         //Debug.Log(totalScore);
         //lastTime += Time.deltaTime;
@@ -114,10 +112,10 @@ public class GameController : MonoBehaviour
         powerUpTime = 0;
     }
     
-    public void setTotalScore(int addedScore)
-    {
-        sa += addedScore;
-    }
+    //public void setTotalScore(int addedScore)
+    //{
+    //    sa += addedScore;
+    //}
 }
 
 
