@@ -9,24 +9,30 @@ public class Boss : MonoBehaviour
     public Vector2 firstBulletSpawn;
     public Vector2 secondBulletSpawn;
     public Vector2 thirdBulletSpawn;
+    public Vector3 rotationPoint;
+    private Transform initialHammerTransform;
+    GameObject hammer;
     public float healthPoints;
     private bool hasMoved;
+    float testTime;
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         hasMoved = false;
+        hammer = transform.Find("Hammer").gameObject;
     }
 
     
     void Update()
     {
+        testTime += Time.deltaTime;
         if(!hasMoved)
         {
-            if (Input.GetButtonDown("First_Skill"))
+            if (testTime > 5f)
             {
-                GameObject firstShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.identity);
-                GameObject secondShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.identity);
-                GameObject thirdShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.identity);
+                GameObject hammer = transform.Find("Hammer").gameObject;
+                hammer.SetActive(true);
+                hammer.transform.RotateAround(rotationPoint, new Vector3(0,0,1), 20 * Time.deltaTime);
             }
             if (Input.GetButtonDown("Second_Skill"))
                 Debug.Log("Second skill used");
