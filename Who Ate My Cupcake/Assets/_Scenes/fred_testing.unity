@@ -294,7 +294,8 @@ PrefabInstance:
       propertyPath: decreasePercentage
       value: 0.2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 142157192412987466, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
 --- !u!1 &286660436
 GameObject:
