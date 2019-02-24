@@ -30,9 +30,10 @@ public class Boss : MonoBehaviour
         {
             if (testTime > 5f)
             {
-                GameObject hammer = transform.Find("Hammer").gameObject;
-                hammer.SetActive(true);
-                hammer.transform.RotateAround(rotationPoint, new Vector3(0,0,1), 20 * Time.deltaTime);
+                GameObject shot = Instantiate(bossShot, firstBulletSpawn, Quaternion.identity);
+                shot.GetComponent<Boss_Projectile>().speedX = -2;
+                shot.GetComponent<Boss_Projectile>().speedY = -1;
+                testTime = 0f;
             }
             if (Input.GetButtonDown("Second_Skill"))
                 Debug.Log("Second skill used");
