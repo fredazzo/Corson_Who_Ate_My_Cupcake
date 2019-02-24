@@ -21,7 +21,7 @@ public class Play_Button : MonoBehaviour
     {
         if(other.gameObject.tag == "Shot")
         {
-            SceneManager.LoadScene("Fredrik_Scene");
+            SceneManager.LoadScene("Main_Scene");
         }
     }
 }
