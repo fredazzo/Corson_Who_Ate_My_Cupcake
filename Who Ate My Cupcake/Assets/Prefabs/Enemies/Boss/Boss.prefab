@@ -160,7 +160,7 @@ SpriteRenderer:
   m_Size: {x: 5.1000004, y: 10.440001}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &2289175646980714347
@@ -222,7 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78506adf3c26000438e7f048aaf78fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossShot: {fileID: 0}
+  bossShot: {fileID: 5995438518820797691, guid: 0d87c2b708cabc84b941e2cd2f3c7230,
+    type: 3}
   firstBulletSpawn: {x: 0, y: 0}
   secondBulletSpawn: {x: 0, y: 0}
   thirdBulletSpawn: {x: 0, y: 0}

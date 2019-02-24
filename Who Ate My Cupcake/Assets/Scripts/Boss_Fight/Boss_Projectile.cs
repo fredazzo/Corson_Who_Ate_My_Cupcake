@@ -10,6 +10,7 @@ public class Boss_Projectile : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
