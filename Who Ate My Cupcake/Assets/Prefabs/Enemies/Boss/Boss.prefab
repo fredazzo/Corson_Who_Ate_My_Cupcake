@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 561654963}
   m_LocalRotation: {x: 0, y: 0, z: -0.24843626, w: 0.9686483}
-  m_LocalPosition: {x: -5.67, y: 2.86, z: -3.2}
-  m_LocalScale: {x: 82.45862, y: 2.9258053, z: 1.2194412}
+  m_LocalPosition: {x: -11.62, y: 5.05, z: -3.2}
+  m_LocalScale: {x: 185.82132, y: 4.941252, z: 1.2194412}
   m_Children: []
   m_Father: {fileID: 2289175646980714358}
   m_RootOrder: 0
@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 2289175646980714352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.83, y: 0.09, z: 0}
-  m_LocalScale: {x: 0.82004774, y: 0.82004774, z: 0.82004774}
+  m_LocalScale: {x: 0.39608306, y: 0.39608306, z: 0.39608306}
   m_Children:
   - {fileID: 561654964}
   m_Father: {fileID: 0}
@@ -152,15 +152,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bbd66d30c5c83b943814695fff90cc1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 521356f074517d04798b377fa3a41030, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.1000004, y: 10.440001}
+  m_Size: {x: 8.41, y: 17.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &2289175646980714347
@@ -180,8 +180,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.1000004, y: 10.440001}
-    newSize: {x: 5.1000004, y: 10.440001}
+    oldSize: {x: 8.41, y: 17.36}
+    newSize: {x: 8.41, y: 17.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -224,11 +224,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossShot: {fileID: 5995438518820797691, guid: 0d87c2b708cabc84b941e2cd2f3c7230,
     type: 3}
+  bulletSpeedX: -1
+  downsideBulletSpeedY: -1
+  upsideBulletSpeedY: 1
   firstBulletSpawn: {x: 0, y: 0}
-  secondBulletSpawn: {x: 0, y: 0}
-  thirdBulletSpawn: {x: 0, y: 0}
-  rotationPoint: {x: 5.67, y: -0.16, z: -9.905195}
-  healthPoints: 0
+  secondBulletSpawn: {x: 0, y: 1}
+  thirdBulletSpawn: {x: 0, y: 2}
+  rotationPoint: {x: 5.41, y: -0.29, z: 0}
+  rotationAngle: 5
+  healthPoints: 50
+  bulletTimer: 1
+  bulletTime: 0
 --- !u!95 &1333894251
 Animator:
   serializedVersion: 3
