@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
        // anim = GetComponent<Animator>();
-        Debug.Log(health);
         damage = setDamage;
         speed = setSpeed;
         for (int i = 0; i < shots.Length; i++)
