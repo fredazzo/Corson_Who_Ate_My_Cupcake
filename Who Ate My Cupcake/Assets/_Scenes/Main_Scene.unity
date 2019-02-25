@@ -194,6 +194,11 @@ PrefabInstance:
       propertyPath: spawnWait
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 773974834}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e31123fd0346cd749b02927748af0ebe, type: 3}
 --- !u!1 &65505768 stripped
@@ -286,6 +291,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bounds
       objectReference: {fileID: 0}
+    - target: {fileID: 3809711125698195111, guid: e052c4086ce276949b86c83ffb39e52f,
+        type: 3}
+      propertyPath: m_Name
+      value: exit
+      objectReference: {fileID: 0}
     - target: {fileID: 3809711126650114695, guid: e052c4086ce276949b86c83ffb39e52f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -345,11 +355,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3809711125698195111, guid: e052c4086ce276949b86c83ffb39e52f,
-        type: 3}
-      propertyPath: m_Name
-      value: exit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e052c4086ce276949b86c83ffb39e52f, type: 3}
