@@ -17,32 +17,42 @@ public class Boss : MonoBehaviour
 
     public Vector2 thirdBulletSpawn;
 
+    public float bulletTimer;
+    public float bulletTime;
+
+    GameObject hammer;
     public Vector3 rotationPoint;
     public float rotationAngle;
     private float Angle;
     private Transform initialHammerTransform;
-    GameObject hammer;
+    
+
+    GameObject arm;
+    public Vector3 armStartPointFromBoss;
+    private Vector3 armStartPoint;
+    public Vector3 armStopPointFromBoss;
+    private Vector3 armStopPoint;
+
     public float healthPoints;
-    private bool hasMoved;
-    float testTime;
-    public float bulletTimer;
-    public float bulletTime;
-    bool isShot;
+
+    private bool armAttack;
+   
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        hasMoved = false;
         hammer = transform.Find("Hammer").gameObject;
-        isShot = false;
+        arm = transform.Find("Arm").gameObject;
+        arm.transform.position = transform.position + armStartPointFromBoss;
+        armStartPoint = arm.transform.position;
+        armStopPoint = transform.position + armStopPointFromBoss;
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
-        hammer.SetActive(true);
-        hammer.transform.RotateAround(rotationPoint, Vector3.forward, rotationAngle);
+
     }
-    void firstSkill()
+    void crossBUllets()
     {
         Angle = Vector2.Angle(new Vector3(-1, 0, 0), new Vector3(bulletSpeedX, 0, 0));
         GameObject firstShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
@@ -60,7 +70,7 @@ public class Boss : MonoBehaviour
         thirdShot.GetComponent<Boss_Projectile>().speedY = upsideBulletSpeedY;
     }
 
-    IEnumerator secondSkill()
+    IEnumerator parallelBullets()
     {
         GameObject firstShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.identity);
         firstShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
@@ -77,5 +87,28 @@ public class Boss : MonoBehaviour
         GameObject thirdShot = Instantiate(bossShot, thirdBulletSpawn, Quaternion.identity);
         thirdShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         thirdShot.GetComponent<Boss_Projectile>().speedY = 0;
+    }
+
+    void hammerSkill()
+    {
+        hammer.SetActive(true);
+        hammer.transform.RotateAround(rotationPoint, Vector3.forward, rotationAngle);
+    }
+
+    void armSkill()
+    {
+        arm.SetActive(true);
+        if (!armAttack)
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+        if (arm.transform.position.x > armStopPoint.x)
+        {
+            armAttack = true;
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-5, 0);
+            if (arm.transform.position == armStartPoint)
+            {
+                arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+                arm.SetActive(false);
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class GameController : MonoBehaviour
     public float powerUpSpawnWait;
     private float powerUpTime = 0f;
 
+
     //public float rateOfDeteriation;
     //public int decreasePercentage;
     //private float lastTime = 0f;   
@@ -61,7 +63,8 @@ public class GameController : MonoBehaviour
 
         if (powerUpTime > powerUpSpawnWait)
             spawnPowerUp();
-
+        if (player.GetComponent<PlayerController>().health == 0)
+            SceneManager.LoadScene("Ending_Scene");
         //Debug.Log(sa);
 
         //Debug.Log(totalScore);
