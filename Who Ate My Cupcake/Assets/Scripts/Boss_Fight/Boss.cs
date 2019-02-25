@@ -36,6 +36,8 @@ public class Boss : MonoBehaviour
     public float healthPoints;
 
     private bool armAttack;
+
+    private float testTime;
    
     void Start()
     {
@@ -48,9 +50,9 @@ public class Boss : MonoBehaviour
     }
 
     
-    void FixedUpdate()
+    void Update()
     {
-
+        hammerSkill();
     }
     void crossBUllets()
     {
