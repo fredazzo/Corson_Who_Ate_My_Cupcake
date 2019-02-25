@@ -16,6 +16,8 @@ public class Play_Button : MonoBehaviour
     {
         if (Input.GetButtonDown("T"))
             SceneManager.LoadScene("Tutorial");
+        if (Input.GetButtonDown("Cancel"))
+            Application.Quit();
     }
 
     void OnCollisionEnter2D(Collision2D other)
