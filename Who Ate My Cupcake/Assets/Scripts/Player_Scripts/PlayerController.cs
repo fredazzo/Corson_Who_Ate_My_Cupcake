@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public GameObject shot;
     public GameObject[] shots;
     public Animator anim;
+    public GameObject bar;
 
      public AudioSource[] sounds;
  private AudioSource shootingSound;
@@ -89,6 +90,15 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        if (health > 5)
+        {
+            health = 5;
+        }
+        if (health < 0)
+        {
+            health = 0;
+        }
     }
 
     // Checks and applies physics
@@ -130,6 +140,14 @@ public class PlayerController : MonoBehaviour
             powerUpDecreasePercentage = 1f / powerUpDuration;
             damage += addedDamage;
             StartCoroutine(reset());
+        }
+        else if(other.gameObject.tag == "Health")
+        {
+            health += 1;
+        }
+        else if(other.gameObject.tag == "Bar Up")
+        {
+            bar.GetComponent<Bar>().barPercentage += other.gameObject.GetComponent<power_up>().barIncrease;
         }
     }
 

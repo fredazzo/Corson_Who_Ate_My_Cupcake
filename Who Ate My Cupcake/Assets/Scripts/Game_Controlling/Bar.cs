@@ -64,7 +64,7 @@ public class Bar : MonoBehaviour
             bar.fillAmount = decreasedPercentage;
         }
 
-        
+       
 
         if (barPercentage <= firstThreshold)
         {
@@ -94,6 +94,17 @@ public class Bar : MonoBehaviour
         {
             player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().thirdAlteredSpeed;
             player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().thirdAlteredFireRate;
+        }
+
+
+        if (barPercentage > 1.0f)
+        {
+            barPercentage = 1.0f;
+        }
+
+        if(barPercentage < 0f)
+        {
+            barPercentage = 0f;
         }
     }
     //void CalculateTime()
