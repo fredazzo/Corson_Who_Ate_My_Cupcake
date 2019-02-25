@@ -19,6 +19,11 @@ public class Health : MonoBehaviour
     {
         healthPoints = player.GetComponent<PlayerController>().health;
 
+        if(healthPoints > 4)
+        {
+            health5.enabled = true;
+
+        }
         if (healthPoints <= 4)
         {
             health5.enabled = false;
