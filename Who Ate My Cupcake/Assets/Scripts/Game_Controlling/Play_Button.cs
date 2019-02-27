@@ -14,14 +14,17 @@ public class Play_Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("T"))
+            SceneManager.LoadScene("Tutorial");
+        if (Input.GetButtonDown("Cancel"))
+            Application.Quit();
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == "Shot")
         {
-            SceneManager.LoadScene("Fredrik_Scene");
+            SceneManager.LoadScene("Main_Scene");
         }
     }
 }

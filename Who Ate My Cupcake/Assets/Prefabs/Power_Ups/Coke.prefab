@@ -144,3 +144,4 @@ MonoBehaviour:
   background: {fileID: 7758213982778834090, guid: fc2a83d8c27aa5f43b7515a5366da8e3,
     type: 3}
   speedY: -3
+  powerUpDuration: 5

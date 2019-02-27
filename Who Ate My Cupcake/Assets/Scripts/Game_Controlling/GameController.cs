@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public GameObject player;
     public GameObject[] enemies;
     public GameObject[] powerUps;
-    public int sa;
 
     public Text scoreText;
 
@@ -32,6 +32,7 @@ public class GameController : MonoBehaviour
 
     public float powerUpSpawnWait;
     private float powerUpTime = 0f;
+
 
     //public float rateOfDeteriation;
     //public int decreasePercentage;
@@ -62,9 +63,9 @@ public class GameController : MonoBehaviour
 
         if (powerUpTime > powerUpSpawnWait)
             spawnPowerUp();
-
+        if (player.GetComponent<PlayerController>().health == 0)
+            SceneManager.LoadScene("Ending_Scene");
         //Debug.Log(sa);
-        scoreText.text = sa.ToString();
 
         //Debug.Log(totalScore);
         //lastTime += Time.deltaTime;
@@ -114,10 +115,10 @@ public class GameController : MonoBehaviour
         powerUpTime = 0;
     }
     
-    public void setTotalScore(int addedScore)
-    {
-        sa += addedScore;
-    }
+    //public void setTotalScore(int addedScore)
+    //{
+    //    sa += addedScore;
+    //}
 }
 
 

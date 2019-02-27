@@ -11,6 +11,8 @@ TagManager:
   - Quit_Button
   - Coke
   - Muffin
+  - Health
+  - Bar Up
   layers:
   - Default
   - TransparentFX
