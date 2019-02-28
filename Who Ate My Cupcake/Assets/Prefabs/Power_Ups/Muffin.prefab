@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8183310011229817844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.42, y: -7.19, z: 88.67}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: -13.989, y: -6.759, z: 88.67}
+  m_LocalScale: {x: 0.6724, y: 0.6724, z: 1.3448}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
     type: 3}
   speedY: -3
   powerUpDuration: 6
+  barIncrease: 0
 --- !u!50 &8652487561341833682
 Rigidbody2D:
   serializedVersion: 4
