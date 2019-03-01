@@ -765,12 +765,15 @@ MonoBehaviour:
   health3: {fileID: 5494638185761050873}
   health4: {fileID: 3489359915619730578}
   health5: {fileID: 8954691913679312875}
+
 --- !u!1 &4446774858213738070
 GameObject:
+
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7847617702120744327}
@@ -844,6 +847,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: TotalScore
+
 --- !u!1 &5422488801773839908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,8 +1112,10 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
+
   m_AnchoredPosition: {x: 150.60992, y: 1.46}
   m_SizeDelta: {x: 415.56, y: 52.33}
+
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6313506997139283658
 CanvasRenderer:
@@ -1297,7 +1303,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 6313506996838058134}
-  - {fileID: 7847617702120744327}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
