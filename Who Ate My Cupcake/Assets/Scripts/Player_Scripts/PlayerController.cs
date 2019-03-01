@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     public bool poweredUp;
+    public bool muffin;
+    public bool coke;
 
     void Start()
     {
@@ -59,7 +61,8 @@ public class PlayerController : MonoBehaviour
             shots[i].SetActive(false);
         }
         poweredUp = false;
-
+        muffin = false;
+        coke = false;
         sounds = GetComponents<AudioSource>();
         shootingSound = sounds[0];
         pop = sounds[1];
@@ -127,6 +130,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.tag == "Coke")
         {
             poweredUp = true;
+            coke = true;
             powerUpDuration = other.gameObject.GetComponent<power_up>().powerUpDuration;
             powerUpDecreasePercentage = 1f / powerUpDuration;
        //     lastSpeed = speed;
@@ -136,6 +140,7 @@ public class PlayerController : MonoBehaviour
         else if(other.gameObject.tag == "Muffin")
         {
             poweredUp = true;
+            muffin = true;
             powerUpDuration = other.gameObject.GetComponent<power_up>().powerUpDuration;
             powerUpDecreasePercentage = 1f / powerUpDuration;
             damage += addedDamage;
@@ -157,6 +162,8 @@ public class PlayerController : MonoBehaviour
         damage = setDamage;
         speed = setSpeed;
         poweredUp = false;
+        muffin = false;
+        coke = false;
         Debug.Log("powerup finished");
 
     }

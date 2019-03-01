@@ -7,6 +7,8 @@ public class PowerUpTimer : MonoBehaviour
 {
     Image bar;
     public GameObject player;
+    public Image coke;
+    public Image muffin;
 
     public float barPercentage;
     private float rateOfDeteriation;
@@ -22,6 +24,9 @@ public class PowerUpTimer : MonoBehaviour
         bar = GetComponent<Image>();
         rateOfDeteriation = 1f;
         bar.enabled = false;
+        muffin.enabled = false;
+        coke.enabled = false;
+
     }
 
     // Update is called once per frame
@@ -32,6 +37,14 @@ public class PowerUpTimer : MonoBehaviour
         {
             bar.enabled = true;
             decreasePercentage = player.GetComponent<PlayerController>().powerUpDecreasePercentage;
+            if(player.GetComponent<PlayerController>().muffin == true)
+            {
+                muffin.enabled = true;
+            }
+            if (player.GetComponent<PlayerController>().coke == true)
+            {
+                coke.enabled = true;
+            }
 
             lastTime += Time.deltaTime;
             if (lastTime > rateOfDeteriation)
@@ -46,6 +59,8 @@ public class PowerUpTimer : MonoBehaviour
         else
         {
             bar.enabled = false;
+            muffin.enabled = false;
+            coke.enabled = false;
             barPercentage = 1f;
             lastTime = 0f;
         }
