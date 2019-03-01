@@ -10,6 +10,8 @@ public class power_up : MonoBehaviour
     private float speedX;
     public float powerUpDuration;
 
+    public float barIncrease;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
