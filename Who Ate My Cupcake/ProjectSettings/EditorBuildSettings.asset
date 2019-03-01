@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/Tutorial.unity
     guid: 4d726a3df37c94140a9a804ea3aae772
   - enabled: 1
-    path: Assets/_Scenes/Ending_Scene.unity
+    path: Assets/_Scenes/Death_Scene.unity
     guid: 52b5c33564ae4df4087b4a40f08dfcd8
+  - enabled: 1
+    path: Assets/_Scenes/Main_Game.unity
+    guid: e1898cc3eaba2d34bb8c3fa8d8ec2b57
   m_configObjects: {}

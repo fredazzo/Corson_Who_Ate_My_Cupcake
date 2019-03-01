@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
         if (powerUpTime > powerUpSpawnWait)
             spawnPowerUp();
         if (player.GetComponent<PlayerController>().health == 0)
-            SceneManager.LoadScene("Ending_Scene");
+            SceneManager.LoadScene("Death_Scene");
         //Debug.Log(sa);
 
         //Debug.Log(totalScore);
