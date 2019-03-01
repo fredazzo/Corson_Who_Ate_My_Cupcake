@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 135691524}
   - component: {fileID: 135691523}
   m_Layer: 5
-  m_Name: Muffin
+  m_Name: Muffin Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 810610686}
   - component: {fileID: 810610685}
   m_Layer: 5
-  m_Name: Fun Label
+  m_Name: Fun Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level of Fun
+  m_Text: 'Fun Bar
 
 '
 --- !u!1 &1221810610
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 1570645173}
   - component: {fileID: 1570645172}
   m_Layer: 5
-  m_Name: Coke
+  m_Name: Coke Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1163,9 +1163,9 @@ MonoBehaviour:
   player: {fileID: 0}
   exit: {fileID: 0}
   percentageDrop: 0.2
-  firstClip: {fileID: 0}
-  secondClip: {fileID: 0}
-  thirdClip: {fileID: 0}
+  firstClip: {fileID: 8300000, guid: 22983422188c858479c72c1dd14d2735, type: 3}
+  secondClip: {fileID: 8300000, guid: a5f44ee3d39b97247a5447a4b1cc5db2, type: 3}
+  thirdClip: {fileID: 8300000, guid: 6215d7e61c18bf042ac0546a5061bfd9, type: 3}
   barPercentage: 1
   firstThreshold: 0.8
   secondThreshold: 0.5
