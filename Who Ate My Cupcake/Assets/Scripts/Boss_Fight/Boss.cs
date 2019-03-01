@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     Rigidbody2D body;
+    Animator animator;
     public GameObject bossShot;
 
     public float bulletSpeedX;
@@ -37,11 +38,14 @@ public class Boss : MonoBehaviour
 
     private bool armAttack;
 
+    bool isShot;
+
     private float testTime;
    
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         hammer = transform.Find("Hammer").gameObject;
         arm = transform.Find("Arm").gameObject;
         arm.transform.position = transform.position + armStartPointFromBoss;
@@ -52,9 +56,21 @@ public class Boss : MonoBehaviour
     
     void Update()
     {
-        hammerSkill();
+        testTime += Time.deltaTime;
+
+        if(testTime > 5f)
+        {
+            animator.SetTrigger("Cone_Started");
+            animator.SetTrigger("Cone_Shot");
+            testTime = 0f;
+        }
+        if(animator.GetBool("isShot") == true)
+        {
+            crossBullets();
+            animator.SetBool("isShot", false);
+        }
     }
-    void crossBUllets()
+    void crossBullets()
     {
         Angle = Vector2.Angle(new Vector3(-1, 0, 0), new Vector3(bulletSpeedX, 0, 0));
         GameObject firstShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
