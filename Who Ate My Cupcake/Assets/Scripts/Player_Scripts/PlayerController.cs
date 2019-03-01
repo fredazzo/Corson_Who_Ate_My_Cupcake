@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject gameController;
     public float setSpeed;
     public float speed;
     public float firstAlteredSpeed;
@@ -181,6 +182,21 @@ public class PlayerController : MonoBehaviour
     //    speed = lastSpeed;
     //    poweredUp = false;
     //}
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "First_Song_Change")
+        {
+            gameController.GetComponent<GameController>().Source.Stop();
+            gameController.GetComponent<GameController>().Source.clip = gameController.GetComponent<GameController>().secondClip;
+            gameController.GetComponent<GameController>().Source.Play();
+        }
+        if (other.gameObject.name == "Second_Song_Change")
+        {
+            gameController.GetComponent<GameController>().Source.Stop();
+            gameController.GetComponent<GameController>().Source.clip = gameController.GetComponent<GameController>().thirdClip;
+            gameController.GetComponent<GameController>().Source.Play();
+        }
+    }
 }
 
 
