@@ -6,6 +6,7 @@ public class Boss : MonoBehaviour
 {
     Rigidbody2D body;
     public GameObject bossShot;
+    Animator animator;
 
     public float bulletSpeedX;
     public float downsideBulletSpeedY;
@@ -38,23 +39,43 @@ public class Boss : MonoBehaviour
     private bool armAttack;
 
     private float testTime;
+    bool triggered;
    
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         hammer = transform.Find("Hammer").gameObject;
         arm = transform.Find("Arm").gameObject;
         arm.transform.position = transform.position + armStartPointFromBoss;
         armStartPoint = arm.transform.position;
         armStopPoint = transform.position + armStopPointFromBoss;
+        triggered = false;
     }
 
     
     void Update()
     {
-        hammerSkill();
+        testTime += Time.deltaTime;
+        if (testTime > 5f)
+        {
+            //Cone_Attack
+            {
+                if (!triggered)
+                {
+                    animator.SetTrigger("Cone");
+                    triggered = true;
+                }
+                if (animator.GetBool("is_Shot"))
+                {
+                    crossBullets();
+                    testTime = 0f;
+                    triggered = false;
+                }
+            }
+        }
     }
-    void crossBUllets()
+    void crossBullets()
     {
         Angle = Vector2.Angle(new Vector3(-1, 0, 0), new Vector3(bulletSpeedX, 0, 0));
         GameObject firstShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
@@ -70,6 +91,8 @@ public class Boss : MonoBehaviour
         GameObject thirdShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
         thirdShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         thirdShot.GetComponent<Boss_Projectile>().speedY = upsideBulletSpeedY;
+
+        animator.SetBool("is_Shot", false);
     }
 
     IEnumerator parallelBullets()
