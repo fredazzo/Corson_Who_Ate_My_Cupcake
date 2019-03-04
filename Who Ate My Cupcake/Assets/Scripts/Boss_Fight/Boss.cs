@@ -57,23 +57,41 @@ public class Boss : MonoBehaviour
     void Update()
     {
         testTime += Time.deltaTime;
-        if (testTime > 5f)
-        {
-            //Cone_Attack
+        //if (testTime > 5f)
+        //{
+            //Cross Shot
             {
-                if (!triggered)
-                {
-                    animator.SetTrigger("Cone");
-                    triggered = true;
-                }
-                if (animator.GetBool("is_Shot"))
-                {
-                    crossBullets();
-                    testTime = 0f;
-                    triggered = false;
-                }
+                //if (!triggered)
+                //{
+                //    animator.SetTrigger("Cone");
+                //    triggered = true;
+                //}
+                //if (animator.GetBool("is_Shot"))
+                //{
+                //    crossBullets();
+                //    testTime = 0f;
+                //    triggered = false;
+                //}
             }
-        }
+
+            //Parallel Shot
+            {
+                //if (!triggered)
+                //{
+                //    animator.SetTrigger("Parallel");
+                //    triggered = true;
+                //}
+                //if (animator.GetBool("is_Shot"))
+                //{
+                //    StartCoroutine(parallelBullets());
+                //    testTime = 0f;
+                //    triggered = false;
+                //}
+            }
+
+            //Slap Skill
+            armSkill();
+        //}
     }
     void crossBullets()
     {
@@ -129,8 +147,9 @@ public class Boss : MonoBehaviour
         {
             armAttack = true;
             arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-5, 0);
-            if (arm.transform.position == armStartPoint)
+            if (arm.transform.position.x < armStartPoint.x)
             {
+                Debug.Log("sa");
                 arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
                 arm.SetActive(false);
             }
