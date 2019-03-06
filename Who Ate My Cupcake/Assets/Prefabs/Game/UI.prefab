@@ -402,6 +402,7 @@ GameObject:
   - component: {fileID: 8228745055324808416}
   - component: {fileID: 3607122641330098739}
   - component: {fileID: 3489359915619730578}
+  - component: {fileID: 824025934}
   m_Layer: 5
   m_Name: 4
   m_TagString: Untagged
@@ -465,6 +466,25 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!95 &824025934
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202705951772069145}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9fc236c2996981943a320e21770f8a68, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &647569996737855828
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +496,7 @@ GameObject:
   - component: {fileID: 4324445346881899978}
   - component: {fileID: 7126403422598637390}
   - component: {fileID: 8258497395040834276}
+  - component: {fileID: 1064925560}
   m_Layer: 5
   m_Name: 1
   m_TagString: Untagged
@@ -539,6 +560,25 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!95 &1064925560
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647569996737855828}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9fc236c2996981943a320e21770f8a68, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &841177061713765117
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +590,7 @@ GameObject:
   - component: {fileID: 6782903498876647343}
   - component: {fileID: 1458940761793137300}
   - component: {fileID: 5494638185761050873}
+  - component: {fileID: 1563540703}
   m_Layer: 5
   m_Name: 3
   m_TagString: Untagged
@@ -613,6 +654,25 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!95 &1563540703
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841177061713765117}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9fc236c2996981943a320e21770f8a68, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2796532585542048059
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +825,11 @@ MonoBehaviour:
   health3: {fileID: 5494638185761050873}
   health4: {fileID: 3489359915619730578}
   health5: {fileID: 8954691913679312875}
+  anim1: {fileID: 1064925560}
+  anim2: {fileID: 1446587797}
+  anim3: {fileID: 1563540703}
+  anim4: {fileID: 824025934}
+  anim5: {fileID: 1921988363}
 --- !u!1 &5422488801773839908
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,6 +841,7 @@ GameObject:
   - component: {fileID: 9137919227034199763}
   - component: {fileID: 467509116227144125}
   - component: {fileID: 908827777549533746}
+  - component: {fileID: 1446587797}
   m_Layer: 5
   m_Name: 2
   m_TagString: Untagged
@@ -839,6 +905,25 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!95 &1446587797
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5422488801773839908}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9fc236c2996981943a320e21770f8a68, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5932011597858063149
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,6 +935,7 @@ GameObject:
   - component: {fileID: 2952207028728544767}
   - component: {fileID: 8447447729475560405}
   - component: {fileID: 8954691913679312875}
+  - component: {fileID: 1921988363}
   m_Layer: 5
   m_Name: 5
   m_TagString: Untagged
@@ -913,6 +999,25 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!95 &1921988363
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5932011597858063149}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9fc236c2996981943a320e21770f8a68, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6313506996838058133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,13 +1189,7 @@ MonoBehaviour:
   player: {fileID: 0}
   exit: {fileID: 0}
   percentageDrop: 0.2
-  firstClip: {fileID: 8300000, guid: 22983422188c858479c72c1dd14d2735, type: 3}
-  secondClip: {fileID: 8300000, guid: a5f44ee3d39b97247a5447a4b1cc5db2, type: 3}
-  thirdClip: {fileID: 8300000, guid: 6215d7e61c18bf042ac0546a5061bfd9, type: 3}
   barPercentage: 1
-  firstThreshold: 0.8
-  secondThreshold: 0.5
-  thirdThreshold: 0.3
 --- !u!82 &583029627
 AudioSource:
   m_ObjectHideFlags: 0
