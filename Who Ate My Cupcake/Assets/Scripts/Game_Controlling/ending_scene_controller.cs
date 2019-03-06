@@ -17,6 +17,6 @@ public class ending_scene_controller : MonoBehaviour
         if (Input.GetButtonDown("Submit"))
             SceneManager.LoadScene("Main_Menu");
         if (Input.GetButtonDown("R"))
-            SceneManager.LoadScene("Main_Scene");
+            SceneManager.LoadScene("Main_Game");
     }
 }
