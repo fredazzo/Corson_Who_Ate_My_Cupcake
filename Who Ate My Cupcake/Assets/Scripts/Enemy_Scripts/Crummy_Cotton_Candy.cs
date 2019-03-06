@@ -33,6 +33,10 @@ public class Crummy_Cotton_Candy : Enemy
     }
     void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.gameObject.name == "exit")
+        {
+            Destroy(this.gameObject);
+        }
         if (other.gameObject.name == "ground")
         {
             lastSpeedY = speedY;
