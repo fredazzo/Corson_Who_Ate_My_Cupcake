@@ -13,6 +13,7 @@ TagManager:
   - Muffin
   - Health
   - Bar Up
+  - Mega_Cupcake
   layers:
   - Default
   - TransparentFX
@@ -58,4 +59,7 @@ TagManager:
     locked: 0
   - name: player
     uniqueID: 2837531019
+    locked: 0
+  - name: transformstage
+    uniqueID: 4193739613
     locked: 0

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject gameController;
     public float setSpeed;
     public float speed;
     public float firstAlteredSpeed;
@@ -45,6 +46,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     public bool poweredUp;
+    public bool muffin;
+    public bool coke;
 
     void Start()
     {
@@ -59,7 +62,8 @@ public class PlayerController : MonoBehaviour
             shots[i].SetActive(false);
         }
         poweredUp = false;
-
+        muffin = false;
+        coke = false;
         sounds = GetComponents<AudioSource>();
         shootingSound = sounds[0];
         pop = sounds[1];
@@ -124,9 +128,14 @@ public class PlayerController : MonoBehaviour
             Debug.Log(health);
             other.gameObject.SetActive(false);
         }
+        if(other.gameObject.tag == "Mega_Cupcake")
+        {
+            SceneManager.LoadScene("CutScene");
+        }
         if(other.gameObject.tag == "Coke")
         {
             poweredUp = true;
+            coke = true;
             powerUpDuration = other.gameObject.GetComponent<power_up>().powerUpDuration;
             powerUpDecreasePercentage = 1f / powerUpDuration;
        //     lastSpeed = speed;
@@ -136,6 +145,7 @@ public class PlayerController : MonoBehaviour
         else if(other.gameObject.tag == "Muffin")
         {
             poweredUp = true;
+            muffin = true;
             powerUpDuration = other.gameObject.GetComponent<power_up>().powerUpDuration;
             powerUpDecreasePercentage = 1f / powerUpDuration;
             damage += addedDamage;
@@ -157,7 +167,8 @@ public class PlayerController : MonoBehaviour
         damage = setDamage;
         speed = setSpeed;
         poweredUp = false;
-        Debug.Log("powerup finished");
+        muffin = false;
+        coke = false;
 
     }
 
@@ -174,6 +185,23 @@ public class PlayerController : MonoBehaviour
     //    speed = lastSpeed;
     //    poweredUp = false;
     //}
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "First_Song_Change")
+        {
+            gameController.GetComponent<GameController>().Source.Stop();
+            gameController.GetComponent<GameController>().Source.clip = gameController.GetComponent<GameController>().secondClip;
+            gameController.GetComponent<GameController>().Source.Play();
+        }
+        if (other.gameObject.name == "Second_Song_Change")
+        {
+            gameController.GetComponent<GameController>().Source.Stop();
+            gameController.GetComponent<GameController>().Source.clip = gameController.GetComponent<GameController>().thirdClip;
+            gameController.GetComponent<GameController>().Source.Play();
+        }
+        if (other.gameObject.name == "Boss Boundary")
+            SceneManager.LoadScene("Boss_Fight");
+    }
 }
 
 
