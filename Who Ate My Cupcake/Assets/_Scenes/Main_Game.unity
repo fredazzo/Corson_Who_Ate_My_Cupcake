@@ -972,12 +972,12 @@ PrefabInstance:
     - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
         type: 3}
       propertyPath: spawnX
-      value: 18
+      value: 21.03
       objectReference: {fileID: 0}
     - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
         type: 3}
       propertyPath: spawnWait
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
         type: 3}
@@ -1587,21 +1587,17 @@ PrefabInstance:
     - target: {fileID: 3809711127586602365, guid: e052c4086ce276949b86c83ffb39e52f,
         type: 3}
       propertyPath: m_LocalPosition.x
-
-      value: 3.6
-
+      value: 5.64
       objectReference: {fileID: 0}
     - target: {fileID: 3809711125698195110, guid: e052c4086ce276949b86c83ffb39e52f,
         type: 3}
       propertyPath: m_LocalPosition.x
-
-      value: -6.74
-
+      value: -10.92
       objectReference: {fileID: 0}
     - target: {fileID: 3809711126345972329, guid: e052c4086ce276949b86c83ffb39e52f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.08
+      value: 5.17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e052c4086ce276949b86c83ffb39e52f, type: 3}
@@ -1742,6 +1738,30 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 792393312}
+    - target: {fileID: 824025934, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064925560, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064925560, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563540703, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446587797, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921988363, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
 --- !u!1 &1138280538
