@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject gameController;
     public float setSpeed;
     public float speed;
     public float firstAlteredSpeed;
@@ -127,6 +128,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log(health);
             other.gameObject.SetActive(false);
         }
+        if(other.gameObject.tag == "Mega_Cupcake")
+        {
+            SceneManager.LoadScene("CutScene");
+        }
         if(other.gameObject.tag == "Coke")
         {
             poweredUp = true;
@@ -164,7 +169,6 @@ public class PlayerController : MonoBehaviour
         poweredUp = false;
         muffin = false;
         coke = false;
-        Debug.Log("powerup finished");
 
     }
 
@@ -181,6 +185,23 @@ public class PlayerController : MonoBehaviour
     //    speed = lastSpeed;
     //    poweredUp = false;
     //}
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name == "First_Song_Change")
+        {
+            gameController.GetComponent<GameController>().Source.Stop();
+            gameController.GetComponent<GameController>().Source.clip = gameController.GetComponent<GameController>().secondClip;
+            gameController.GetComponent<GameController>().Source.Play();
+        }
+        if (other.gameObject.name == "Second_Song_Change")
+        {
+            gameController.GetComponent<GameController>().Source.Stop();
+            gameController.GetComponent<GameController>().Source.clip = gameController.GetComponent<GameController>().thirdClip;
+            gameController.GetComponent<GameController>().Source.Play();
+        }
+        if (other.gameObject.name == "Boss Boundary")
+            SceneManager.LoadScene("Boss_Fight");
+    }
 }
 
 

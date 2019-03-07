@@ -9,6 +9,10 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameObject[] enemies;
     public GameObject[] powerUps;
+    public AudioSource Source;
+    public AudioClip firstClip;
+    public AudioClip secondClip;
+    public AudioClip thirdClip;
 
     public Text scoreText;
 
@@ -33,7 +37,7 @@ public class GameController : MonoBehaviour
     public float powerUpSpawnWait;
     private float powerUpTime = 0f;
 
-
+    private float musicTimer;
     //public float rateOfDeteriation;
     //public int decreasePercentage;
     //private float lastTime = 0f;   
@@ -50,13 +54,40 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-
+        Source = GetComponent<AudioSource>();
+        Source.clip = firstClip;
+        Source.Play();
     }
 
     private void Update()
     {
+        //musicTimer += Time.deltaTime;
         currentTime += Time.deltaTime;
         powerUpTime += Time.deltaTime;
+
+        //if(musicTimer > 60.0f)
+        //{
+
+        //        if (!isSecondPlaying)
+        //        {
+        //            Source.Stop();
+        //            Source.clip = secondClip;
+        //            Source.Play();
+        //            isSecondPlaying = true;
+        //        }
+
+        //}
+
+        //if(musicTimer > 120.0f)
+        //{
+        //    if (!isThirdPlaying)
+        //    {
+        //        Source.Stop();
+        //        Source.clip = thirdClip;
+        //        Source.Play();
+        //        isThirdPlaying = true;
+        //    }
+        //}
 
         if (currentTime > spawnWait)
             spawnEnemy();
@@ -65,22 +96,6 @@ public class GameController : MonoBehaviour
             spawnPowerUp();
         if (player.GetComponent<PlayerController>().health == 0)
             SceneManager.LoadScene("Death_Scene");
-        //Debug.Log(sa);
-
-        //Debug.Log(totalScore);
-        //lastTime += Time.deltaTime;
-        //if (lastTime > rateOfDeteriation)
-        //{
-        //    barPercentage -= decreasePercentage;
-        //    lastTime = 0f;
-        //}
-        //Debug.Log(barPercentage);
-
-        //if(barPercentage <= firstThreshold)
-        //{
-        //    player.GetComponent<PlayerController>().speed = player.GetComponent<PlayerController>().alteredSpeed;
-        //    player.GetComponent<PlayerController>().fireRate = player.GetComponent<PlayerController>().alteredFireRate;
-        //}
     }
 
     void spawnEnemy()
@@ -91,7 +106,7 @@ public class GameController : MonoBehaviour
             spawnPoint = new Vector2(spawnX, Random.Range(crummySpawnMin, crummySpawnMax));
             Instantiate(enemies[enemySelection], spawnPoint, Quaternion.identity);
         }
-        else if(enemySelection == 2 || enemySelection == 3)
+        else if (enemySelection == 2 || enemySelection == 3)
         {
             spawnPoint = new Vector2(spawnX, Random.Range(groundSpawnMin, groundSpawnMax));
             Instantiate(enemies[enemySelection], spawnPoint, Quaternion.identity);
@@ -114,51 +129,5 @@ public class GameController : MonoBehaviour
         }
         powerUpTime = 0;
     }
-    
-    //public void setTotalScore(int addedScore)
-    //{
-    //    sa += addedScore;
-    //}
 }
-
-
-//    private void Start()
-//    {
-//        for (int i = 0; i < enemies.Length; i++)
-//        {
-//            GameObject obj = (GameObject)Instantiate(enemy);
-//            enemies[i] = obj;
-//            obj.SetActive(false);
-//        }
-//        StartCoroutine( SpawnWaves());
-//    }
-
-//    IEnumerator SpawnWaves()
-//    {
-
-//        yield return new WaitForSeconds(startWait);
-
-//        while (true)
-//        {
-//            for (int j = 0; j < enemies.Length; j++)
-//            {
-
-//                for (int i = 0; i < enemies.Length; i++)
-//                {
-//                    Vector2 spawnPosition = new Vector2(spawnValueX, Random.Range(minSpawnY, maxSpawnY));
-//                    Quaternion spawnRotaion = Quaternion.identity;
-
-//                    if (enemies[i].activeInHierarchy == false)
-//                    {
-//                        enemies[i].transform.position = spawnPosition;
-//                        enemies[i].transform.rotation = spawnRotaion;
-//                        enemies[i].SetActive(true);
-//                    }
-//                    yield return new WaitForSeconds(spawnWait);
-
-//                }
-
-//            }
-//        }
-//    }
-//}
+    
