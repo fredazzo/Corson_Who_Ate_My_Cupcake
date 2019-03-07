@@ -1738,30 +1738,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 792393312}
-    - target: {fileID: 824025934, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1064925560, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1064925560, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
-      propertyPath: m_UpdateMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1563540703, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1446587797, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1921988363, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
 --- !u!1 &1138280538
