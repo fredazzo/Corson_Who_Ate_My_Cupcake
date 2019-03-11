@@ -14,6 +14,7 @@ TagManager:
   - Health
   - Bar Up
   - Mega_Cupcake
+  - Boss_Boundary
   layers:
   - Default
   - TransparentFX
