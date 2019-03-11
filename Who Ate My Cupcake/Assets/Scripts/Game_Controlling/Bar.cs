@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Bar : MonoBehaviour
 {
@@ -38,10 +39,13 @@ public class Bar : MonoBehaviour
             barPercentage = 1.0f;
         }
 
-        if(barPercentage < 0f)
+        if(barPercentage <= 0f)
         {
             barPercentage = 0f;
+            SceneManager.LoadScene("Death_Scene");
         }
+
+
     }
     //void CalculateTime()
     //{
