@@ -5,8 +5,8 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     Rigidbody2D body;
-    public GameObject bossShot;
     Animator animator;
+    public GameObject bossShot;
 
     public float bulletSpeedX;
     public float downsideBulletSpeedY;
@@ -38,8 +38,9 @@ public class Boss : MonoBehaviour
 
     private bool armAttack;
 
+    bool isShot;
+
     private float testTime;
-    bool triggered;
    
     void Start()
     {
@@ -50,48 +51,24 @@ public class Boss : MonoBehaviour
         arm.transform.position = transform.position + armStartPointFromBoss;
         armStartPoint = arm.transform.position;
         armStopPoint = transform.position + armStopPointFromBoss;
-        triggered = false;
     }
 
     
     void Update()
     {
         testTime += Time.deltaTime;
-        //if (testTime > 5f)
-        //{
-            //Cross Shot
-            {
-                //if (!triggered)
-                //{
-                //    animator.SetTrigger("Cone");
-                //    triggered = true;
-                //}
-                //if (animator.GetBool("is_Shot"))
-                //{
-                //    crossBullets();
-                //    testTime = 0f;
-                //    triggered = false;
-                //}
-            }
 
-            //Parallel Shot
-            {
-                //if (!triggered)
-                //{
-                //    animator.SetTrigger("Parallel");
-                //    triggered = true;
-                //}
-                //if (animator.GetBool("is_Shot"))
-                //{
-                //    StartCoroutine(parallelBullets());
-                //    testTime = 0f;
-                //    triggered = false;
-                //}
-            }
-
-            //Slap Skill
-            armSkill();
-        //}
+        if(testTime > 5f)
+        {
+            animator.SetTrigger("Cone_Started");
+            animator.SetTrigger("Cone_Shot");
+            testTime = 0f;
+        }
+        if(animator.GetBool("isShot") == true)
+        {
+            crossBullets();
+            animator.SetBool("isShot", false);
+        }
     }
     void crossBullets()
     {
@@ -109,8 +86,6 @@ public class Boss : MonoBehaviour
         GameObject thirdShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
         thirdShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         thirdShot.GetComponent<Boss_Projectile>().speedY = upsideBulletSpeedY;
-
-        animator.SetBool("is_Shot", false);
     }
 
     IEnumerator parallelBullets()
@@ -147,9 +122,8 @@ public class Boss : MonoBehaviour
         {
             armAttack = true;
             arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-5, 0);
-            if (arm.transform.position.x < armStartPoint.x)
+            if (arm.transform.position == armStartPoint)
             {
-                Debug.Log("sa");
                 arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
                 arm.SetActive(false);
             }
