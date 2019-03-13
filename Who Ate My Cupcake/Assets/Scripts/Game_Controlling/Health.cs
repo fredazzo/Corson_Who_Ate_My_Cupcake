@@ -42,37 +42,31 @@ public class Health : MonoBehaviour
         }
         if (healthPoints <= 4)
         {
-            anim5.Play("Balloon_Pop");
-            health5.enabled = false;
-         //  Debug.Log("health5 disabled");
+            anim5.SetTrigger("popped");
+
         }
         if (healthPoints <= 3)
         {
-            anim4.Play("Balloon_Pop");
-            health4.enabled = false;
+            anim4.SetTrigger("popped");
 
-            // Debug.Log("health4 disabled");
+
         }
         if (healthPoints <= 2)
         {
-            anim3.Play("Balloon_Pop");
-            health3.enabled = false;
+            anim3.SetTrigger("popped");
 
-            //  Debug.Log("health3 disabled");
+
         }
         if (healthPoints <= 1)
         {
-            anim2.Play("Balloon_Pop");
-            health2.enabled = false;
+            anim2.SetTrigger("popped");
 
-            //  Debug.Log("health2 disabled");
+
         }
         if (healthPoints <= 0)
         {
-            anim1.Play("Balloon_Pop");
-            health1.enabled = false;
+            anim1.SetTrigger("popped");
 
-            // Debug.Log("health1 disabled");
         }
     }
 }

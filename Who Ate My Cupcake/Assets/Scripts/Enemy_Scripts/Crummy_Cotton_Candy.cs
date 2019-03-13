@@ -12,6 +12,8 @@ public class Crummy_Cotton_Candy : Enemy
 
     void Start()
     {
+        Source = GetComponent<AudioSource>();
+        Source.clip = hitSound;
         scoreValue = 100;
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();

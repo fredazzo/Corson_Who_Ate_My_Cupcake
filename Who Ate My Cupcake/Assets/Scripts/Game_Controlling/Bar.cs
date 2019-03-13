@@ -10,7 +10,7 @@ public class Bar : MonoBehaviour
     public GameObject player;
     public GameObject exit;
 
-    private float decreasedPercentage;
+    public float decreasedPercentage;
     public float percentageDrop;
 
     public float barPercentage;
@@ -32,17 +32,6 @@ public class Bar : MonoBehaviour
         if (exit.GetComponent<Enemy_Exit_Indicator>().enemiesHit > 0)
         {
             bar.fillAmount = decreasedPercentage;
-        }
-
-        if (barPercentage > 1.0f)
-        {
-            barPercentage = 1.0f;
-        }
-
-        if(barPercentage <= 0f)
-        {
-            barPercentage = 0f;
-            SceneManager.LoadScene("Death_Scene");
         }
 
 

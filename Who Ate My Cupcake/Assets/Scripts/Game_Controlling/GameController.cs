@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
     public GameObject player;
     public GameObject[] enemies;
     public GameObject[] powerUps;
+    public GameObject funBar;
+
     public AudioSource Source;
     public AudioClip firstClip;
     public AudioClip secondClip;
@@ -37,20 +39,7 @@ public class GameController : MonoBehaviour
     public float powerUpSpawnWait;
     private float powerUpTime = 0f;
 
-    private float musicTimer;
-    //public float rateOfDeteriation;
-    //public int decreasePercentage;
-    //private float lastTime = 0f;   
-    //public int barPercentage;
-    //public int firstThreshold;
 
-    //public float startWait;
-
-    //public float spawnValueX;
-    //public float maxSpawnY;
-    //public float minSpawnY;
-
-    //private bool IsPLayerAlive;
 
     void Start()
     {
@@ -61,33 +50,8 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        //musicTimer += Time.deltaTime;
         currentTime += Time.deltaTime;
         powerUpTime += Time.deltaTime;
-
-        //if(musicTimer > 60.0f)
-        //{
-
-        //        if (!isSecondPlaying)
-        //        {
-        //            Source.Stop();
-        //            Source.clip = secondClip;
-        //            Source.Play();
-        //            isSecondPlaying = true;
-        //        }
-
-        //}
-
-        //if(musicTimer > 120.0f)
-        //{
-        //    if (!isThirdPlaying)
-        //    {
-        //        Source.Stop();
-        //        Source.clip = thirdClip;
-        //        Source.Play();
-        //        isThirdPlaying = true;
-        //    }
-        //}
 
         if (currentTime > spawnWait)
             spawnEnemy();
@@ -96,6 +60,11 @@ public class GameController : MonoBehaviour
             spawnPowerUp();
         if (player.GetComponent<PlayerController>().health == 0)
             SceneManager.LoadScene("Death_Scene");
+        if (funBar.GetComponent<Bar>().decreasedPercentage <= 0)
+        {
+            Debug.Log("bar depleted");
+            SceneManager.LoadScene("Death_Scene");
+        }
     }
 
     void spawnEnemy()

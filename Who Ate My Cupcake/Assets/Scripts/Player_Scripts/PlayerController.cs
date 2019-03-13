@@ -173,19 +173,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    //IEnumerator strengthReset()
-    //{
-    //    yield return new WaitForSeconds(strengthDuration);
-    //    damage = setDamage;
-    //    poweredUp = false;
-    //}
 
-    //IEnumerator speedReset()
-    //{
-    //    yield return new WaitForSeconds(speedUpDuration);
-    //    speed = lastSpeed;
-    //    poweredUp = false;
-    //}
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "First_Song_Change")

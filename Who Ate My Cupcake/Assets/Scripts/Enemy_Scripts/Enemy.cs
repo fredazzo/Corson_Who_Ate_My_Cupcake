@@ -8,8 +8,13 @@ public class Enemy : MonoBehaviour
     public float speedX;
     public float speedY;
     public int scoreValue;
+
+    public AudioSource Source;
+    public AudioClip hitSound;
+    public AudioClip deathSound;
     void Start()
     {
+
     }
 
     // Update is called once per frame
