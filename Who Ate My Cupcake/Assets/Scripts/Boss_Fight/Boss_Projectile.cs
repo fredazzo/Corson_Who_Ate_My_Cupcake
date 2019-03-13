@@ -20,4 +20,13 @@ public class Boss_Projectile : MonoBehaviour
         body.velocity = movement;
         //transform.Rotate(0, 0, speedY);
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            Debug.Log("sa");
+           Destroy(this.gameObject);
+        }
+    }
 }
