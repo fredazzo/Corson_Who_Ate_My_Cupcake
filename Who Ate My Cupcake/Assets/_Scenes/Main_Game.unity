@@ -983,7 +983,7 @@ PrefabInstance:
     - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
         type: 3}
       propertyPath: spawnWait
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
         type: 3}
@@ -1756,11 +1756,11 @@ PrefabInstance:
       objectReference: {fileID: 792393312}
     - target: {fileID: 824025934, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
       propertyPath: m_CullingMode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1064925560, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
       propertyPath: m_CullingMode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1064925560, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
       propertyPath: m_UpdateMode
@@ -1768,15 +1768,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1563540703, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
       propertyPath: m_CullingMode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1446587797, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
       propertyPath: m_CullingMode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1921988363, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
       propertyPath: m_CullingMode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 135691523, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
       propertyPath: m_Sprite
@@ -3025,6 +3025,10 @@ PrefabInstance:
     - target: {fileID: 1777766119, guid: 8b7803c3e7b14254996fb0bce09ca31d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777766120, guid: 8b7803c3e7b14254996fb0bce09ca31d, type: 3}
+      propertyPath: speed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1799624261, guid: 8b7803c3e7b14254996fb0bce09ca31d, type: 3}
       propertyPath: m_LocalScale.y
