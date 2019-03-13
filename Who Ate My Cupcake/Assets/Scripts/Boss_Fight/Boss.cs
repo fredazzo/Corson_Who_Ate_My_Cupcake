@@ -149,12 +149,15 @@ public class Boss : MonoBehaviour
         randomNumber = false;
     }
 
+    /*
     void hammerSkill()
     {
         hammer.SetActive(true);
         hammer.transform.RotateAround(rotationPoint, Vector3.forward, rotationAngle);
     }
+    */
 
+        /*
     void armSkill()
     {
         arm.SetActive(true);
@@ -171,4 +174,5 @@ public class Boss : MonoBehaviour
             }
         }
     }
+    */
 }
