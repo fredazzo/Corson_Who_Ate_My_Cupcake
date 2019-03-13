@@ -18,7 +18,8 @@ public class Boss : MonoBehaviour
 
     public Vector2 thirdBulletSpawn;
 
-    public float bulletTimer;
+    public float firstBulletTimer;
+    public float secondBulletTimer;
     public float bulletTime;
 
     GameObject hammer;
@@ -40,7 +41,14 @@ public class Boss : MonoBehaviour
 
     bool isShot;
 
-    private float testTime;
+    public float shotSpawnTime;
+    private float time;
+    private int randomAttack;
+    private bool randomNumber;
+
+    private bool coneShot;
+    private bool parallelShot;
+
    
     void Start()
     {
@@ -51,23 +59,50 @@ public class Boss : MonoBehaviour
         arm.transform.position = transform.position + armStartPointFromBoss;
         armStartPoint = arm.transform.position;
         armStopPoint = transform.position + armStopPointFromBoss;
+        coneShot = false;
+        parallelShot = false;
     }
 
     
     void Update()
     {
-        testTime += Time.deltaTime;
+        time += Time.deltaTime;
 
-        if(testTime > 5f)
+        if(time > shotSpawnTime)
         {
-            animator.SetTrigger("Cone_Started");
-            animator.SetTrigger("Cone_Shot");
-            testTime = 0f;
-        }
-        if(animator.GetBool("isShot") == true)
-        {
-            crossBullets();
-            animator.SetBool("isShot", false);
+            if(!randomNumber)
+            {
+                randomAttack = Random.Range(1, 3);
+                randomNumber = true;
+            }
+            if (randomAttack == 1)
+            {
+                if (!coneShot)
+                {
+                    animator.SetTrigger("Cone_Started");
+                    coneShot = true;
+                }
+
+                if (animator.GetBool("isShot") == true)
+                {
+                    crossBullets();
+                    animator.SetBool("isShot", false);
+                }
+            }
+            else if (randomAttack == 2)
+            {
+                if (!parallelShot)
+                {
+                    animator.SetTrigger("Parallel_Started");
+                    parallelShot = true;
+                }
+
+                if (animator.GetBool("isShot") == true)
+                {
+                    StartCoroutine(parallelBullets());
+                    animator.SetBool("isShot", false);
+                }
+            }
         }
     }
     void crossBullets()
@@ -86,6 +121,10 @@ public class Boss : MonoBehaviour
         GameObject thirdShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
         thirdShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         thirdShot.GetComponent<Boss_Projectile>().speedY = upsideBulletSpeedY;
+
+        time = 0f;
+        coneShot = false;
+        randomNumber = false;
     }
 
     IEnumerator parallelBullets()
@@ -94,17 +133,20 @@ public class Boss : MonoBehaviour
         firstShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         firstShot.GetComponent<Boss_Projectile>().speedY = 0;
 
-        yield return new WaitForSeconds(bulletTimer);
+        yield return new WaitForSeconds(firstBulletTimer);
 
         GameObject secondShot = Instantiate(bossShot, secondBulletSpawn, Quaternion.identity);
         secondShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         secondShot.GetComponent<Boss_Projectile>().speedY = 0;
 
-        yield return new WaitForSeconds(bulletTimer);
+        yield return new WaitForSeconds(secondBulletTimer);
 
         GameObject thirdShot = Instantiate(bossShot, thirdBulletSpawn, Quaternion.identity);
         thirdShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         thirdShot.GetComponent<Boss_Projectile>().speedY = 0;
+        time = 0f;
+        parallelShot = false;
+        randomNumber = false;
     }
 
     void hammerSkill()
