@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 1
-  speedX: -3
-  speedY: -5
+  speedX: -4
+  speedY: -6
   scoreValue: 0
   background: {fileID: 7758213982778834090, guid: fc2a83d8c27aa5f43b7515a5366da8e3,
     type: 3}

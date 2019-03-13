@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
     public GameObject bar;
 
      public AudioSource[] sounds;
- private AudioSource shootingSound;
- private AudioSource pop;
+    private AudioSource shootingSound;
+    private AudioSource pop;
 
 
 
@@ -132,7 +132,8 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("CutScene");
         }
-        if(other.gameObject.tag == "Coke")
+
+        if (other.gameObject.tag == "Coke")
         {
             poweredUp = true;
             coke = true;
@@ -199,7 +200,7 @@ public class PlayerController : MonoBehaviour
             gameController.GetComponent<GameController>().Source.clip = gameController.GetComponent<GameController>().thirdClip;
             gameController.GetComponent<GameController>().Source.Play();
         }
-        if (other.gameObject.name == "Boss Boundary")
+        if (other.gameObject.tag == "Boss_Boundary")
             SceneManager.LoadScene("Boss_Fight");
     }
 }
