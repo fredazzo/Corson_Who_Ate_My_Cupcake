@@ -34,16 +34,6 @@ public class Bar : MonoBehaviour
             bar.fillAmount = decreasedPercentage;
         }
 
-        if (decreasedPercentage > 1.0f)
-        {
-            decreasedPercentage = 1.0f;
-        }
-
-        //if (decreasedPercentage <= 0.0f)
-        //{
-        //    decreasedPercentage = 0.0f;
-        //}
-
 
     }
     //void CalculateTime()
