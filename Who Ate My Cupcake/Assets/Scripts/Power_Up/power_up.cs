@@ -28,5 +28,7 @@ public class power_up : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
             Destroy(this.gameObject);
+        if (other.gameObject.name == "exit")
+            Destroy(this.gameObject);
     }
 }

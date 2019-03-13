@@ -141,8 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e75b5a9dc927f347b53c3cc1109e5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 7758213982778834090, guid: fc2a83d8c27aa5f43b7515a5366da8e3,
-    type: 3}
+  background: {fileID: 1777766118, guid: 8b7803c3e7b14254996fb0bce09ca31d, type: 3}
   speedY: -3
   powerUpDuration: 5
   barIncrease: 0
