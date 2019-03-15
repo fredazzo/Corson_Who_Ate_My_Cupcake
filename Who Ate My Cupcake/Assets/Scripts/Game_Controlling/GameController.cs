@@ -60,11 +60,9 @@ public class GameController : MonoBehaviour
             spawnPowerUp();
         if (player.GetComponent<PlayerController>().health == 0)
             SceneManager.LoadScene("Death_Scene");
-        if (funBar.GetComponent<Bar>().decreasedPercentage <= 0)
-        {
-            Debug.Log("bar depleted");
-            SceneManager.LoadScene("Death_Scene");
-        }
+        //if (funBar.GetComponent<Bar>().decreasedPercentage <= 0f)
+        //    player.GetComponent<PlayerController>().health = 0;
+        //Debug.Log(funBar.GetComponent<Bar>().decreasedPercentage);
     }
 
     void spawnEnemy()
