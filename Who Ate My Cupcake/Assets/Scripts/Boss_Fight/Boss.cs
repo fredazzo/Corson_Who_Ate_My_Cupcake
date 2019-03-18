@@ -49,7 +49,10 @@ public class Boss : MonoBehaviour
     private bool coneShot;
     private bool parallelShot;
 
-   
+    public AudioSource source;
+    public AudioClip crossShotSound;
+    public AudioClip parallelShotSound;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -61,6 +64,9 @@ public class Boss : MonoBehaviour
         armStopPoint = transform.position + armStopPointFromBoss;
         coneShot = false;
         parallelShot = false;
+
+        source = GetComponent<AudioSource>();
+
     }
 
     
@@ -107,6 +113,7 @@ public class Boss : MonoBehaviour
     }
     void crossBullets()
     {
+       
         Angle = Vector2.Angle(new Vector3(-1, 0, 0), new Vector3(bulletSpeedX, 0, 0));
         GameObject firstShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
         firstShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
@@ -122,6 +129,8 @@ public class Boss : MonoBehaviour
         thirdShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         thirdShot.GetComponent<Boss_Projectile>().speedY = upsideBulletSpeedY;
 
+        source.clip = crossShotSound;
+        source.Play();
         time = 0f;
         coneShot = false;
         randomNumber = false;
@@ -129,9 +138,13 @@ public class Boss : MonoBehaviour
 
     IEnumerator parallelBullets()
     {
+        source.clip = parallelShotSound;
+
         GameObject firstShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.identity);
         firstShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         firstShot.GetComponent<Boss_Projectile>().speedY = 0;
+
+        source.Play();
 
         yield return new WaitForSeconds(firstBulletTimer);
 
@@ -139,11 +152,16 @@ public class Boss : MonoBehaviour
         secondShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         secondShot.GetComponent<Boss_Projectile>().speedY = 0;
 
+        source.Play();
+
         yield return new WaitForSeconds(secondBulletTimer);
 
         GameObject thirdShot = Instantiate(bossShot, thirdBulletSpawn, Quaternion.identity);
         thirdShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         thirdShot.GetComponent<Boss_Projectile>().speedY = 0;
+
+        source.Play();
+
         time = 0f;
         parallelShot = false;
         randomNumber = false;
