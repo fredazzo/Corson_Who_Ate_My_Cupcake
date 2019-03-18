@@ -119,7 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4151cf5206d1bbd43b5a5fd970567fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setSpeed: 10
+  gameController: {fileID: 0}
+  setSpeed: 12
   speed: 0
   firstAlteredSpeed: 8
   secondAlteredSpeed: 6
@@ -137,23 +138,18 @@ MonoBehaviour:
   shots:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   anim: {fileID: 5043213688180906780}
+  bar: {fileID: 0}
   sounds:
   - {fileID: 2834342667761066238}
   - {fileID: 6248249468485447827}
-  fireRate: 0.2
+  fireRate: 0.4
   firstAlteredFireRate: 0.3
   secondAlteredFireRate: 0.4
   thirdAlteredFireRate: 0.5
   poweredUp: 0
+  muffin: 0
+  coke: 0
 --- !u!70 &4038151586747094612
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -190,7 +186,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.8681184
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -286,7 +282,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.4507445
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
