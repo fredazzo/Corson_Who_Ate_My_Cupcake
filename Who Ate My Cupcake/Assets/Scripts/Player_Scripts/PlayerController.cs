@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     public bool poweredUp;
-    public bool muffin;
+    public bool cookie;
     public bool coke;
 
     void Start()
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
             shots[i].SetActive(false);
         }
         poweredUp = false;
-        muffin = false;
+        cookie = false;
         coke = false;
         source = GetComponent<AudioSource>();
     }
@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
         else if(other.gameObject.tag == "Muffin")
         {
             poweredUp = true;
-            muffin = true;
+            cookie = true;
             powerUpDuration = other.gameObject.GetComponent<power_up>().powerUpDuration;
             powerUpDecreasePercentage = 1f / powerUpDuration;
             damage += addedDamage;
@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour
         damage = setDamage;
         speed = setSpeed;
         poweredUp = false;
-        muffin = false;
+        cookie = false;
         coke = false;
 
     }
