@@ -23,9 +23,8 @@ public class Boss_Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" || other.gameObject.tag == "Bound" || other.gameObject.tag == "Arm")
         {
-            Debug.Log("sa");
            Destroy(this.gameObject);
         }
     }
