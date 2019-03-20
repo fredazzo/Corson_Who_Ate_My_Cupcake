@@ -9,7 +9,6 @@ public class Bar : MonoBehaviour
     public GameObject player;
     public GameObject exit;
 
-    public float decreasedPercentage;
     public float percentageDrop;
 
     public float barPercentage;
