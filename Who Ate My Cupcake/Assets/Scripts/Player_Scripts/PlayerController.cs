@@ -124,13 +124,20 @@ public class PlayerController : MonoBehaviour
     // Checks collision between player and enemies
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss_Shot")
         {
             health--;
             source.clip = pop;
             source.Play();
             Debug.Log(health);
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
+        }
+        if(other.gameObject.GetComponent<CircleCollider2D>())
+        {
+            health--;
+            source.clip = pop;
+            source.Play();
+            other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
         }
         if(other.gameObject.tag == "Mega_Cupcake")
         {

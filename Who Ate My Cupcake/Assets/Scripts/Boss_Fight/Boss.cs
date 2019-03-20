@@ -7,6 +7,7 @@ public class Boss : MonoBehaviour
     Rigidbody2D body;
     Animator animator;
     public GameObject bossShot;
+    public GameObject player;
 
     public float bulletSpeedX;
     public float downsideBulletSpeedY;
@@ -41,7 +42,7 @@ public class Boss : MonoBehaviour
 
     bool isShot;
 
-    public float shotSpawnTime;
+    public float attackSpawnTime;
     private float time;
     private int randomAttack;
     private bool randomNumber;
@@ -57,28 +58,23 @@ public class Boss : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        hammer = transform.Find("Hammer").gameObject;
         arm = transform.Find("Arm").gameObject;
         arm.transform.position = transform.position + armStartPointFromBoss;
         armStartPoint = arm.transform.position;
         armStopPoint = transform.position + armStopPointFromBoss;
         coneShot = false;
         parallelShot = false;
-
         source = GetComponent<AudioSource>();
-
     }
-
     
     void Update()
     {
         time += Time.deltaTime;
-
-        if(time > shotSpawnTime)
+        if (time > attackSpawnTime)
         {
-            if(!randomNumber)
+            if (!randomNumber)
             {
-                randomAttack = Random.Range(1, 3);
+                randomAttack = Random.Range(1, 4);
                 randomNumber = true;
             }
             if (randomAttack == 1)
@@ -108,6 +104,10 @@ public class Boss : MonoBehaviour
                     StartCoroutine(parallelBullets());
                     animator.SetBool("isShot", false);
                 }
+            }
+            else if (randomAttack == 3)
+            {
+                armSkill();
             }
         }
     }
@@ -175,22 +175,23 @@ public class Boss : MonoBehaviour
     }
     */
 
-        /*
     void armSkill()
     {
-        arm.SetActive(true);
         if (!armAttack)
-            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
-        if (arm.transform.position.x > armStopPoint.x)
         {
+            arm.transform.position = new Vector3(arm.transform.position.x, player.transform.position.y, 0);
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(20, 0);  
             armAttack = true;
-            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-5, 0);
-            if (arm.transform.position == armStartPoint)
-            {
-                arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-                arm.SetActive(false);
-            }
+        }       
+        if (arm.transform.position.x > armStopPoint.x)
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+        else if (arm.transform.position.x < armStartPoint.x)
+        {
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            arm.transform.position = new Vector3(arm.transform.position.x + 1, player.transform.position.y, 0);
+            randomNumber = false;
+            armAttack = false;
+            time = 0f;
         }
     }
-    */
 }
