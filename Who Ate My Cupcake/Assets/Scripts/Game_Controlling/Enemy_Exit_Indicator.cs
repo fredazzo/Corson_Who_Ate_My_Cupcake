@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy_Exit_Indicator : MonoBehaviour
 {
-    //public int enemiesHit;
     public GameObject bar;
     // Start is called before the first frame update
     void Start()
@@ -19,10 +18,9 @@ public class Enemy_Exit_Indicator : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //if(other.gameObject.tag == "Enemy")
-        //{
-        //    enemiesHit += 1;
-        //}
-        bar.GetComponent<Bar>().barPercentage -= bar.GetComponent<Bar>().percentageDrop;
+        if(other.gameObject.tag == "Enemy")
+        {
+            bar.GetComponent<Bar>().barPercentage -= bar.GetComponent<Bar>().percentageDrop;
+        }
     }
 }
