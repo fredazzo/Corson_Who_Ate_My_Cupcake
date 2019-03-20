@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3809711125698195110}
   - component: {fileID: 3809711125698195109}
   - component: {fileID: 2478644746606389579}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: exit
   m_TagString: Bound
   m_Icon: {fileID: 0}
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a21656c10619b4a981ed6beae8f759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bar: {fileID: 0}
 --- !u!1 &3809711126345972330
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3809711126345972329}
   - component: {fileID: 3809711126345972328}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: bound
   m_TagString: Bound
   m_Icon: {fileID: 0}
@@ -138,7 +139,7 @@ GameObject:
   - component: {fileID: 3809711126650114695}
   m_Layer: 0
   m_Name: Bounds
-  m_TagString: Untagged
+  m_TagString: Bound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 3809711126650114688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.04, z: 0}
-  m_LocalScale: {x: 2.95, y: 2.1, z: 1}
+  m_LocalScale: {x: 2.57, y: 2.55, z: 1}
   m_Children:
   - {fileID: 3809711127586602365}
   - {fileID: 3809711125698195110}
@@ -171,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3809711127566797987}
   - component: {fileID: 3809711127566797986}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: ground
   m_TagString: Bound
   m_Icon: {fileID: 0}
