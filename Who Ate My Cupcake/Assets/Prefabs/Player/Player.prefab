@@ -142,12 +142,14 @@ MonoBehaviour:
   source: {fileID: 2834342667761066238}
   shootingSound: {fileID: 8300000, guid: d2000cb1e70b5f54487826829703b24b, type: 3}
   pop: {fileID: 8300000, guid: 38bfb6d37ac7af846bc8bf60b828a153, type: 3}
+  CokeSound: {fileID: 8300000, guid: 051cfabb120aa2248996d71226e2a18a, type: 3}
+  CookieSound: {fileID: 8300000, guid: dd55664eeb19702459bab21f1d799b52, type: 3}
   fireRate: 0.4
   firstAlteredFireRate: 0.3
   secondAlteredFireRate: 0.4
   thirdAlteredFireRate: 0.5
   poweredUp: 0
-  muffin: 0
+  cookie: 0
   coke: 0
 --- !u!70 &4038151586747094612
 CapsuleCollider2D:
