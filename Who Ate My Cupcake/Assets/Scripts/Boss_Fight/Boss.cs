@@ -39,7 +39,6 @@ public class Boss : MonoBehaviour
     public float healthPoints;
 
     private bool armAttack;
-    private bool armPositionSet;
 
     bool isShot;
 
@@ -190,7 +189,6 @@ public class Boss : MonoBehaviour
         {
             arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             arm.transform.position = new Vector3(arm.transform.position.x + 1, player.transform.position.y, 0);
-            armPositionSet = false;
             randomNumber = false;
             armAttack = false;
             time = 0f;
