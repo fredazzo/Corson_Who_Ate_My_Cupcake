@@ -30,9 +30,9 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public GameObject bar;
 
-     public AudioSource[] sounds;
-    private AudioSource shootingSound;
-    private AudioSource pop;
+     public AudioSource source;
+    public AudioClip shootingSound;
+    public AudioClip pop;
 
 
 
@@ -64,9 +64,7 @@ public class PlayerController : MonoBehaviour
         poweredUp = false;
         muffin = false;
         coke = false;
-        sounds = GetComponents<AudioSource>();
-        shootingSound = sounds[0];
-        pop = sounds[1];
+        source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -84,7 +82,8 @@ public class PlayerController : MonoBehaviour
                     shots[i].GetComponent<ShotMover>().damage = damage;
                     shots[i].SetActive(true);
                     anim.SetTrigger("hasShot");
-                    sounds[0].Play();
+                    source.clip = shootingSound;
+                    source.Play();
                     break;
                 }
             }
@@ -124,7 +123,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             health--;
-            sounds[1].Play();
+            source.clip = pop;
+            source.Play();
             Debug.Log(health);
             other.gameObject.SetActive(false);
         }
@@ -156,9 +156,9 @@ public class PlayerController : MonoBehaviour
         {
             health += 1;
         }
-        else if(other.gameObject.tag == "Bar Up")
+        else if (other.gameObject.tag == "Bar Up")
         {
-            bar.GetComponent<Bar>().barPercentage += other.gameObject.GetComponent<power_up>().barIncrease;
+            bar.GetComponent<Bar>().decreasedPercentage += other.gameObject.GetComponent<power_up>().barIncrease;
         }
     }
 
