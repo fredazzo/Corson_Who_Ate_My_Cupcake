@@ -25,9 +25,6 @@ public class Bar : MonoBehaviour
     void Update()
     {
 
-       // decreasedPercentage = barPercentage - (percentageDrop * exit.GetComponent<Enemy_Exit_Indicator>().enemiesHit);
-
-
         bar.fillAmount = barPercentage;
     }
     //void CalculateTime()

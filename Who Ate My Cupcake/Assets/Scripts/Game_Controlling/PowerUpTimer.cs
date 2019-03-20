@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class PowerUpTimer : MonoBehaviour
 {
-    Image bar;
     public GameObject player;
     public Image coke;
-    public Image muffin;
+    public Image cookie;
 
     public float barPercentage;
     private float rateOfDeteriation;
@@ -21,12 +20,10 @@ public class PowerUpTimer : MonoBehaviour
     void Start()
     {
         barPercentage = 1f;
-        bar = GetComponent<Image>();
         rateOfDeteriation = 1f;
-        bar.enabled = false;
-        muffin.enabled = false;
         coke.enabled = false;
-
+        cookie.enabled = false;
+        
     }
 
     // Update is called once per frame
@@ -35,31 +32,39 @@ public class PowerUpTimer : MonoBehaviour
 
         if (player.GetComponent<PlayerController>().poweredUp)
         {
-            bar.enabled = true;
             decreasePercentage = player.GetComponent<PlayerController>().powerUpDecreasePercentage;
-            if(player.GetComponent<PlayerController>().muffin == true)
+            if(player.GetComponent<PlayerController>().cookie == true)
             {
-                muffin.enabled = true;
+                cookie.enabled = true;
+                lastTime += Time.deltaTime;
+                if (lastTime > rateOfDeteriation)
+                {
+                    barPercentage -= decreasePercentage;
+                    cookie.fillAmount = barPercentage;
+
+                    lastTime = 0f;
+                }
+
             }
             if (player.GetComponent<PlayerController>().coke == true)
             {
                 coke.enabled = true;
+                lastTime += Time.deltaTime;
+                if (lastTime > rateOfDeteriation)
+                {
+                    barPercentage -= decreasePercentage;
+                    coke.fillAmount = barPercentage;
+
+                    lastTime = 0f;
+                }
             }
 
-            lastTime += Time.deltaTime;
-            if (lastTime > rateOfDeteriation)
-            {
-                barPercentage -= decreasePercentage;
-                bar.fillAmount = barPercentage;
 
-                lastTime = 0f;
-            }
 
         }
         else
         {
-            bar.enabled = false;
-            muffin.enabled = false;
+            cookie.enabled = false;
             coke.enabled = false;
             barPercentage = 1f;
             lastTime = 0f;
