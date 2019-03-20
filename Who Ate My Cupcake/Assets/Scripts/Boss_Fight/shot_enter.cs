@@ -18,7 +18,6 @@ public class shot_enter : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("sa");
         animator.SetBool("isShot", true);
     }
 

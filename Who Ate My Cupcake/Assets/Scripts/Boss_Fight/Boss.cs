@@ -65,52 +65,52 @@ public class Boss : MonoBehaviour
         armStopPoint = transform.position + armStopPointFromBoss;
         coneShot = false;
         parallelShot = false;
-
         source = GetComponent<AudioSource>();
-
     }
-
     
     void Update()
     {
         time += Time.deltaTime;
-        armSkill();
-        //if (time > shotSpawnTime)
-        //{
-        //    if (!randomNumber)
-        //    {
-        //        randomAttack = Random.Range(1, 3);
-        //        randomNumber = true;
-        //    }
-        //    if (randomAttack == 1)
-        //    {
-        //        if (!coneShot)
-        //        {
-        //            animator.SetTrigger("Cone_Started");
-        //            coneShot = true;
-        //        }
+        if (time > shotSpawnTime)
+        {
+            if (!randomNumber)
+            {
+                randomAttack = Random.Range(1, 4);
+                randomNumber = true;
+            }
+            if (randomAttack == 1)
+            {
+                if (!coneShot)
+                {
+                    animator.SetTrigger("Cone_Started");
+                    coneShot = true;
+                }
 
-        //        if (animator.GetBool("isShot") == true)
-        //        {
-        //            crossBullets();
-        //            animator.SetBool("isShot", false);
-        //        }
-        //    }
-        //    else if (randomAttack == 2)
-        //    {
-        //        if (!parallelShot)
-        //        {
-        //            animator.SetTrigger("Parallel_Started");
-        //            parallelShot = true;
-        //        }
+                if (animator.GetBool("isShot") == true)
+                {
+                    crossBullets();
+                    animator.SetBool("isShot", false);
+                }
+            }
+            else if (randomAttack == 2)
+            {
+                if (!parallelShot)
+                {
+                    animator.SetTrigger("Parallel_Started");
+                    parallelShot = true;
+                }
 
-        //        if (animator.GetBool("isShot") == true)
-        //        {
-        //            StartCoroutine(parallelBullets());
-        //            animator.SetBool("isShot", false);
-        //        }
-        //    }
-        //}
+                if (animator.GetBool("isShot") == true)
+                {
+                    StartCoroutine(parallelBullets());
+                    animator.SetBool("isShot", false);
+                }
+            }
+            else if (randomAttack == 3)
+            {
+                armSkill();
+            }
+        }
     }
     void crossBullets()
     {
@@ -178,25 +178,22 @@ public class Boss : MonoBehaviour
 
     void armSkill()
     {
-        if(!armPositionSet)
+        if (!armAttack)
         {
             arm.transform.position = new Vector3(arm.transform.position.x, player.transform.position.y, 0);
-            armPositionSet = true;
-        }
-            
-        arm.SetActive(true);
-        if (!armAttack)
-            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(20, 0);
-        if (arm.transform.position.x > armStopPoint.x)
-        {
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(20, 0);  
             armAttack = true;
+        }       
+        if (arm.transform.position.x > armStopPoint.x)
             arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
-        }
-        if (arm.transform.position.x < armStartPoint.x)
+        else if (arm.transform.position.x < armStartPoint.x)
         {
             arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            arm.SetActive(false);
+            arm.transform.position = new Vector3(arm.transform.position.x + 1, player.transform.position.y, 0);
             armPositionSet = false;
+            randomNumber = false;
+            armAttack = false;
+            time = 0f;
         }
     }
 }
