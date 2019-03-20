@@ -3,7 +3,11 @@ guid: 1e75b5a9dc927f347b53c3cc1109e5ac
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - background: {instanceID: 0}
+  - source: {instanceID: 0}
+  - CokeSound: {instanceID: 0}
+  - CookieSound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
