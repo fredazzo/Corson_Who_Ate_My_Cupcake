@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.tag == "Bar Up")
         {
-            bar.GetComponent<Bar>().decreasedPercentage += other.gameObject.GetComponent<power_up>().barIncrease;
+            bar.GetComponent<Bar>().barPercentage += other.gameObject.GetComponent<power_up>().barIncrease;
         }
     }
 
