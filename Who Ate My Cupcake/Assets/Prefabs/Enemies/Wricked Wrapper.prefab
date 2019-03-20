@@ -167,8 +167,8 @@ MonoBehaviour:
   speedY: 0
   scoreValue: 0
   Source: {fileID: 7128827138014636298}
-  hitSound: {fileID: 8300000, guid: 814605d1e71e94c4f93926fb3b68564e, type: 3}
-  deathSound: {fileID: 8300000, guid: 2247e6737e119824e979f468901610f8, type: 3}
+  hitSound: {fileID: 8300000, guid: 93062e4882eaa034ca90d670b51d9c74, type: 3}
+  deathSound: {fileID: 0}
 --- !u!82 &7128827138014636298
 AudioSource:
   m_ObjectHideFlags: 0

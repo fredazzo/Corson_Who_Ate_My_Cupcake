@@ -33,6 +33,10 @@ public class PlayerController : MonoBehaviour
      public AudioSource source;
     public AudioClip shootingSound;
     public AudioClip pop;
+    public AudioSource PowerUpsource;
+    public AudioClip CokeSound;
+    public AudioClip CookieSound;
+   
 
 
 
@@ -135,6 +139,10 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "Coke")
         {
+            PowerUpsource.clip = CokeSound;
+            PowerUpsource.Play();
+
+       
             poweredUp = true;
             coke = true;
             powerUpDuration = other.gameObject.GetComponent<power_up>().powerUpDuration;
@@ -145,6 +153,9 @@ public class PlayerController : MonoBehaviour
         }
         else if(other.gameObject.tag == "Muffin")
         {
+            PowerUpsource.clip = CookieSound;
+            PowerUpsource.Play();
+
             poweredUp = true;
             cookie = true;
             powerUpDuration = other.gameObject.GetComponent<power_up>().powerUpDuration;
