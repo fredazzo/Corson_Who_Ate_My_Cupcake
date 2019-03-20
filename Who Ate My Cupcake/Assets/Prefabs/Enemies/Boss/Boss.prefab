@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2289175646980714358}
   - component: {fileID: 2289175646980714359}
   - component: {fileID: 2289175646980714347}
-  - component: {fileID: 2289175646980714356}
   - component: {fileID: 2289175646980714357}
   - component: {fileID: 1333894251}
   - component: {fileID: 57551104}
@@ -98,7 +97,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.11400604}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,29 +108,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.43, y: 6.24}
+  m_Size: {x: 4.43, y: 16.997696}
   m_EdgeRadius: 0
---- !u!50 &2289175646980714356
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2289175646980714352}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!114 &2289175646980714357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +139,7 @@ MonoBehaviour:
   armStartPointFromBoss: {x: -35, y: 0, z: 0}
   armStopPointFromBoss: {x: -10, y: 0, z: 0}
   healthPoints: 50
-  shotSpawnTime: 5
+  attackSpawnTime: 0
   source: {fileID: 57551104}
   crossShotSound: {fileID: 8300000, guid: dadb2936c7d77c64da61bb479139feea, type: 3}
   parallelShotSound: {fileID: 8300000, guid: 5fde27abfaee6a949825a92b1d234893, type: 3}
