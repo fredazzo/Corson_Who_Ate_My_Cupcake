@@ -43,7 +43,7 @@ public class Boss : MonoBehaviour
 
     bool isShot;
 
-    public float shotSpawnTime;
+    public float attackSpawnTime;
     private float time;
     private int randomAttack;
     private bool randomNumber;
@@ -71,7 +71,7 @@ public class Boss : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (time > shotSpawnTime)
+        if (time > attackSpawnTime)
         {
             if (!randomNumber)
             {
