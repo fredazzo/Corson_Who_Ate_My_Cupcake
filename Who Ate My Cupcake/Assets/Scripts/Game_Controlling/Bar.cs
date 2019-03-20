@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Bar : MonoBehaviour
 {
@@ -27,14 +26,10 @@ public class Bar : MonoBehaviour
     void Update()
     {
 
-        decreasedPercentage = barPercentage - (percentageDrop * exit.GetComponent<Enemy_Exit_Indicator>().enemiesHit);
-
-        if (exit.GetComponent<Enemy_Exit_Indicator>().enemiesHit > 0)
-        {
-            bar.fillAmount = decreasedPercentage;
-        }
+       // decreasedPercentage = barPercentage - (percentageDrop * exit.GetComponent<Enemy_Exit_Indicator>().enemiesHit);
 
 
+        bar.fillAmount = barPercentage;
     }
     //void CalculateTime()
     //{
