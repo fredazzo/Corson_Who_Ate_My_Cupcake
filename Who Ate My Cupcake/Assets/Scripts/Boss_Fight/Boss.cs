@@ -7,6 +7,7 @@ public class Boss : MonoBehaviour
     Rigidbody2D body;
     Animator animator;
     public GameObject bossShot;
+    public GameObject player;
 
     public float bulletSpeedX;
     public float downsideBulletSpeedY;
@@ -38,6 +39,7 @@ public class Boss : MonoBehaviour
     public float healthPoints;
 
     private bool armAttack;
+    private bool armPositionSet;
 
     bool isShot;
 
@@ -57,7 +59,6 @@ public class Boss : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        hammer = transform.Find("Hammer").gameObject;
         arm = transform.Find("Arm").gameObject;
         arm.transform.position = transform.position + armStartPointFromBoss;
         armStartPoint = arm.transform.position;
@@ -73,43 +74,43 @@ public class Boss : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
+        armSkill();
+        //if (time > shotSpawnTime)
+        //{
+        //    if (!randomNumber)
+        //    {
+        //        randomAttack = Random.Range(1, 3);
+        //        randomNumber = true;
+        //    }
+        //    if (randomAttack == 1)
+        //    {
+        //        if (!coneShot)
+        //        {
+        //            animator.SetTrigger("Cone_Started");
+        //            coneShot = true;
+        //        }
 
-        if(time > shotSpawnTime)
-        {
-            if(!randomNumber)
-            {
-                randomAttack = Random.Range(1, 3);
-                randomNumber = true;
-            }
-            if (randomAttack == 1)
-            {
-                if (!coneShot)
-                {
-                    animator.SetTrigger("Cone_Started");
-                    coneShot = true;
-                }
+        //        if (animator.GetBool("isShot") == true)
+        //        {
+        //            crossBullets();
+        //            animator.SetBool("isShot", false);
+        //        }
+        //    }
+        //    else if (randomAttack == 2)
+        //    {
+        //        if (!parallelShot)
+        //        {
+        //            animator.SetTrigger("Parallel_Started");
+        //            parallelShot = true;
+        //        }
 
-                if (animator.GetBool("isShot") == true)
-                {
-                    crossBullets();
-                    animator.SetBool("isShot", false);
-                }
-            }
-            else if (randomAttack == 2)
-            {
-                if (!parallelShot)
-                {
-                    animator.SetTrigger("Parallel_Started");
-                    parallelShot = true;
-                }
-
-                if (animator.GetBool("isShot") == true)
-                {
-                    StartCoroutine(parallelBullets());
-                    animator.SetBool("isShot", false);
-                }
-            }
-        }
+        //        if (animator.GetBool("isShot") == true)
+        //        {
+        //            StartCoroutine(parallelBullets());
+        //            animator.SetBool("isShot", false);
+        //        }
+        //    }
+        //}
     }
     void crossBullets()
     {
@@ -175,22 +176,27 @@ public class Boss : MonoBehaviour
     }
     */
 
-        /*
     void armSkill()
     {
+        if(!armPositionSet)
+        {
+            arm.transform.position = new Vector3(arm.transform.position.x, player.transform.position.y, 0);
+            armPositionSet = true;
+        }
+            
         arm.SetActive(true);
         if (!armAttack)
-            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(20, 0);
         if (arm.transform.position.x > armStopPoint.x)
         {
             armAttack = true;
-            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-5, 0);
-            if (arm.transform.position == armStartPoint)
-            {
-                arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-                arm.SetActive(false);
-            }
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+        }
+        if (arm.transform.position.x < armStartPoint.x)
+        {
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            arm.SetActive(false);
+            armPositionSet = false;
         }
     }
-    */
 }
