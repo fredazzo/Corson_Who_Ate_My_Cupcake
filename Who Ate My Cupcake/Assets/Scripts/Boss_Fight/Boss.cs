@@ -69,6 +69,7 @@ public class Boss : MonoBehaviour
     
     void Update()
     {
+        Debug.Log(healthPoints);
         time += Time.deltaTime;
         if (time > attackSpawnTime)
         {
@@ -193,5 +194,15 @@ public class Boss : MonoBehaviour
             armAttack = false;
             time = 0f;
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Shot")
+        {
+            healthPoints--;
+            other.gameObject.SetActive(false);
+        }
+            
     }
 }

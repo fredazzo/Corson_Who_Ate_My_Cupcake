@@ -8,13 +8,33 @@ public class Foul_Fudge : Enemy
     void Start()
     {
         Source = GetComponent<AudioSource>();
-        Source.clip = hitSound;
+       
         body = GetComponent<Rigidbody2D>();
         scoreValue = 100;
     }
+    private void Update()
+    {
+        if (healthPoints <= 0)
+        {
+            Source.clip = deathSound;
+            Source.Play();
 
+            Destroy(this.gameObject);
+
+        }
+    }
     void FixedUpdate()
     {
         body.velocity = new Vector2(speedX, speedY);
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Shot")
+        {
+            Source.clip = hitSound;
+            Source.Play();
+        
+        }
     }
 }
