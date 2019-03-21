@@ -70,8 +70,6 @@ public class Boss : MonoBehaviour
         armStopPoint = transform.position + armStopPointFromBoss;
         coneShot = false;
         parallelShot = false;
-        source = GetComponent<AudioSource>();
-        hitSource = GetComponent<AudioSource>();
     }
     
     void Update()
