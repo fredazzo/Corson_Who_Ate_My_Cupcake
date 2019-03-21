@@ -324,12 +324,12 @@ PrefabInstance:
     - target: {fileID: 2535875192142378725, guid: e31123fd0346cd749b02927748af0ebe,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -339.56516
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2535875192142378725, guid: e31123fd0346cd749b02927748af0ebe,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.04651
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 2535875192142378725, guid: e31123fd0346cd749b02927748af0ebe,
         type: 3}
@@ -390,17 +390,17 @@ PrefabInstance:
         type: 3}
       propertyPath: firstClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 22983422188c858479c72c1dd14d2735, type: 3}
     - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
         type: 3}
       propertyPath: secondClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: a5f44ee3d39b97247a5447a4b1cc5db2, type: 3}
     - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
         type: 3}
       propertyPath: thirdClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 6215d7e61c18bf042ac0546a5061bfd9, type: 3}
     - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
         type: 3}
       propertyPath: funBar
@@ -415,6 +415,11 @@ PrefabInstance:
         type: 3}
       propertyPath: powerUpSpawnWait
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
+        type: 3}
+      propertyPath: startGameTimer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e31123fd0346cd749b02927748af0ebe, type: 3}
@@ -782,7 +787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1777766119, guid: 8b7803c3e7b14254996fb0bce09ca31d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 359.64
+      value: 559.6
       objectReference: {fileID: 0}
     - target: {fileID: 1777766119, guid: 8b7803c3e7b14254996fb0bce09ca31d, type: 3}
       propertyPath: m_LocalPosition.y

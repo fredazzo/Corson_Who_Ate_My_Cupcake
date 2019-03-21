@@ -18,11 +18,6 @@ public class Enemy : MonoBehaviour
         Source = GetComponent<AudioSource>();
     }
 
-    //public void Die()
-    //{
-    //    AudioSource.PlayClipAtPoint(deathSound, transform.position);
-    //    Destroy(this.gameObject);
-    //}
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "exit")

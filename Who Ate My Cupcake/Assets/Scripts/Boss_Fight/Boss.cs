@@ -44,6 +44,7 @@ public class Boss : MonoBehaviour
 
     bool isShot;
 
+
     public float attackSpawnTime;
     private float time;
     private int randomAttack;
@@ -59,6 +60,7 @@ public class Boss : MonoBehaviour
     public AudioSource hitSource;
     public AudioClip bossHit;
     public AudioClip bossDeath;
+
 
     void Start()
     {
