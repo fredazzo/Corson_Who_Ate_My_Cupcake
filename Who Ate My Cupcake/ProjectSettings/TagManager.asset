@@ -18,6 +18,7 @@ TagManager:
   - Arm
   - Boss_Shot
   - Arm_Hit_Box
+  - Song_Change
   layers:
   - Default
   - TransparentFX
