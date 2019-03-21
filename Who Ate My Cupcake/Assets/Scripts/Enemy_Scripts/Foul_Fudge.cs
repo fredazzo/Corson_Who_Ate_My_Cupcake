@@ -10,7 +10,6 @@ public class Foul_Fudge : Enemy
         Source = GetComponent<AudioSource>();
        
         body = GetComponent<Rigidbody2D>();
-        scoreValue = 100;
     }
 
     void FixedUpdate()
