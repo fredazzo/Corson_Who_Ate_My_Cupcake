@@ -167,7 +167,7 @@ MonoBehaviour:
   speedY: -6
   scoreValue: 0
   Source: {fileID: 3245780569355102425}
-  hitSound: {fileID: 8300000, guid: 814605d1e71e94c4f93926fb3b68564e, type: 3}
+  hitSound: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 1442c4b9b1300bd4288d74bba375b490, type: 3}
   background: {fileID: 1777766118, guid: 8b7803c3e7b14254996fb0bce09ca31d, type: 3}
   setSpeedX: -3
