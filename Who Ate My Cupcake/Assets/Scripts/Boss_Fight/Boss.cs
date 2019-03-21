@@ -129,8 +129,8 @@ public class Boss : MonoBehaviour
         secondShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         secondShot.GetComponent<Boss_Projectile>().speedY = downsideBulletSpeedY;
 
-        Angle = Vector2.Angle(new Vector3(1, 0, 0), new Vector3(bulletSpeedX, upsideBulletSpeedY, 0));
-        GameObject thirdShot = Instantiate(bossShot, ConeBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
+        Angle = Vector2.Angle(new Vector3(-1, 0, 0), new Vector3(bulletSpeedX, upsideBulletSpeedY, 0));
+        GameObject thirdShot = Instantiate(bossShot, ConeBulletSpawn, Quaternion.Euler(0f, 0f, 360f - Angle));
         thirdShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         thirdShot.GetComponent<Boss_Projectile>().speedY = upsideBulletSpeedY;
 
@@ -184,19 +184,21 @@ public class Boss : MonoBehaviour
     {
         if (!armAttack)
         {
+            animator.SetTrigger("Punch_First_Phase");
             arm.transform.position = new Vector3(arm.transform.position.x, player.transform.position.y, 0);
-            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(20, 0);  
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(25, 0);  
             armAttack = true;
             arm.GetComponent<CircleCollider2D>().enabled = true;
         }       
         if (arm.transform.position.x > armStopPoint.x)
         {
-            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-20, 0);
             arm.GetComponent<CircleCollider2D>().enabled = false; ;
         }
             
         else if (arm.transform.position.x < armStartPoint.x)
         {
+            animator.SetTrigger("Punch_Second_Phase");
             arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             arm.transform.position = new Vector3(arm.transform.position.x + 1, player.transform.position.y, 0);
             randomNumber = false;
