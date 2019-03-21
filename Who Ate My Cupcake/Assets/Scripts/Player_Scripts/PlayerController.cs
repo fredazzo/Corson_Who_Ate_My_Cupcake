@@ -132,12 +132,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log(health);
             Destroy(other.gameObject);
         }
-        if(other.gameObject.GetComponent<CircleCollider2D>())
+        if(other.gameObject.tag == "Arm")
         {
             health--;
             source.clip = pop;
             source.Play();
             other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+            other.gameObject.GetComponent<CircleCollider2D>().enabled = false; ;
         }
         if(other.gameObject.tag == "Mega_Cupcake")
         {
