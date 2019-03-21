@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public GameObject bar;
 
-     public AudioSource source;
+    public AudioSource source;
     public AudioClip shootingSound;
     public AudioClip pop;
     public AudioSource PowerUpsource;

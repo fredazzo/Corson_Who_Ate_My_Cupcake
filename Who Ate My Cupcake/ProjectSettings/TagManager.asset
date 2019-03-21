@@ -16,6 +16,7 @@ TagManager:
   - Mega_Cupcake
   - Boss_Boundary
   - Arm
+  - Boss_Shot
   layers:
   - Default
   - TransparentFX
