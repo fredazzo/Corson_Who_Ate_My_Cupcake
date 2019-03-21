@@ -52,9 +52,11 @@ public class PlayerController : MonoBehaviour
     public bool poweredUp;
     public bool cookie;
     public bool coke;
+    public bool firstLevel;
 
     void Start()
     {
+        firstLevel = true;
         rb = GetComponent<Rigidbody2D>();
        // anim = GetComponent<Animator>();
         damage = setDamage;
@@ -200,6 +202,7 @@ public class PlayerController : MonoBehaviour
             gameController.GetComponent<GameController>().Source.Stop();
             gameController.GetComponent<GameController>().Source.clip = gameController.GetComponent<GameController>().secondClip;
             gameController.GetComponent<GameController>().Source.Play();
+            firstLevel = false;
         }
         if (other.gameObject.name == "Second_Song_Change")
         {

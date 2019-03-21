@@ -17,16 +17,6 @@ public class Enemy : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    public void Update()
-    {
-        if(healthPoints <= 0)
-        {
-            Die();
-        }
-    }
-
-
     public void Die()
     {
         AudioSource.PlayClipAtPoint(deathSound, transform.position);

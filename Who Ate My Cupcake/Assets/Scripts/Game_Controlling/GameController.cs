@@ -16,7 +16,6 @@ public class GameController : MonoBehaviour
     public AudioClip secondClip;
     public AudioClip thirdClip;
 
-    public Text scoreText;
 
     public float spawnX;
     public float powerUpSpawnXMax;

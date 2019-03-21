@@ -7,11 +7,15 @@ public class Crummy_Cotton_Candy : Enemy
     Rigidbody2D body;
     Animator anim;
     public GameObject background;
+    GameObject player;
     public float setSpeedX;
     public float lastSpeedY;
+    public bool firstLevel;
 
     void Start()
     {
+        player = GameObject.Find("Player");
+        firstLevel = true;
         Source = GetComponent<AudioSource>();
         Source.clip = deathSound;
         scoreValue = 100;
@@ -22,6 +26,18 @@ public class Crummy_Cotton_Candy : Enemy
             speedY = -speedY;
     }
 
+    void Update()
+    {
+        if (healthPoints == 0)
+        {
+            if(player.GetComponent<PlayerController>().firstLevel)
+                anim.SetBool("First_Dead", true);
+            else
+                anim.SetBool("Second_Dead", true);
+        }
+        if (anim.GetBool("is_Dead"))
+            Destroy(this.gameObject);
+    }
     void FixedUpdate()
     {
         body.velocity = new Vector2(speedX, speedY);
