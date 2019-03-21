@@ -74,7 +74,6 @@ public class Boss : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(healthPoints);
         time += Time.deltaTime;
         if (time > attackSpawnTime)
         {
@@ -188,9 +187,14 @@ public class Boss : MonoBehaviour
             arm.transform.position = new Vector3(arm.transform.position.x, player.transform.position.y, 0);
             arm.GetComponent<Rigidbody2D>().velocity = new Vector2(20, 0);  
             armAttack = true;
+            arm.GetComponent<CircleCollider2D>().enabled = true;
         }       
         if (arm.transform.position.x > armStopPoint.x)
+        {
             arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+            arm.GetComponent<CircleCollider2D>().enabled = false; ;
+        }
+            
         else if (arm.transform.position.x < armStartPoint.x)
         {
             arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);

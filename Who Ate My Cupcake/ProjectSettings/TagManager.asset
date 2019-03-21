@@ -17,6 +17,7 @@ TagManager:
   - Boss_Boundary
   - Arm
   - Boss_Shot
+  - Arm_Hit_Box
   layers:
   - Default
   - TransparentFX
