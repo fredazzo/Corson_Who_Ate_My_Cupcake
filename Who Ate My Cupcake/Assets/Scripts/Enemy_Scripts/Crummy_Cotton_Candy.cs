@@ -12,10 +12,9 @@ public class Crummy_Cotton_Candy : Enemy
 
     void Start()
     {
-        isActive = true;
-        player = GameObject.Find("Player");
-        Source = GetComponent<AudioSource>();
         Source.clip = deathSound;
+        isActive = true;
+        player = GameObject.Find("Player");  
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         speedX = setSpeedX;
@@ -27,6 +26,8 @@ public class Crummy_Cotton_Candy : Enemy
     {
         if (healthPoints == 0)
         {
+            if (isActive)
+                Source.Play();
             isActive = false;
             if(player.GetComponent<PlayerController>().firstLevel)
                 anim.SetBool("First_Dead", true);
