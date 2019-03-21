@@ -137,7 +137,7 @@ public class PlayerController : MonoBehaviour
             health--;
             source.clip = pop;
             source.Play();
-            other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+            other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-20, 0);
             other.gameObject.GetComponent<CircleCollider2D>().enabled = false; ;
         }
         if(other.gameObject.tag == "Mega_Cupcake")
