@@ -11,10 +11,10 @@ public class Wricked_Wrapper : Enemy
     void Start()
     {
         isActive = true;
-        Source = GetComponent<AudioSource>();
         player = GameObject.Find("Player");
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        
         velocity = new Vector2(speedX, speedY);
     }
 
@@ -22,6 +22,11 @@ public class Wricked_Wrapper : Enemy
     {
         if (healthPoints == 0)
         {
+            if (isActive)
+            {
+                Source.clip = deathSound;
+                Source.Play();
+            }               
             isActive = false;
             if (player.GetComponent<PlayerController>().firstLevel)
                 anim.SetTrigger("First_Death");

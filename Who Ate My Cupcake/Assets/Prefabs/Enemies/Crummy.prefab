@@ -165,12 +165,11 @@ MonoBehaviour:
   healthPoints: 1
   speedX: -4
   speedY: -6
-  scoreValue: 0
+  isActive: 0
+  background: {fileID: 1777766118, guid: 8b7803c3e7b14254996fb0bce09ca31d, type: 3}
   Source: {fileID: 3245780569355102425}
   hitSound: {fileID: 0}
   deathSound: {fileID: 8300000, guid: 1442c4b9b1300bd4288d74bba375b490, type: 3}
-  background: {fileID: 1777766118, guid: 8b7803c3e7b14254996fb0bce09ca31d, type: 3}
-  player: {fileID: 4038151586747094613, guid: c679005b20d146f4a8156e2ba0144749, type: 3}
   setSpeedX: -3
   lastSpeedY: 0
 --- !u!82 &3245780569355102425
