@@ -96,5 +96,10 @@ public class GameController : MonoBehaviour
         }
         powerUpTime = 0;
     }
+
+    //public int GetPlayerHealth()
+    //{
+    //    return player.GetComponent<PlayerController>().health;
+    //}
 }
     

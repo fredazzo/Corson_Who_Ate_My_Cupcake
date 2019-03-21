@@ -14,25 +14,22 @@ public class Enemy : MonoBehaviour
     public AudioClip deathSound;
     void Start()
     {
-        Source = GetComponent<AudioSource>();
-            
 
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-            //Destroy(this.gameObject);
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-
-        if(other.gameObject.name == "exit")
+        if(healthPoints <= 0)
         {
-            Destroy(this.gameObject);
+            Die();
         }
     }
 
 
+    public void Die()
+    {
+        AudioSource.PlayClipAtPoint(deathSound, transform.position);
+        Destroy(this.gameObject);
+    }
 }
