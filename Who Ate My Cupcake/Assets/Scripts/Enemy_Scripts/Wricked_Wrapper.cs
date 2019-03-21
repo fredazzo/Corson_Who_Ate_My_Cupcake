@@ -5,17 +5,38 @@ using UnityEngine;
 public class Wricked_Wrapper : Enemy
 {
     Rigidbody2D body;
+    GameObject player;
+    Animator anim;
+    Vector2 velocity;
     void Start()
     {
+        isActive = true;
         Source = GetComponent<AudioSource>();
-
+        player = GameObject.Find("Player");
         body = GetComponent<Rigidbody2D>();
-        scoreValue = 100;
+        anim = GetComponent<Animator>();
+        velocity = new Vector2(speedX, speedY);
     }
+
+    void Update()
+    {
+        if (healthPoints == 0)
+        {
+            isActive = false;
+            if (player.GetComponent<PlayerController>().firstLevel)
+                anim.SetTrigger("First_Death");
+            else
+                anim.SetTrigger("Second_Death");
+            velocity = new Vector2(-background.GetComponent<background_movement>().speed, 0f);
+        }
+        if (!isActive)
+            GetComponent<BoxCollider2D>().isTrigger = true;
+    }
+
 
     void FixedUpdate()
     {
-        body.velocity = new Vector2(speedX, speedY);
+        body.velocity = velocity;
     }
     void OnCollisionEnter2D(Collision2D other)
     {
