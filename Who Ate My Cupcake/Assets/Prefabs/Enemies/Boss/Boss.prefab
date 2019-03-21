@@ -94,7 +94,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.11400604}
@@ -128,18 +128,19 @@ MonoBehaviour:
   bulletSpeedX: -4.5
   downsideBulletSpeedY: -1
   upsideBulletSpeedY: 1
-  firstBulletSpawn: {x: 0, y: 0}
-  secondBulletSpawn: {x: 0, y: 1}
-  thirdBulletSpawn: {x: 0, y: 2}
+  ConeBulletSpawn: {x: 5, y: -1.5}
+  firstBulletSpawn: {x: 5, y: -3}
+  secondBulletSpawn: {x: 3, y: -1}
+  thirdBulletSpawn: {x: 2, y: 0}
   firstBulletTimer: 0.5
   secondBulletTimer: 0.3
   bulletTime: 0
   rotationPoint: {x: 6.49, y: -0.29, z: 0}
   rotationAngle: 5
-  armStartPointFromBoss: {x: -35, y: 0, z: 0}
+  armStartPointFromBoss: {x: -37, y: 0, z: 0}
   armStopPointFromBoss: {x: -10, y: 0, z: 0}
   healthPoints: 50
-  attackSpawnTime: 0
+  attackSpawnTime: 3
   source: {fileID: 57551104}
   crossShotSound: {fileID: 8300000, guid: dadb2936c7d77c64da61bb479139feea, type: 3}
   parallelShotSound: {fileID: 8300000, guid: 5fde27abfaee6a949825a92b1d234893, type: 3}
@@ -270,9 +271,10 @@ GameObject:
   - component: {fileID: 808888196907575403}
   - component: {fileID: 8587168010865064432}
   - component: {fileID: 7257269009230982843}
+  - component: {fileID: 664408207}
   m_Layer: 12
   m_Name: Arm
-  m_TagString: Untagged
+  m_TagString: Arm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -285,7 +287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6279897330694171926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.7, y: -6.1, z: 0}
+  m_LocalPosition: {x: -48.5, y: 11.6, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 2289175646980714358}
@@ -386,3 +388,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0536338, y: 0.36271632}
   m_EdgeRadius: 0
+--- !u!58 &664408207
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6279897330694171926}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.55, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.24601096

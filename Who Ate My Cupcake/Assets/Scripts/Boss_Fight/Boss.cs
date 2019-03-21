@@ -13,6 +13,8 @@ public class Boss : MonoBehaviour
     public float downsideBulletSpeedY;
     public float upsideBulletSpeedY;
 
+    public Vector2 ConeBulletSpawn;
+
     public Vector2 firstBulletSpawn;
 
     public Vector2 secondBulletSpawn;
@@ -54,6 +56,10 @@ public class Boss : MonoBehaviour
     public AudioClip crossShotSound;
     public AudioClip parallelShotSound;
 
+    public AudioSource hitSource;
+    public AudioClip bossHit;
+    public AudioClip bossDeath;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -65,6 +71,7 @@ public class Boss : MonoBehaviour
         coneShot = false;
         parallelShot = false;
         source = GetComponent<AudioSource>();
+        hitSource = GetComponent<AudioSource>();
     }
     
     void Update()
@@ -116,17 +123,17 @@ public class Boss : MonoBehaviour
     {
        
         Angle = Vector2.Angle(new Vector3(-1, 0, 0), new Vector3(bulletSpeedX, 0, 0));
-        GameObject firstShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
+        GameObject firstShot = Instantiate(bossShot, ConeBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
         firstShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         firstShot.GetComponent<Boss_Projectile>().speedY = 0;
 
         Angle = Vector2.Angle(new Vector3(-1, 0, 0), new Vector3(bulletSpeedX, downsideBulletSpeedY, 0));
-        GameObject secondShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
+        GameObject secondShot = Instantiate(bossShot, ConeBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
         secondShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         secondShot.GetComponent<Boss_Projectile>().speedY = downsideBulletSpeedY;
 
         Angle = Vector2.Angle(new Vector3(1, 0, 0), new Vector3(bulletSpeedX, upsideBulletSpeedY, 0));
-        GameObject thirdShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
+        GameObject thirdShot = Instantiate(bossShot, ConeBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
         thirdShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         thirdShot.GetComponent<Boss_Projectile>().speedY = upsideBulletSpeedY;
 
@@ -200,6 +207,8 @@ public class Boss : MonoBehaviour
     {
         if (other.gameObject.tag == "Shot")
         {
+            hitSource.clip = bossHit;
+            hitSource.Play();
             healthPoints--;
             other.gameObject.SetActive(false);
         }
