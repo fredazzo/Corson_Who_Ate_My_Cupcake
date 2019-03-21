@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 905969235}
   boss: {fileID: 302845147}
+  cupcake: {fileID: 6828353177422380748, guid: beceea10875273041af1a0fc30541593, type: 3}
 --- !u!1001 &126745399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -320,7 +321,7 @@ PrefabInstance:
     - target: {fileID: 8587168010865064432, guid: 6067e3d5186813541b7b98e1431aefb4,
         type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6067e3d5186813541b7b98e1431aefb4, type: 3}

@@ -7,6 +7,7 @@ public class Boss_Fight_Controller : MonoBehaviour
 {
     public GameObject player;
     public GameObject boss;
+    public GameObject cupcake;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,6 @@ public class Boss_Fight_Controller : MonoBehaviour
     {
         if (player.GetComponent<PlayerController>().health <= 0)
             SceneManager.LoadScene("Death_Scene");
-
+ 
     }
 }
