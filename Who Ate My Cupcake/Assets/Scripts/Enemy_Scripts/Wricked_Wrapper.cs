@@ -12,17 +12,7 @@ public class Wricked_Wrapper : Enemy
         body = GetComponent<Rigidbody2D>();
         scoreValue = 100;
     }
-    private void Update()
-    {
-        if (healthPoints <= 0)
-        {
-            Source.clip = deathSound;
-            Source.Play();
 
-            Destroy(this.gameObject);
-
-        }
-    }
     void FixedUpdate()
     {
         body.velocity = new Vector2(speedX, speedY);
@@ -33,6 +23,10 @@ public class Wricked_Wrapper : Enemy
         {
             Source.clip = hitSound;
             Source.Play();
+        }
+        if (other.gameObject.name == "exit")
+        {
+            Destroy(this.gameObject);
         }
     }
 }
