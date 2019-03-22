@@ -153,6 +153,8 @@ MonoBehaviour:
   poweredUp: 0
   cookie: 0
   coke: 0
+  firstLevel: 1
+  ccc: {fileID: 1703499833898151733, guid: 7cc7bd94b74917b4b8db580c25b2d7b8, type: 3}
 --- !u!70 &4038151586747094612
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

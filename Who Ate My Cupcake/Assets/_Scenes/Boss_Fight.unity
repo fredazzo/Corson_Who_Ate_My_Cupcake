@@ -233,8 +233,13 @@ PrefabInstance:
     - target: {fileID: 2289175646980714357, guid: 6067e3d5186813541b7b98e1431aefb4,
         type: 3}
       propertyPath: healthPoints
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2289175646980714357, guid: 6067e3d5186813541b7b98e1431aefb4,
+        type: 3}
+      propertyPath: bossDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f5a103767a55a84a9f3d64b5592fbce, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6067e3d5186813541b7b98e1431aefb4, type: 3}
 --- !u!1001 &286109914

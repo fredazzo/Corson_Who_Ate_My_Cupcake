@@ -23,8 +23,8 @@ public AudioSource source;
         if(other.gameObject.tag == "Enemy")
         {
             source.Play();
-       
-            bar.GetComponent<Bar>().barPercentage -= bar.GetComponent<Bar>().percentageDrop;
+            if(other.gameObject.GetComponent<Enemy>().isActive)
+                bar.GetComponent<Bar>().barPercentage -= bar.GetComponent<Bar>().percentageDrop;
         }
     }
 }
