@@ -655,6 +655,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 792393312}
+    - target: {fileID: 5179942787192186958, guid: d17fc4da45c0e944ca32fcb39e7b327e,
+        type: 3}
+      propertyPath: m_Name
+      value: Overlay
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
 --- !u!1 &1880920717 stripped
