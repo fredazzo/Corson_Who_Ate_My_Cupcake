@@ -59,7 +59,6 @@ public class Boss : MonoBehaviour
 
     public AudioSource hitSource;
     public AudioClip bossHit;
-    public AudioClip bossDeath;
 
 
     void Start()
