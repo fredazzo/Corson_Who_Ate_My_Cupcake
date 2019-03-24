@@ -21,7 +21,7 @@ public class Boss_Fight_Controller : MonoBehaviour
 
     void Update()
     {
-        if (player.GetComponent<PlayerController>().health <= 0)
+        if (PlayerController.health <= 0)
             SceneManager.LoadScene("Death_Scene");
         if (!isBossDead)
         {

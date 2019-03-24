@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float lastSpeed;
     public int addedDamage;
 
-    public int health;
+    static public int health = 5;
     public int setDamage;
     public int damage;
 
