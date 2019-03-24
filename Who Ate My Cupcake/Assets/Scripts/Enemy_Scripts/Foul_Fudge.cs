@@ -20,9 +20,12 @@ public class Foul_Fudge : Enemy
     {
         if (healthPoints == 0)
         {
+            if (isActive)
+            {
+                Source.clip = deathSound;
+                Source.Play();
+            }
             isActive = false;
-            Source.clip = deathSound;
-            Source.Play();
             if (player.GetComponent<PlayerController>().firstLevel)
                 anim.SetTrigger("First_Death");
             else
@@ -47,7 +50,6 @@ public class Foul_Fudge : Enemy
         {
             Source.clip = hitSound;
             Source.Play();
-        
         }
         if (other.gameObject.name == "exit")
         {
