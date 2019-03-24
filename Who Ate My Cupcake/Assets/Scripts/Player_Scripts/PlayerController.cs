@@ -56,6 +56,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main_Game"))
+            health = 5;
         firstLevel = true;
         rb = GetComponent<Rigidbody2D>();
        // anim = GetComponent<Animator>();
