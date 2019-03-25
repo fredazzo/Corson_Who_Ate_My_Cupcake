@@ -127,7 +127,7 @@ MonoBehaviour:
   secondAlteredSpeed: 6
   thirdAlteredSpeed: 3
   lastSpeed: 0
-  addedDamage: 5
+  addedDamage: 2
   setDamage: 1
   damage: 1
   addedSpeed: 10
