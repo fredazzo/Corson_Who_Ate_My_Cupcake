@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_Exit_Indicator : MonoBehaviour
 { 
-public AudioSource source;
+    public AudioSource source;
     public GameObject bar;
     // Start is called before the first frame update
     void Start()
