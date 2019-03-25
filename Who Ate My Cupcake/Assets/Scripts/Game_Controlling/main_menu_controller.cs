@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class main_menu_controller : MonoBehaviour
 {
-    public AudioSource song;
-
-    // Start is called before the first frame update
-    void Start()
+    public GameObject musicPlayer;
+    new AudioSource audio;
+    void Awake()
     {
-        GetComponent<AudioSource>().Play();
-    }
+        musicPlayer = GameObject.Find("MUSIC");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (musicPlayer == null)
+        {
+            musicPlayer = this.gameObject;
+            musicPlayer.name = "MUSIC";
+            audio = GetComponent<AudioSource>();
+            audio.Play();
+
+            DontDestroyOnLoad(musicPlayer);
+        }
+        else
+        {
+            if (this.gameObject.name != "MUSIC")
+                Destroy(this.gameObject);
+        }
     }
 }

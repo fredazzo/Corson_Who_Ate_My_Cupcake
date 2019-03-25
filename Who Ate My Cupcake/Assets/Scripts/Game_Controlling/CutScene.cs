@@ -89,6 +89,6 @@ public class CutScene : MonoBehaviour
     void Update()
     {
         if (finished)
-            SceneManager.LoadScene("Main_Menu");
+            SceneManager.LoadScene("Credits");
     }
 }

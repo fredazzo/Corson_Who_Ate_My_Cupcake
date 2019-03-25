@@ -9,17 +9,33 @@ public class Boss_Fight_Controller : MonoBehaviour
     public GameObject boss;
     public GameObject cupcake;
 
-    // Start is called before the first frame update
+    AudioSource Source;
+
+    private bool isBossDead;
+
     void Start()
     {
-      //  player.GetComponent<PlayerController>().health = GetComponent<GameController>().GetPlayerHealth();
+        isBossDead = false;
+        Source = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<PlayerController>().health <= 0)
+        if (PlayerController.health <= 0)
             SceneManager.LoadScene("Death_Scene");
- 
+        if (!isBossDead)
+        {
+            bossDeadCheck();
+        } 
+    }
+    void bossDeadCheck()
+    {
+        if (boss.GetComponent<Boss>().healthPoints == 0)
+        {
+            Source.Play();
+            Destroy(boss);
+            cupcake.SetActive(true);
+            isBossDead = true;
+        }
     }
 }

@@ -6,17 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject player;
     public GameObject[] enemies;
     public GameObject[] powerUps;
     public GameObject funBar;
+    public GameObject overlay;
 
     public AudioSource Source;
+    public AudioClip overlayClip;
     public AudioClip firstClip;
     public AudioClip secondClip;
     public AudioClip thirdClip;
 
-    public Text scoreText;
 
     public float spawnX;
     public float powerUpSpawnXMax;
@@ -35,34 +35,74 @@ public class GameController : MonoBehaviour
 
     public float spawnWait;
     private float currentTime = 0f;
+    private float overlayTimer = 0f;
+    public float startGameTimer;
 
     public float powerUpSpawnWait;
     private float powerUpTime = 0f;
+    public float overlayFlashTimer;
+    private float overlayBlinkTimer;
+
+    private bool isGameMusicStarted;
+    public GameObject musicPlayer;
 
 
 
     void Start()
     {
+        isGameMusicStarted = false;
         Source = GetComponent<AudioSource>();
-        Source.clip = firstClip;
-        Source.Play();
+        musicPlayer = GameObject.Find("MUSIC");
+        if (musicPlayer == null)
+        {
+            Source.clip = overlayClip;
+            Source.Play();
+        }
     }
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
-        powerUpTime += Time.deltaTime;
+        overlayTimer += Time.deltaTime;
 
-        if (currentTime > spawnWait)
-            spawnEnemy();
+        if (overlayTimer < startGameTimer)
+        {
+            overlayBlinkTimer += Time.deltaTime;
+            if (overlayBlinkTimer > overlayFlashTimer)
+            {
+                if (overlay.activeSelf)
+                    overlay.SetActive(false);
+                else
+                    overlay.SetActive(true);
 
-        if (powerUpTime > powerUpSpawnWait)
-            spawnPowerUp();
-        if (player.GetComponent<PlayerController>().health == 0)
-            SceneManager.LoadScene("Death_Scene");
-        if (funBar.GetComponent<Bar>().barPercentage < 0f)
-            SceneManager.LoadScene("Death_Scene");
-        //Debug.Log(funBar.GetComponent<Bar>().decreasedPercentage);
+                overlayBlinkTimer = 0f;
+            }
+        }
+
+        if (overlayTimer > startGameTimer)
+        {
+            if (!isGameMusicStarted)
+            {
+                Destroy(musicPlayer = GameObject.Find("MUSIC"));
+                Source.clip = firstClip;
+                Source.Play();
+                isGameMusicStarted = true;
+            }
+            
+            overlay.SetActive(false);
+            currentTime += Time.deltaTime;
+            powerUpTime += Time.deltaTime;
+
+            if (currentTime > spawnWait)
+                spawnEnemy();
+
+            if (powerUpTime > powerUpSpawnWait)
+                spawnPowerUp();
+            if (PlayerController.health == 0)
+                SceneManager.LoadScene("Death_Scene");
+            if (funBar.GetComponent<Bar>().barPercentage < 0f)
+                SceneManager.LoadScene("Death_Scene");
+            //Debug.Log(funBar.GetComponent<Bar>().decreasedPercentage);
+        }
     }
 
     void spawnEnemy()
@@ -97,6 +137,13 @@ public class GameController : MonoBehaviour
         powerUpTime = 0;
     }
 
+    IEnumerator overlayBlink()
+    {
+        yield return new WaitForSeconds(overlayFlashTimer);
+            overlay.SetActive(false);
+        yield return new WaitForSeconds(overlayFlashTimer);
+            overlay.SetActive(true);
+    }
     //public int GetPlayerHealth()
     //{
     //    return player.GetComponent<PlayerController>().health;

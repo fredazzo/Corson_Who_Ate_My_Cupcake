@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float lastSpeed;
     public int addedDamage;
 
-    public int health;
+    static public int health = 5;
     public int setDamage;
     public int damage;
 
@@ -52,9 +52,17 @@ public class PlayerController : MonoBehaviour
     public bool poweredUp;
     public bool cookie;
     public bool coke;
+    public bool firstLevel;
+    static public bool shouldShake = false;
 
     void Start()
     {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main_Game") || SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main_Menu"))
+        {
+            health = 5;
+            shouldShake = false;
+        }
+        firstLevel = true;
         rb = GetComponent<Rigidbody2D>();
        // anim = GetComponent<Animator>();
         damage = setDamage;
@@ -106,6 +114,7 @@ public class PlayerController : MonoBehaviour
         {
             health = 0;
         }
+        cameraShake();
     }
 
     // Checks and applies physics
@@ -131,13 +140,16 @@ public class PlayerController : MonoBehaviour
             source.Play();
             Debug.Log(health);
             Destroy(other.gameObject);
+            shouldShake = true;
         }
-        if(other.gameObject.GetComponent<CircleCollider2D>())
+        if(other.gameObject.tag == "Arm")
         {
             health--;
             source.clip = pop;
             source.Play();
-            other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
+            other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-20, 0);
+            other.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            shouldShake = true;
         }
         if(other.gameObject.tag == "Mega_Cupcake")
         {
@@ -199,6 +211,7 @@ public class PlayerController : MonoBehaviour
             gameController.GetComponent<GameController>().Source.Stop();
             gameController.GetComponent<GameController>().Source.clip = gameController.GetComponent<GameController>().secondClip;
             gameController.GetComponent<GameController>().Source.Play();
+            firstLevel = false;
         }
         if (other.gameObject.name == "Second_Song_Change")
         {
@@ -208,6 +221,24 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.tag == "Boss_Boundary")
             SceneManager.LoadScene("Boss_Fight");
+    }
+
+    void cameraShake()
+    {
+        if (shouldShake && health != 0)
+        {
+            Debug.Log("sa");
+            GetComponent<camera_shake>().readyForShake();
+            GetComponent<camera_shake>().shake();
+            StartCoroutine(resetCameraShake());
+        }
+    }
+
+    IEnumerator resetCameraShake()
+    {
+        yield return new WaitForSeconds(GetComponent<camera_shake>().shakeDuration);
+        shouldShake = false;
+        GetComponent<camera_shake>().stopShake();
     }
 }
 

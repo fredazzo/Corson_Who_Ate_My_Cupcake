@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_Exit_Indicator : MonoBehaviour
 { 
-public AudioSource source;
+    public AudioSource source;
     public GameObject bar;
     // Start is called before the first frame update
     void Start()
@@ -23,8 +23,9 @@ public AudioSource source;
         if(other.gameObject.tag == "Enemy")
         {
             source.Play();
-       
-            bar.GetComponent<Bar>().barPercentage -= bar.GetComponent<Bar>().percentageDrop;
+            if(other.gameObject.GetComponent<Enemy>().isActive)
+                bar.GetComponent<Bar>().barPercentage -= bar.GetComponent<Bar>().percentageDrop;
+            PlayerController.shouldShake = true;
         }
     }
 }
