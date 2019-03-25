@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9340541511eb344ba43a105ca3551d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   enemies:
   - {fileID: 1703499833898151733, guid: 7cc7bd94b74917b4b8db580c25b2d7b8, type: 3}
   - {fileID: 1703499833898151733, guid: 7cc7bd94b74917b4b8db580c25b2d7b8, type: 3}
@@ -53,22 +52,26 @@ MonoBehaviour:
   powerUps:
   - {fileID: 5837868313361365845, guid: d6e98d9c730f6ad4183755736027e8d3, type: 3}
   - {fileID: 8654958405908562507, guid: c66441de3af83fe438dd04b1a0a20b88, type: 3}
+  funBar: {fileID: 0}
+  overlay: {fileID: 0}
   Source: {fileID: 0}
+  overlayClip: {fileID: 8300000, guid: a242703010e6673429407a2fee1f1562, type: 3}
   firstClip: {fileID: 8300000, guid: 22983422188c858479c72c1dd14d2735, type: 3}
   secondClip: {fileID: 8300000, guid: a5f44ee3d39b97247a5447a4b1cc5db2, type: 3}
   thirdClip: {fileID: 8300000, guid: 6215d7e61c18bf042ac0546a5061bfd9, type: 3}
-  scoreText: {fileID: 0}
-  spawnX: 21.03
+  spawnX: 21.85
   powerUpSpawnXMax: 10
   powerUpSpawnXMin: -3
   powerUpSpawnYMax: 7
   powerUpSpawnYMin: -3
   crummySpawnMax: 7
   crummySpawnMin: -3
-  groundSpawnMax: -1.5
+  groundSpawnMax: -3.69
   groundSpawnMin: -5.8
-  spawnWait: 0.75
-  powerUpSpawnWait: 18
+  spawnWait: 0.1
+  startGameTimer: 2
+  powerUpSpawnWait: 12
+  overlayFlashTimer: 0.5
 --- !u!82 &1880920720
 AudioSource:
   m_ObjectHideFlags: 0
