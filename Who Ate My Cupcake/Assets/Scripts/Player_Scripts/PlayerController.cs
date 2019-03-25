@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main_Game"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main_Game") || SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main_Menu"))
         {
             health = 5;
             shouldShake = false;
