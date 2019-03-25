@@ -20,7 +20,7 @@ public class Wricked_Wrapper : Enemy
 
     void Update()
     {
-        if (healthPoints == 0)
+        if (healthPoints <= 0)
         {
             if (isActive)
             {
