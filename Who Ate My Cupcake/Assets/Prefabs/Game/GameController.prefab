@@ -69,7 +69,7 @@ MonoBehaviour:
   groundSpawnMax: -3.69
   groundSpawnMin: -5.8
   spawnWait: 1
-  startGameTimer: 2
+  startGameTimer: 10
   powerUpSpawnWait: 18
   overlayFlashTimer: 0.5
 --- !u!82 &1880920720
