@@ -44,6 +44,7 @@ public class GameController : MonoBehaviour
     private float overlayBlinkTimer;
 
     private bool isGameMusicStarted;
+    public GameObject musicPlayer;
 
 
 
@@ -51,8 +52,12 @@ public class GameController : MonoBehaviour
     {
         isGameMusicStarted = false;
         Source = GetComponent<AudioSource>();
-        Source.clip = overlayClip;
-        Source.Play();     
+        musicPlayer = GameObject.Find("MUSIC");
+        if (musicPlayer == null)
+        {
+            Source.clip = overlayClip;
+            Source.Play();
+        }
     }
 
     private void Update()
@@ -77,6 +82,7 @@ public class GameController : MonoBehaviour
         {
             if (!isGameMusicStarted)
             {
+                Destroy(musicPlayer = GameObject.Find("MUSIC"));
                 Source.clip = firstClip;
                 Source.Play();
                 isGameMusicStarted = true;
