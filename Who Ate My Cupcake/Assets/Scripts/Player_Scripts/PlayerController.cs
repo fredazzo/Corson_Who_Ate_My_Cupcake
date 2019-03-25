@@ -53,11 +53,15 @@ public class PlayerController : MonoBehaviour
     public bool cookie;
     public bool coke;
     public bool firstLevel;
+    static public bool shouldShake = false;
 
     void Start()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main_Game"))
+        {
             health = 5;
+            shouldShake = false;
+        }
         firstLevel = true;
         rb = GetComponent<Rigidbody2D>();
        // anim = GetComponent<Animator>();
@@ -110,6 +114,7 @@ public class PlayerController : MonoBehaviour
         {
             health = 0;
         }
+        cameraShake();
     }
 
     // Checks and applies physics
@@ -135,6 +140,7 @@ public class PlayerController : MonoBehaviour
             source.Play();
             Debug.Log(health);
             Destroy(other.gameObject);
+            shouldShake = true;
         }
         if(other.gameObject.tag == "Arm")
         {
@@ -142,7 +148,8 @@ public class PlayerController : MonoBehaviour
             source.clip = pop;
             source.Play();
             other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-20, 0);
-            other.gameObject.GetComponent<CircleCollider2D>().enabled = false; ;
+            other.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            shouldShake = true;
         }
         if(other.gameObject.tag == "Mega_Cupcake")
         {
@@ -214,6 +221,24 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.tag == "Boss_Boundary")
             SceneManager.LoadScene("Boss_Fight");
+    }
+
+    void cameraShake()
+    {
+        if (shouldShake && health != 0)
+        {
+            Debug.Log("sa");
+            GetComponent<camera_shake>().readyForShake();
+            GetComponent<camera_shake>().shake();
+            StartCoroutine(resetCameraShake());
+        }
+    }
+
+    IEnumerator resetCameraShake()
+    {
+        yield return new WaitForSeconds(GetComponent<camera_shake>().shakeDuration);
+        shouldShake = false;
+        GetComponent<camera_shake>().stopShake();
     }
 }
 

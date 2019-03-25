@@ -25,6 +25,7 @@ public class Enemy_Exit_Indicator : MonoBehaviour
             source.Play();
             if(other.gameObject.GetComponent<Enemy>().isActive)
                 bar.GetComponent<Bar>().barPercentage -= bar.GetComponent<Bar>().percentageDrop;
+            PlayerController.shouldShake = true;
         }
     }
 }

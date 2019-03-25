@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject player;
     public GameObject[] enemies;
     public GameObject[] powerUps;
     public GameObject funBar;
