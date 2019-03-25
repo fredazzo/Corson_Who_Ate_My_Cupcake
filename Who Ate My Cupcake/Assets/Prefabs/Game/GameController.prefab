@@ -68,8 +68,8 @@ MonoBehaviour:
   crummySpawnMin: -3
   groundSpawnMax: -3.69
   groundSpawnMin: -5.8
-  spawnWait: 1
-  startGameTimer: 10
+  spawnWait: 0.8
+  startGameTimer: 8
   powerUpSpawnWait: 18
   overlayFlashTimer: 0.5
 --- !u!82 &1880920720
