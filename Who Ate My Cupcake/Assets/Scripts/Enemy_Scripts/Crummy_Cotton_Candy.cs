@@ -24,7 +24,7 @@ public class Crummy_Cotton_Candy : Enemy
 
     void Update()
     {
-        if (healthPoints == 0)
+        if (healthPoints <= 0)
         {
             if (isActive)
                 Source.Play();

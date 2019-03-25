@@ -18,7 +18,7 @@ public class Foul_Fudge : Enemy
 
     void Update()
     {
-        if (healthPoints == 0)
+        if (healthPoints <= 0)
         {
             if (isActive)
             {
