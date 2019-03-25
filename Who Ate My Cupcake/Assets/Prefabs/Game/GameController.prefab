@@ -59,7 +59,7 @@ MonoBehaviour:
   firstClip: {fileID: 8300000, guid: 22983422188c858479c72c1dd14d2735, type: 3}
   secondClip: {fileID: 8300000, guid: a5f44ee3d39b97247a5447a4b1cc5db2, type: 3}
   thirdClip: {fileID: 8300000, guid: 6215d7e61c18bf042ac0546a5061bfd9, type: 3}
-  spawnX: 21.85
+  spawnX: 23.11
   powerUpSpawnXMax: 10
   powerUpSpawnXMin: -3
   powerUpSpawnYMax: 7
@@ -68,9 +68,9 @@ MonoBehaviour:
   crummySpawnMin: -3
   groundSpawnMax: -3.69
   groundSpawnMin: -5.8
-  spawnWait: 0.1
+  spawnWait: 1
   startGameTimer: 2
-  powerUpSpawnWait: 12
+  powerUpSpawnWait: 18
   overlayFlashTimer: 0.5
 --- !u!82 &1880920720
 AudioSource:
