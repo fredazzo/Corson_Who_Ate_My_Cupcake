@@ -5,7 +5,7 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     Rigidbody2D body;
-    Animator animator;
+    public Animator animator;
     public GameObject bossShot;
     public GameObject player;
 
@@ -44,6 +44,7 @@ public class Boss : MonoBehaviour
 
     bool isShot;
 
+    public bool isActive;
 
     public float attackSpawnTime;
     private float time;
@@ -56,6 +57,7 @@ public class Boss : MonoBehaviour
     public AudioSource source;
     public AudioClip crossShotSound;
     public AudioClip parallelShotSound;
+    public AudioClip deathSound;
 
     public AudioSource hitSource;
     public AudioClip bossHit;
@@ -63,6 +65,7 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
+        isActive = true;
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         arm = transform.Find("Arm").gameObject;
@@ -76,46 +79,49 @@ public class Boss : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        if (time > attackSpawnTime)
+        if (isActive)
         {
-            if (!randomNumber)
+            if (time > attackSpawnTime)
             {
-                randomAttack = Random.Range(1, 4);
-                randomNumber = true;
-            }
-            if (randomAttack == 1)
-            {
-                if (!coneShot)
+                if (!randomNumber)
                 {
-                    animator.SetTrigger("Cone_Started");
-                    coneShot = true;
+                    randomAttack = Random.Range(1, 4);
+                    randomNumber = true;
                 }
+                if (randomAttack == 1)
+                {
+                    if (!coneShot)
+                    {
+                        animator.SetTrigger("Cone_Started");
+                        coneShot = true;
+                    }
 
-                if (animator.GetBool("isShot") == true)
-                {
-                    crossBullets();
-                    animator.SetBool("isShot", false);
+                    if (animator.GetBool("isShot") == true)
+                    {
+                        crossBullets();
+                        animator.SetBool("isShot", false);
+                    }
                 }
-            }
-            else if (randomAttack == 2)
-            {
-                if (!parallelShot)
+                else if (randomAttack == 2)
                 {
-                    animator.SetTrigger("Parallel_Started");
-                    parallelShot = true;
-                }
+                    if (!parallelShot)
+                    {
+                        animator.SetTrigger("Parallel_Started");
+                        parallelShot = true;
+                    }
 
-                if (animator.GetBool("isShot") == true)
+                    if (animator.GetBool("isShot") == true)
+                    {
+                        StartCoroutine(parallelBullets());
+                        animator.SetBool("isShot", false);
+                    }
+                }
+                else if (randomAttack == 3)
                 {
-                    StartCoroutine(parallelBullets());
-                    animator.SetBool("isShot", false);
+                    armSkill();
                 }
             }
-            else if (randomAttack == 3)
-            {
-                armSkill();
-            }
-        }
+        } 
     }
     void crossBullets()
     {
@@ -173,14 +179,6 @@ public class Boss : MonoBehaviour
         randomNumber = false;
     }
 
-    /*
-    void hammerSkill()
-    {
-        hammer.SetActive(true);
-        hammer.transform.RotateAround(rotationPoint, Vector3.forward, rotationAngle);
-    }
-    */
-
     void armSkill()
     {
         if (!armAttack)
@@ -216,7 +214,6 @@ public class Boss : MonoBehaviour
             //hitSource.Play();
             healthPoints--;
             other.gameObject.SetActive(false);
-        }
-            
+        }         
     }
 }
