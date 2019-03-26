@@ -80,6 +80,8 @@ public class GameController : MonoBehaviour
 
         if (overlayTimer > startGameTimer)
         {
+            if(spawnWait > 0.5f)
+                spawnWait -= .0001f;
             if (!isGameMusicStarted)
             {
                 Destroy(musicPlayer = GameObject.Find("MUSIC"));

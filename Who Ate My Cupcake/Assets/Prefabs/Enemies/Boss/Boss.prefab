@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78506adf3c26000438e7f048aaf78fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   bossShot: {fileID: 5995438518820797691, guid: 0d87c2b708cabc84b941e2cd2f3c7230,
     type: 3}
   player: {fileID: 0}
@@ -141,13 +142,14 @@ MonoBehaviour:
   armStartPointFromBoss: {x: -45, y: 0, z: 0}
   armStopPointFromBoss: {x: -20, y: 0, z: 0}
   healthPoints: 50
+  isActive: 0
   attackSpawnTime: 1
   source: {fileID: 57551104}
   crossShotSound: {fileID: 8300000, guid: dadb2936c7d77c64da61bb479139feea, type: 3}
   parallelShotSound: {fileID: 8300000, guid: 5fde27abfaee6a949825a92b1d234893, type: 3}
+  deathSound: {fileID: 0}
   hitSource: {fileID: 302845154}
   bossHit: {fileID: 8300000, guid: bfa7bd91610a22a41af46e2f59474d7d, type: 3}
-  bossDeath: {fileID: 0}
 --- !u!95 &1333894251
 Animator:
   serializedVersion: 3
@@ -387,7 +389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6279897330694171926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.64, y: -6.4, z: 0}
+  m_LocalPosition: {x: -73.96, y: 2.74, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 2289175646980714358}
