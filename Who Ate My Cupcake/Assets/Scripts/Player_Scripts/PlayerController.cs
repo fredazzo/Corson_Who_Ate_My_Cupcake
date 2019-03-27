@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
+        if (Input.GetButtonDown("Jump") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
 
