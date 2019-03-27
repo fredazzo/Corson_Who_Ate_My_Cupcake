@@ -677,5 +677,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 792393312}
+    - target: {fileID: 5703242389525435555, guid: d17fc4da45c0e944ca32fcb39e7b327e,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: edeaf98a43384af4e9bbe1cffe32e7dd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
