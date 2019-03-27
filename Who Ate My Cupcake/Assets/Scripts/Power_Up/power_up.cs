@@ -6,38 +6,21 @@ public class power_up : MonoBehaviour
 {
     Rigidbody2D body;
     public GameObject background;
-    public GameObject player;
     public float speedY;
     private float speedX;
     public float powerUpDuration;
 
-    private bool coke;
-    private bool cookie;
-
+ 
     public float barIncrease;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         speedX = -background.GetComponent<background_movement>().speed;
-        Debug.Log(this.name);
 
     }
 
-    private void Update()
-    {
-        if(player.GetComponent<PlayerController>().firstLevel == false)
-        {
-            if(this.name == "Coke(Clone)")
-            {
-                this.GetComponent<SpriteRenderer>().sprite = player.GetComponent<PlayerController>().corruptedCoke;
-            }
-            if (this.name == "Cookie(Clone)")
-            {
-                this.GetComponent<SpriteRenderer>().sprite = player.GetComponent<PlayerController>().corruptedCookie;
-            }
-        }
-    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
