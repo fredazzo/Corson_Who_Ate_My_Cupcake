@@ -165,10 +165,11 @@ MonoBehaviour:
   healthPoints: 3
   speedX: -2
   speedY: 0
-  scoreValue: 0
+  isActive: 0
+  background: {fileID: 0}
   Source: {fileID: 703037882682999957}
   hitSound: {fileID: 8300000, guid: de590c50139ffe74695d93cd97e1ac8d, type: 3}
-  deathSound: {fileID: 8300000, guid: 1442c4b9b1300bd4288d74bba375b490, type: 3}
+  deathSound: {fileID: 8300000, guid: 78930bd5948bf1b40b7b1bd0c30f479f, type: 3}
 --- !u!82 &703037882682999957
 AudioSource:
   m_ObjectHideFlags: 0
