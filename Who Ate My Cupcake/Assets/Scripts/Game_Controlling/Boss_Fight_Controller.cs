@@ -11,7 +11,7 @@ public class Boss_Fight_Controller : MonoBehaviour
 
     AudioSource Source;
 
-    private bool isBossDead;
+    bool isBossDead;
 
     void Start()
     {
@@ -26,15 +26,17 @@ public class Boss_Fight_Controller : MonoBehaviour
         if (!isBossDead)
         {
             bossDeadCheck();
-        } 
+        }
+        if (boss.GetComponent<Boss>().animator.GetBool("Muffin_Ready"))
+            cupcake.SetActive(true);
     }
     void bossDeadCheck()
     {
-        if (boss.GetComponent<Boss>().healthPoints == 0)
+        if (boss.GetComponent<Boss>().healthPoints <= 0)
         {
+            boss.GetComponent<Boss>().isActive = false;
+            boss.GetComponent<Boss>().animator.SetTrigger("is_Dead");
             Source.Play();
-            Destroy(boss);
-            cupcake.SetActive(true);
             isBossDead = true;
         }
     }
