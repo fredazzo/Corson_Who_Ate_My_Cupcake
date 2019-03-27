@@ -6,11 +6,9 @@ public class power_up : MonoBehaviour
 {
     Rigidbody2D body;
     public GameObject background;
-    public GameObject player;
     public float speedY;
     private float speedX;
     public float powerUpDuration;
-
 
     public float barIncrease;
 
@@ -18,7 +16,6 @@ public class power_up : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         speedX = -background.GetComponent<background_movement>().speed;
-        Debug.Log(this.name);
 
     }
 

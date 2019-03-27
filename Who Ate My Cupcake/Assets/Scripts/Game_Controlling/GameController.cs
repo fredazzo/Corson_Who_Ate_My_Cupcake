@@ -106,10 +106,12 @@ public class GameController : MonoBehaviour
             //Debug.Log(funBar.GetComponent<Bar>().decreasedPercentage);
         }
 
+
         if(player.GetComponent<PlayerController>().firstLevel == false)
         {
             powerUps[0].GetComponent<SpriteRenderer>().sprite = player.GetComponent<PlayerController>().corruptedCoke;
             powerUps[1].GetComponent<SpriteRenderer>().sprite = player.GetComponent<PlayerController>().corruptedCookie;
+
 
         }
     }
