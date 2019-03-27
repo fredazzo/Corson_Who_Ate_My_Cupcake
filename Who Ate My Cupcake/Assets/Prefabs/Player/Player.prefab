@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 4038151586747094611}
   - component: {fileID: 4038151586747094612}
   - component: {fileID: 2834342667761066238}
-  - component: {fileID: 6248249468485447827}
+  - component: {fileID: 792393319}
+  - component: {fileID: 773974842}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -126,8 +127,7 @@ MonoBehaviour:
   secondAlteredSpeed: 6
   thirdAlteredSpeed: 3
   lastSpeed: 0
-  addedDamage: 5
-  health: 5
+  addedDamage: 2
   setDamage: 1
   damage: 1
   addedSpeed: 10
@@ -140,16 +140,20 @@ MonoBehaviour:
   - {fileID: 0}
   anim: {fileID: 5043213688180906780}
   bar: {fileID: 0}
-  sounds:
-  - {fileID: 2834342667761066238}
-  - {fileID: 6248249468485447827}
+  source: {fileID: 2834342667761066238}
+  shootingSound: {fileID: 8300000, guid: d2000cb1e70b5f54487826829703b24b, type: 3}
+  pop: {fileID: 8300000, guid: 38bfb6d37ac7af846bc8bf60b828a153, type: 3}
+  PowerUpsource: {fileID: 792393319}
+  CokeSound: {fileID: 8300000, guid: b89e2c627ca089f4586ddfd616ad49db, type: 3}
+  CookieSound: {fileID: 8300000, guid: 3a98a6106847ac542adad719d4fe7fa2, type: 3}
   fireRate: 0.4
   firstAlteredFireRate: 0.3
   secondAlteredFireRate: 0.4
   thirdAlteredFireRate: 0.5
   poweredUp: 0
-  muffin: 0
+  cookie: 0
   coke: 0
+  firstLevel: 0
 --- !u!70 &4038151586747094612
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -176,7 +180,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d2000cb1e70b5f54487826829703b24b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
@@ -262,7 +266,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &6248249468485447827
+--- !u!82 &792393319
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,9 +276,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 38bfb6d37ac7af846bc8bf60b828a153, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -282,7 +286,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.4507445
+  MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -358,6 +362,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &773974842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4038151586747094613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29492906585c022418620af9ff3c18e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0.2
+  shakeMagnitude: 0.3
 --- !u!1 &4038151588008088243
 GameObject:
   m_ObjectHideFlags: 0

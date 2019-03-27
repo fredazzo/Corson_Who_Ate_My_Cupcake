@@ -7,29 +7,22 @@ public class Enemy : MonoBehaviour
     public int healthPoints;
     public float speedX;
     public float speedY;
-    public int scoreValue;
+    public bool isActive;
+    public GameObject background;
 
     public AudioSource Source;
     public AudioClip hitSound;
     public AudioClip deathSound;
     void Start()
     {
-
+        Source = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D other)
     {
-      
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if(other.gameObject.name == "exit")
+        if (other.gameObject.name == "exit")
         {
             Destroy(this.gameObject);
         }
     }
-
-
 }

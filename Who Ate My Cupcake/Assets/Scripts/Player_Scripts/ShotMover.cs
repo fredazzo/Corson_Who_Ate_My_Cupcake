@@ -41,12 +41,12 @@ public class ShotMover : MonoBehaviour
             //    collision.gameObject.GetComponent<Enemy>().Source.Play();
             //}
 
-            if (collision.gameObject.GetComponent<Enemy>().healthPoints <= 0)
-            {
-                //collision.gameObject.GetComponent<Enemy>().Source.clip = collision.gameObject.GetComponent<Enemy>().deathSound;
-                //collision.gameObject.GetComponent<Enemy>().Source.Play();
-                Destroy(collision.gameObject);
-            }
+            //if (collision.gameObject.GetComponent<Enemy>().healthPoints <= 0)
+            //{
+            //    //collision.gameObject.GetComponent<Enemy>().Source.clip = collision.gameObject.GetComponent<Enemy>().deathSound;
+            //    //collision.gameObject.GetComponent<Enemy>().Source.Play();
+            //    Destroy(collision.gameObject);
+            //}
         }
         if(collision.gameObject.tag == "Play_Button")
         {

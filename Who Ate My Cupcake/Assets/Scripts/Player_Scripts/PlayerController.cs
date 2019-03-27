@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float lastSpeed;
     public int addedDamage;
 
-    public int health;
+    static public int health = 5;
     public int setDamage;
     public int damage;
 
@@ -30,9 +30,13 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public GameObject bar;
 
-     public AudioSource[] sounds;
-    private AudioSource shootingSound;
-    private AudioSource pop;
+    public AudioSource source;
+    public AudioClip shootingSound;
+    public AudioClip pop;
+    public AudioSource PowerUpsource;
+    public AudioClip CokeSound;
+    public AudioClip CookieSound;
+   
 
 
 
@@ -46,11 +50,19 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     public bool poweredUp;
-    public bool muffin;
+    public bool cookie;
     public bool coke;
+    public bool firstLevel;
+    static public bool shouldShake = false;
 
     void Start()
     {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main_Game") || SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main_Menu"))
+        {
+            health = 5;
+            shouldShake = false;
+        }
+        firstLevel = true;
         rb = GetComponent<Rigidbody2D>();
        // anim = GetComponent<Animator>();
         damage = setDamage;
@@ -62,11 +74,9 @@ public class PlayerController : MonoBehaviour
             shots[i].SetActive(false);
         }
         poweredUp = false;
-        muffin = false;
+        cookie = false;
         coke = false;
-        sounds = GetComponents<AudioSource>();
-        shootingSound = sounds[0];
-        pop = sounds[1];
+        source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -84,7 +94,8 @@ public class PlayerController : MonoBehaviour
                     shots[i].GetComponent<ShotMover>().damage = damage;
                     shots[i].SetActive(true);
                     anim.SetTrigger("hasShot");
-                    sounds[0].Play();
+                    source.clip = shootingSound;
+                    source.Play();
                     break;
                 }
             }
@@ -103,6 +114,7 @@ public class PlayerController : MonoBehaviour
         {
             health = 0;
         }
+        cameraShake();
     }
 
     // Checks and applies physics
@@ -121,12 +133,23 @@ public class PlayerController : MonoBehaviour
     // Checks collision between player and enemies
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss_Shot")
         {
             health--;
-            sounds[1].Play();
+            source.clip = pop;
+            source.Play();
             Debug.Log(health);
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
+            shouldShake = true;
+        }
+        if(other.gameObject.tag == "Arm")
+        {
+            health--;
+            source.clip = pop;
+            source.Play();
+            other.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-20, 0);
+            other.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            shouldShake = true;
         }
         if(other.gameObject.tag == "Mega_Cupcake")
         {
@@ -135,6 +158,10 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "Coke")
         {
+            PowerUpsource.clip = CokeSound;
+            PowerUpsource.Play();
+
+       
             poweredUp = true;
             coke = true;
             powerUpDuration = other.gameObject.GetComponent<power_up>().powerUpDuration;
@@ -145,8 +172,11 @@ public class PlayerController : MonoBehaviour
         }
         else if(other.gameObject.tag == "Muffin")
         {
+            PowerUpsource.clip = CookieSound;
+            PowerUpsource.Play();
+
             poweredUp = true;
-            muffin = true;
+            cookie = true;
             powerUpDuration = other.gameObject.GetComponent<power_up>().powerUpDuration;
             powerUpDecreasePercentage = 1f / powerUpDuration;
             damage += addedDamage;
@@ -156,7 +186,7 @@ public class PlayerController : MonoBehaviour
         {
             health += 1;
         }
-        else if(other.gameObject.tag == "Bar Up")
+        else if (other.gameObject.tag == "Bar Up")
         {
             bar.GetComponent<Bar>().barPercentage += other.gameObject.GetComponent<power_up>().barIncrease;
         }
@@ -168,7 +198,7 @@ public class PlayerController : MonoBehaviour
         damage = setDamage;
         speed = setSpeed;
         poweredUp = false;
-        muffin = false;
+        cookie = false;
         coke = false;
 
     }
@@ -181,6 +211,7 @@ public class PlayerController : MonoBehaviour
             gameController.GetComponent<GameController>().Source.Stop();
             gameController.GetComponent<GameController>().Source.clip = gameController.GetComponent<GameController>().secondClip;
             gameController.GetComponent<GameController>().Source.Play();
+            firstLevel = false;
         }
         if (other.gameObject.name == "Second_Song_Change")
         {
@@ -190,6 +221,24 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.tag == "Boss_Boundary")
             SceneManager.LoadScene("Boss_Fight");
+    }
+
+    void cameraShake()
+    {
+        if (shouldShake && health != 0)
+        {
+            Debug.Log("sa");
+            GetComponent<camera_shake>().readyForShake();
+            GetComponent<camera_shake>().shake();
+            StartCoroutine(resetCameraShake());
+        }
+    }
+
+    IEnumerator resetCameraShake()
+    {
+        yield return new WaitForSeconds(GetComponent<camera_shake>().shakeDuration);
+        shouldShake = false;
+        GetComponent<camera_shake>().stopShake();
     }
 }
 

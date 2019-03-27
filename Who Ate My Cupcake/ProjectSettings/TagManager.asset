@@ -15,6 +15,10 @@ TagManager:
   - Bar Up
   - Mega_Cupcake
   - Boss_Boundary
+  - Arm
+  - Boss_Shot
+  - Arm_Hit_Box
+  - Song_Change
   layers:
   - Default
   - TransparentFX
@@ -28,9 +32,9 @@ TagManager:
   - Enemy
   - PowerUp
   - Shot
-  - 
-  - 
-  - 
+  - Arm
+  - Bound
+  - Mega_Cupcake
   - 
   - 
   - 

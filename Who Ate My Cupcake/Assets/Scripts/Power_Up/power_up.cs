@@ -10,12 +10,16 @@ public class power_up : MonoBehaviour
     private float speedX;
     public float powerUpDuration;
 
+ 
+
     public float barIncrease;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         speedX = -background.GetComponent<background_movement>().speed;
+
+        
     }
 
     // Update is called once per frame
@@ -26,8 +30,13 @@ public class power_up : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+
         if (other.gameObject.tag == "Player")
+        {
+         
             Destroy(this.gameObject);
+           
+        }
         if (other.gameObject.name == "exit")
             Destroy(this.gameObject);
     }

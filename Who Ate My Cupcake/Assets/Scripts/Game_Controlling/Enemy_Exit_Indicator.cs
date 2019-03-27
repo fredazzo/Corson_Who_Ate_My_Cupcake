@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_Exit_Indicator : MonoBehaviour
-{
-    public int enemiesHit;
+{ 
+    public AudioSource source;
+    public GameObject bar;
     // Start is called before the first frame update
     void Start()
     {
-        enemiesHit = 0;
+        source = GetComponent<AudioSource>();
+       // enemiesHit = 0;
     }
 
     // Update is called once per frame
@@ -20,7 +22,10 @@ public class Enemy_Exit_Indicator : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            enemiesHit += 1;
+            source.Play();
+            if(other.gameObject.GetComponent<Enemy>().isActive)
+                bar.GetComponent<Bar>().barPercentage -= bar.GetComponent<Bar>().percentageDrop;
+            PlayerController.shouldShake = true;
         }
     }
 }

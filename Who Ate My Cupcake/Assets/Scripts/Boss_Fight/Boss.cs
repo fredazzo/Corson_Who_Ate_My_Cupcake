@@ -5,12 +5,15 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     Rigidbody2D body;
-    Animator animator;
+    public Animator animator;
     public GameObject bossShot;
+    public GameObject player;
 
     public float bulletSpeedX;
     public float downsideBulletSpeedY;
     public float upsideBulletSpeedY;
+
+    public Vector2 ConeBulletSpawn;
 
     public Vector2 firstBulletSpawn;
 
@@ -41,7 +44,9 @@ public class Boss : MonoBehaviour
 
     bool isShot;
 
-    public float shotSpawnTime;
+    public bool isActive;
+
+    public float attackSpawnTime;
     private float time;
     private int randomAttack;
     private bool randomNumber;
@@ -52,80 +57,87 @@ public class Boss : MonoBehaviour
     public AudioSource source;
     public AudioClip crossShotSound;
     public AudioClip parallelShotSound;
+    public AudioClip deathSound;
+
+    public AudioSource hitSource;
+    public AudioClip bossHit;
+
 
     void Start()
     {
+        isActive = true;
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        hammer = transform.Find("Hammer").gameObject;
         arm = transform.Find("Arm").gameObject;
         arm.transform.position = transform.position + armStartPointFromBoss;
         armStartPoint = arm.transform.position;
         armStopPoint = transform.position + armStopPointFromBoss;
         coneShot = false;
         parallelShot = false;
-
-        source = GetComponent<AudioSource>();
-
     }
-
     
     void Update()
     {
         time += Time.deltaTime;
-
-        if(time > shotSpawnTime)
+        if (isActive)
         {
-            if(!randomNumber)
+            if (time > attackSpawnTime)
             {
-                randomAttack = Random.Range(1, 3);
-                randomNumber = true;
-            }
-            if (randomAttack == 1)
-            {
-                if (!coneShot)
+                if (!randomNumber)
                 {
-                    animator.SetTrigger("Cone_Started");
-                    coneShot = true;
+                    randomAttack = Random.Range(1, 4);
+                    randomNumber = true;
                 }
+                if (randomAttack == 1)
+                {
+                    if (!coneShot)
+                    {
+                        animator.SetTrigger("Cone_Started");
+                        coneShot = true;
+                    }
 
-                if (animator.GetBool("isShot") == true)
-                {
-                    crossBullets();
-                    animator.SetBool("isShot", false);
+                    if (animator.GetBool("isShot") == true)
+                    {
+                        crossBullets();
+                        animator.SetBool("isShot", false);
+                    }
                 }
-            }
-            else if (randomAttack == 2)
-            {
-                if (!parallelShot)
+                else if (randomAttack == 2)
                 {
-                    animator.SetTrigger("Parallel_Started");
-                    parallelShot = true;
-                }
+                    if (!parallelShot)
+                    {
+                        animator.SetTrigger("Parallel_Started");
+                        parallelShot = true;
+                    }
 
-                if (animator.GetBool("isShot") == true)
+                    if (animator.GetBool("isShot") == true)
+                    {
+                        StartCoroutine(parallelBullets());
+                        animator.SetBool("isShot", false);
+                    }
+                }
+                else if (randomAttack == 3)
                 {
-                    StartCoroutine(parallelBullets());
-                    animator.SetBool("isShot", false);
+                    armSkill();
                 }
             }
-        }
+        } 
     }
     void crossBullets()
     {
        
         Angle = Vector2.Angle(new Vector3(-1, 0, 0), new Vector3(bulletSpeedX, 0, 0));
-        GameObject firstShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
+        GameObject firstShot = Instantiate(bossShot, ConeBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
         firstShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         firstShot.GetComponent<Boss_Projectile>().speedY = 0;
 
         Angle = Vector2.Angle(new Vector3(-1, 0, 0), new Vector3(bulletSpeedX, downsideBulletSpeedY, 0));
-        GameObject secondShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
+        GameObject secondShot = Instantiate(bossShot, ConeBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
         secondShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         secondShot.GetComponent<Boss_Projectile>().speedY = downsideBulletSpeedY;
 
-        Angle = Vector2.Angle(new Vector3(1, 0, 0), new Vector3(bulletSpeedX, upsideBulletSpeedY, 0));
-        GameObject thirdShot = Instantiate(bossShot, firstBulletSpawn, Quaternion.Euler(0f, 0f, Angle));
+        Angle = Vector2.Angle(new Vector3(-1, 0, 0), new Vector3(bulletSpeedX, upsideBulletSpeedY, 0));
+        GameObject thirdShot = Instantiate(bossShot, ConeBulletSpawn, Quaternion.Euler(0f, 0f, 360f - Angle));
         thirdShot.GetComponent<Boss_Projectile>().speedX = bulletSpeedX;
         thirdShot.GetComponent<Boss_Projectile>().speedY = upsideBulletSpeedY;
 
@@ -167,30 +179,41 @@ public class Boss : MonoBehaviour
         randomNumber = false;
     }
 
-    /*
-    void hammerSkill()
-    {
-        hammer.SetActive(true);
-        hammer.transform.RotateAround(rotationPoint, Vector3.forward, rotationAngle);
-    }
-    */
-
-        /*
     void armSkill()
     {
-        arm.SetActive(true);
         if (!armAttack)
-            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
+        {
+            animator.SetTrigger("Punch_First_Phase");
+            arm.transform.position = new Vector3(arm.transform.position.x, player.transform.position.y, 0);
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(25, 0);  
+            armAttack = true;
+            arm.GetComponent<CircleCollider2D>().enabled = true;
+        }       
         if (arm.transform.position.x > armStopPoint.x)
         {
-            armAttack = true;
-            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-5, 0);
-            if (arm.transform.position == armStartPoint)
-            {
-                arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-                arm.SetActive(false);
-            }
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(-20, 0);
+            arm.GetComponent<CircleCollider2D>().enabled = false; ;
+        }
+            
+        else if (arm.transform.position.x < armStartPoint.x)
+        {
+            animator.SetTrigger("Punch_Second_Phase");
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            arm.transform.position = new Vector3(arm.transform.position.x + 1, player.transform.position.y, 0);
+            randomNumber = false;
+            armAttack = false;
+            time = 0f;
         }
     }
-    */
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Shot")
+        {
+            //hitSource.clip = bossHit;
+            //hitSource.Play();
+            healthPoints--;
+            other.gameObject.SetActive(false);
+        }         
+    }
 }
