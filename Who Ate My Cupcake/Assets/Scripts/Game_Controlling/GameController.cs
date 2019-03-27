@@ -35,6 +35,8 @@ public class GameController : MonoBehaviour
     private Vector2 spawnPoint;
 
     public float spawnWait;
+    public float firstSpawnWait;
+    public float secondSpawnWait;
     private float currentTime = 0f;
     private float overlayTimer = 0f;
     public float startGameTimer;

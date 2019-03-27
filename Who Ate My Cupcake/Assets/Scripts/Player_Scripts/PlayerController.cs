@@ -226,12 +226,14 @@ public class PlayerController : MonoBehaviour
             cokeGreyImage.sprite = corruptedCokeGrey;
             cookieImage.sprite = corruptedCookie;
             cookieGreyImage.sprite = corruptedCookieGrey;
+            gameController.GetComponent<GameController>().spawnWait = gameController.GetComponent<GameController>().firstSpawnWait;
         }
         if (other.gameObject.name == "Second_Song_Change")
         {
             gameController.GetComponent<GameController>().Source.Stop();
             gameController.GetComponent<GameController>().Source.clip = gameController.GetComponent<GameController>().thirdClip;
             gameController.GetComponent<GameController>().Source.Play();
+            gameController.GetComponent<GameController>().spawnWait = gameController.GetComponent<GameController>().secondSpawnWait;
         }
         if (other.gameObject.tag == "Boss_Boundary")
             SceneManager.LoadScene("Boss_Fight");
