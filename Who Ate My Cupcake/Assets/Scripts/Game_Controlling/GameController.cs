@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public GameObject[] powerUps;
     public GameObject funBar;
     public GameObject overlay;
+    public GameObject player;
 
     public AudioSource Source;
     public AudioClip overlayClip;
@@ -103,6 +104,13 @@ public class GameController : MonoBehaviour
             if (funBar.GetComponent<Bar>().barPercentage < 0f)
                 SceneManager.LoadScene("Death_Scene");
             //Debug.Log(funBar.GetComponent<Bar>().decreasedPercentage);
+        }
+
+        Debug.Log(player.GetComponent<PlayerController>().firstLevel);
+        if (player.GetComponent<PlayerController>().firstLevel == false)
+        {
+            powerUps[0].GetComponent<SpriteRenderer>().sprite = player.GetComponent<PlayerController>().corruptedCoke;
+            powerUps[1].GetComponent<SpriteRenderer>().sprite = player.GetComponent<PlayerController>().corruptedCookie;
         }
     }
 
