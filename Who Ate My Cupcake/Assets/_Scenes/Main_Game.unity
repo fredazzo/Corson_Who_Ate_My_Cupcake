@@ -351,38 +351,9 @@ PrefabInstance:
       objectReference: {fileID: 1880920717}
     - target: {fileID: 4038151586747094611, guid: c679005b20d146f4a8156e2ba0144749,
         type: 3}
-      propertyPath: corruptedCoke
+      propertyPath: cokeImage
       value: 
-      objectReference: {fileID: 21300000, guid: 846dfb3dba94530418e15c18b35f1d9e,
-        type: 3}
-    - target: {fileID: 4038151586747094611, guid: c679005b20d146f4a8156e2ba0144749,
-        type: 3}
-      propertyPath: corruptedCokeGrey
-      value: 
-      objectReference: {fileID: 21300000, guid: 0fa9e4baa485a9a47924047d1e2d5825,
-        type: 3}
-    - target: {fileID: 4038151586747094611, guid: c679005b20d146f4a8156e2ba0144749,
-        type: 3}
-      propertyPath: corruptedCookie
-      value: 
-      objectReference: {fileID: 21300000, guid: e0537b5efc95fb9448d5a7eadb8bfba6,
-        type: 3}
-    - target: {fileID: 4038151586747094611, guid: c679005b20d146f4a8156e2ba0144749,
-        type: 3}
-      propertyPath: corruptedCookieGrey
-      value: 
-      objectReference: {fileID: 21300000, guid: a40c480fe4000c44f8a6a5f6df5c1178,
-        type: 3}
-    - target: {fileID: 4038151586747094611, guid: c679005b20d146f4a8156e2ba0144749,
-        type: 3}
-      propertyPath: cookieGreyImage
-      value: 
-      objectReference: {fileID: 9109779225431579142}
-    - target: {fileID: 4038151586747094611, guid: c679005b20d146f4a8156e2ba0144749,
-        type: 3}
-      propertyPath: cookieImage
-      value: 
-      objectReference: {fileID: 9109779225431579141}
+      objectReference: {fileID: 9109779225431579139}
     - target: {fileID: 4038151586747094611, guid: c679005b20d146f4a8156e2ba0144749,
         type: 3}
       propertyPath: cokeGreyImage
@@ -390,9 +361,14 @@ PrefabInstance:
       objectReference: {fileID: 9109779225431579140}
     - target: {fileID: 4038151586747094611, guid: c679005b20d146f4a8156e2ba0144749,
         type: 3}
-      propertyPath: cokeImage
+      propertyPath: cookieImage
       value: 
-      objectReference: {fileID: 9109779225431579139}
+      objectReference: {fileID: 9109779225431579141}
+    - target: {fileID: 4038151586747094611, guid: c679005b20d146f4a8156e2ba0144749,
+        type: 3}
+      propertyPath: cookieGreyImage
+      value: 
+      objectReference: {fileID: 9109779225431579142}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c679005b20d146f4a8156e2ba0144749, type: 3}
 --- !u!1 &792393312 stripped
@@ -502,7 +478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1777766119, guid: 8b7803c3e7b14254996fb0bce09ca31d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 459
+      value: 460
       objectReference: {fileID: 0}
     - target: {fileID: 1777766119, guid: 8b7803c3e7b14254996fb0bce09ca31d, type: 3}
       propertyPath: m_LocalPosition.y
