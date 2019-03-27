@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 1777766118, guid: 8b7803c3e7b14254996fb0bce09ca31d, type: 3}
+  player: {fileID: 0}
   speedY: -3
   powerUpDuration: 5
   barIncrease: 0

@@ -6,11 +6,13 @@ public class power_up : MonoBehaviour
 {
     Rigidbody2D body;
     public GameObject background;
+    public GameObject player;
     public float speedY;
     private float speedX;
     public float powerUpDuration;
 
- 
+    private bool coke;
+    private bool cookie;
 
     public float barIncrease;
 
@@ -19,7 +21,7 @@ public class power_up : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         speedX = -background.GetComponent<background_movement>().speed;
 
-        
+
     }
 
     // Update is called once per frame
