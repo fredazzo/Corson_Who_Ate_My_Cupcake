@@ -278,6 +278,41 @@ PrefabInstance:
     - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
         type: 3}
       propertyPath: spawnWait
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
+        type: 3}
+      propertyPath: powerUpSpawnWait
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
+        type: 3}
+      propertyPath: startGameTimer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
+        type: 3}
+      propertyPath: overlayFlashTimer
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 792393312}
+    - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
+        type: 3}
+      propertyPath: firstSpawnWait
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
+        type: 3}
+      propertyPath: secondSpawnWait
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
+        type: 3}
+      propertyPath: thirddSpawnWait
       value: 1.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []

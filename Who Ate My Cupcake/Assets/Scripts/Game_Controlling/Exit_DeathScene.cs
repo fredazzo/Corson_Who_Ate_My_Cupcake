@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Video;
 
-public class ending_scene_controller : MonoBehaviour
+
+public class Exit_DeathScene : MonoBehaviour
 {
-
+    // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Submit"))
+        if (Input.GetButton("Submit"))
             SceneManager.LoadScene("Main_Menu");
-        if (Input.GetButtonDown("R"))
+
+        if (Input.GetButton("R"))
             SceneManager.LoadScene("Main_Game");
+
     }
 }

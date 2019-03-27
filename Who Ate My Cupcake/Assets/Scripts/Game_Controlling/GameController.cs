@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public GameObject[] powerUps;
     public GameObject funBar;
     public GameObject overlay;
+    public GameObject player;
 
     public AudioSource Source;
     public AudioClip overlayClip;
@@ -34,6 +35,8 @@ public class GameController : MonoBehaviour
     private Vector2 spawnPoint;
 
     public float spawnWait;
+    public float firstSpawnWait;
+    public float secondSpawnWait;
     private float currentTime = 0f;
     private float overlayTimer = 0f;
     public float startGameTimer;
@@ -103,6 +106,13 @@ public class GameController : MonoBehaviour
             if (funBar.GetComponent<Bar>().barPercentage < 0f)
                 SceneManager.LoadScene("Death_Scene");
             //Debug.Log(funBar.GetComponent<Bar>().decreasedPercentage);
+        }
+
+        if(player.GetComponent<PlayerController>().firstLevel == false)
+        {
+            powerUps[0].GetComponent<SpriteRenderer>().sprite = player.GetComponent<PlayerController>().corruptedCoke;
+            powerUps[1].GetComponent<SpriteRenderer>().sprite = player.GetComponent<PlayerController>().corruptedCookie;
+
         }
     }
 
