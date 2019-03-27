@@ -210,8 +210,8 @@ public class Boss : MonoBehaviour
     {
         if (other.gameObject.tag == "Shot")
         {
-            //hitSource.clip = bossHit;
-            //hitSource.Play();
+            hitSource.clip = bossHit;
+            hitSource.Play();
             healthPoints--;
             other.gameObject.SetActive(false);
         }         
