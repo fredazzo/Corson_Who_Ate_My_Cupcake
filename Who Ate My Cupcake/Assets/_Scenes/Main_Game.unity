@@ -275,6 +275,11 @@ PrefabInstance:
       propertyPath: overlay
       value: 
       objectReference: {fileID: 5179942787192186958}
+    - target: {fileID: 2535875192142378746, guid: e31123fd0346cd749b02927748af0ebe,
+        type: 3}
+      propertyPath: spawnWait
+      value: 1.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e31123fd0346cd749b02927748af0ebe, type: 3}
 --- !u!1001 &666383733
@@ -662,16 +667,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 792393312}
-    - target: {fileID: 679407634878453841, guid: d17fc4da45c0e944ca32fcb39e7b327e,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 792393312}
-    - target: {fileID: 679407634878453841, guid: d17fc4da45c0e944ca32fcb39e7b327e,
-        type: 3}
-      propertyPath: exit
-      value: 
-      objectReference: {fileID: 195772626}
     - target: {fileID: 2701478456779689923, guid: d17fc4da45c0e944ca32fcb39e7b327e,
         type: 3}
       propertyPath: player
@@ -682,5 +677,15 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: edeaf98a43384af4e9bbe1cffe32e7dd, type: 3}
+    - target: {fileID: 679407634878453841, guid: d17fc4da45c0e944ca32fcb39e7b327e,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 792393312}
+    - target: {fileID: 679407634878453841, guid: d17fc4da45c0e944ca32fcb39e7b327e,
+        type: 3}
+      propertyPath: exit
+      value: 
+      objectReference: {fileID: 195772626}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d17fc4da45c0e944ca32fcb39e7b327e, type: 3}
