@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,8 +37,17 @@ public class PlayerController : MonoBehaviour
     public AudioSource PowerUpsource;
     public AudioClip CokeSound;
     public AudioClip CookieSound;
-   
 
+    public Sprite corruptedCoke;
+    public Sprite corruptedCokeGrey;
+    public Sprite corruptedCookie;
+    public Sprite corruptedCookieGrey;
+
+
+    public Image cokeImage;
+    public Image cokeGreyImage;
+    public Image cookieImage;
+    public Image cookieGreyImage;
 
 
     public float fireRate;
@@ -212,6 +222,10 @@ public class PlayerController : MonoBehaviour
             gameController.GetComponent<GameController>().Source.clip = gameController.GetComponent<GameController>().secondClip;
             gameController.GetComponent<GameController>().Source.Play();
             firstLevel = false;
+            cokeImage.sprite = corruptedCoke;
+            cokeGreyImage.sprite = corruptedCokeGrey;
+            cookieImage.sprite = corruptedCookie;
+            cookieGreyImage.sprite = corruptedCookieGrey;
         }
         if (other.gameObject.name == "Second_Song_Change")
         {
@@ -227,7 +241,7 @@ public class PlayerController : MonoBehaviour
     {
         if (shouldShake && health != 0)
         {
-            Debug.Log("sa");
+
             GetComponent<camera_shake>().readyForShake();
             GetComponent<camera_shake>().shake();
             StartCoroutine(resetCameraShake());

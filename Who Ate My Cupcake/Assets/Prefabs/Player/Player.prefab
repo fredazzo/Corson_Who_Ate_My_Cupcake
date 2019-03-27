@@ -146,6 +146,15 @@ MonoBehaviour:
   PowerUpsource: {fileID: 792393319}
   CokeSound: {fileID: 8300000, guid: b89e2c627ca089f4586ddfd616ad49db, type: 3}
   CookieSound: {fileID: 8300000, guid: 3a98a6106847ac542adad719d4fe7fa2, type: 3}
+  corruptedCoke: {fileID: 21300000, guid: 846dfb3dba94530418e15c18b35f1d9e, type: 3}
+  corruptedCokeGrey: {fileID: 21300000, guid: 0fa9e4baa485a9a47924047d1e2d5825, type: 3}
+  corruptedCookie: {fileID: 21300000, guid: e0537b5efc95fb9448d5a7eadb8bfba6, type: 3}
+  corruptedCookieGrey: {fileID: 21300000, guid: a40c480fe4000c44f8a6a5f6df5c1178,
+    type: 3}
+  cokeImage: {fileID: 0}
+  cokeGreyImage: {fileID: 0}
+  cookieImage: {fileID: 0}
+  cookieGreyImage: {fileID: 0}
   fireRate: 0.4
   firstAlteredFireRate: 0.3
   secondAlteredFireRate: 0.4
