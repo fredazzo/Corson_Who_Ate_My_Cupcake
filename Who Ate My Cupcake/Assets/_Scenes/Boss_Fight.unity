@@ -337,6 +337,11 @@ PrefabInstance:
       propertyPath: armStopPointFromBoss.x
       value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 2289175646980714357, guid: 6067e3d5186813541b7b98e1431aefb4,
+        type: 3}
+      propertyPath: healthPoints
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5991030106776636313, guid: 6067e3d5186813541b7b98e1431aefb4,
         type: 3}
       propertyPath: m_LocalScale.x
