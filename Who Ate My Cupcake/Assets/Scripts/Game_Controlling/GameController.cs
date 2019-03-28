@@ -18,6 +18,9 @@ public class GameController : MonoBehaviour
     public AudioClip secondClip;
     public AudioClip thirdClip;
 
+    public Sprite cokeSprite;
+    public Sprite cookieSprite;
+
 
     public float spawnX;
     public float powerUpSpawnXMax;
@@ -61,6 +64,9 @@ public class GameController : MonoBehaviour
             Source.clip = overlayClip;
             Source.Play();
         }
+        powerUps[0].GetComponent<SpriteRenderer>().sprite = cokeSprite;
+        powerUps[1].GetComponent<SpriteRenderer>().sprite = cookieSprite;
+
     }
 
     private void Update()
