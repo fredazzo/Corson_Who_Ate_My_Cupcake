@@ -17,7 +17,7 @@ public class power_up : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         speedX = -background.GetComponent<background_movement>().speed;
-
+        
     }
 
 
